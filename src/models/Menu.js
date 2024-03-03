@@ -18,10 +18,6 @@ const menuSchema = new mongoose.Schema({
     isLeaf: {
         type: Boolean,
         default: false
-    },
-    dateAdded: {
-        type: Date,
-        default: Date.now
     }
 })
 export default model('Menu', menuSchema)
