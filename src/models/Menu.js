@@ -12,7 +12,19 @@ const menuSchema = new mongoose.Schema({
     },
     subMenus: {
         type: [Schema.Types.ObjectId],
-        ref: "SubMenu1"
+        ref: "Menu"
+    },
+    parentMenuId: {
+        type: Schema.Types.ObjectId,
+        ref: "Menu"
+    },
+    isLeaf: {
+        type: Boolean,
+        default: false
+    },
+    dateAdded: {
+        type: Date,
+        default: Date.now
     }
 })
 
