@@ -4,7 +4,8 @@ const path = require('path')
 router.get("/", (req, res) => {
     res.render("index", {
         title: "Website Navigation Test",
-        script: "static/js/index.js"
+        script: "static/js/index.js",
+        prompt: "Change name." // TODO: Randomize prompt by extracting data from arrays from file.
     })
 })
 
