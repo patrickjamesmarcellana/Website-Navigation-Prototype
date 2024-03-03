@@ -29,7 +29,7 @@ app.set("views", "./src/views");
 // the layout directory can be changed as part of the configuration of the exphbs.engine
 // Example: exphbs.engine({layoutsDir: <path>})
 // the default layout filename (main.hbs) can also be changed in the config through the defaultLayout property
-exphbs.engine({layoutsDir:'./views/layouts'})
+exphbs.engine({layoutsDir:'./src/views/layouts'})
 exphbs.engine({defaultLayout:'main'})
 
 // handle access of error website paths
@@ -41,5 +41,5 @@ app.use((err, req, res, next) => {
 
 // listen to port
 app.listen(process.env.PORT, () => {
-    console.log(`NewJeans app now listening to port ${process.env.PORT}`)
+    console.log(`Website Testing Interface now listening to port ${process.env.PORT}`)
 })
