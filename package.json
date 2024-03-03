@@ -1,0 +1,18 @@
+{
+  "name": "website-navigation-prototype",
+  "version": "1.0.0",
+  "description": "This project serves as a testing interface for the breadcrumbs jump/switch hierarchy pattern, which records the number of paths and time elapsed data per use.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-handlebars": "^7.1.2",
+    "handlebars": "^4.7.8"
+  }
+}
