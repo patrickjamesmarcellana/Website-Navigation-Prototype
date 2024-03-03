@@ -18,6 +18,10 @@ const menuSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "Menu"
     },
+    nestLevel: {
+        type: Number,
+        default: 0
+    },
     isLeaf: {
         type: Boolean,
         default: false
