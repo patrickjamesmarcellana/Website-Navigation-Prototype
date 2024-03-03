@@ -1,6 +1,6 @@
-const express = require("express")
-const exphbs = require("express-handlebars")
-require('dotenv').config()
+import express from "express"
+import exphbs from "express-handlebars"
+import "dotenv/config"
 
 // express app
 const app = express()
@@ -13,7 +13,7 @@ app.use("/static", express.static("public"))
 app.use(express.urlencoded({extended: true}));
 
 // import and use routers
-const router = require("./src/routes/routes.js")
+import { router } from "./src/routes/routes.js"
 app.use("", router)
 
 // {extname: 'hbs'} informs the handlebars engine that the file extension to read is .hbs

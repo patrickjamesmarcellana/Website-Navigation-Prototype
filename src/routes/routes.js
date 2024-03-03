@@ -1,5 +1,5 @@
-const router = require("express").Router()
-const path = require('path')
+import express from "express"
+const router = express.Router()
 
 router.get("/", (req, res) => {
     res.render("index", {
@@ -15,4 +15,4 @@ router.use((req, res) => {
     })
 })
 
-module.exports = router
+export { router }
