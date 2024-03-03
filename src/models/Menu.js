@@ -7,10 +7,6 @@ const menuSchema = new mongoose.Schema({
         required: true,
         default: ""
     },
-    subMenus: {
-        type: [Schema.Types.ObjectId],
-        ref: "Menu"
-    },
     parentMenuId: {
         type: Schema.Types.ObjectId,
         ref: "Menu"
