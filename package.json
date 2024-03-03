@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./index.js",
-    "populateDb": "node ./src/models/populateDb.js"
+    "populate": "node ./src/models/populateDb.js"
   },
   "type": "module",
   "author": "",

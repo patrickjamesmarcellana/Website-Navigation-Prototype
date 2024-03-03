@@ -2,9 +2,6 @@ import mongoose from 'mongoose'
 import { Schema, model } from 'mongoose'
 
 const menuSchema = new mongoose.Schema({
-    _id: {
-        type: Schema.Types.ObjectId,
-    },
     name: {
         type: String,
         required: true,
@@ -31,5 +28,4 @@ const menuSchema = new mongoose.Schema({
         default: Date.now
     }
 })
-
 export default model('Menu', menuSchema)
