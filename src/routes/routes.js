@@ -9,6 +9,18 @@ router.get("/", (req, res) => {
     })
 })
 
+router.get("/helpcenter", (req, res) => {
+    res.render("helpcenter", {
+        title: "Navigation Prototype",
+        script: "static/js/helpcenter.js",
+
+        // prototype variables
+        fontSize: "17px"
+        
+
+    })
+})
+
 router.use((req, res) => {
     res.render("error", {
         title: "Page Not Found",

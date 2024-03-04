@@ -1,5 +1,5 @@
-$("#startButton").click((e) => {
-    window.location.replace("help_center.html")
+$("#startButton").click(async (e) => {
+    window.location.replace("/helpcenter")
 })
 
 $("#usingFacebook").click((e) => {
