@@ -164,14 +164,6 @@ async function main() {
             })
             await reportingAProblem2.populate("parentMenu")
 
-            var australia2 = await Menu.create({
-                name: "Australia Online Safety Act on Facebook",
-                parentMenu: policies1,
-                nestLevel: 2,
-                order: 3
-            })
-            await australia2.populate("parentMenu")
-
             var beingYourAuthentic2 = await Menu.create({
                 name: "Being Your Authentic Self on Facebook",
                 parentMenu: policies1,
@@ -179,6 +171,14 @@ async function main() {
                 order: 4
             })
             await beingYourAuthentic2.populate("parentMenu")
+
+            var hackedAndFakeAccounts2 = await Menu.create({
+                name: "Hacked and Fake Accounts",
+                parentMenu: policies1,
+                nestLevel: 2,
+                order: 3
+            })
+            await hackedAndFakeAccounts2.populate("parentMenu")
         } catch (err) {
             console.error(err)
         }
@@ -498,9 +498,168 @@ async function main() {
             await safetyResourcesForParents3.populate("parentMenu")
 
             // keeping your account secure
+            var securityFeatures3 = await Menu.create({
+                name: "Security Features and Tips",
+                parentMenu: keepingYourAccount2,
+                nestLevel: 3,
+                order: 1
+            })
+            await securityFeatures3.populate("parentMenu")
 
+            var loginAlertsAnd3 = await Menu.create({
+                name: "Login Alerts and Two-Factor Authentication",
+                parentMenu: keepingYourAccount2,
+                nestLevel: 3,
+                order: 2
+            })
+            await loginAlertsAnd3.populate("parentMenu")
+
+            var avoidSpamAndScams3= await Menu.create({
+                name: "Avoid Spam and Scams",
+                parentMenu: keepingYourAccount2,
+                nestLevel: 3,
+                order: 3
+            })
+            await avoidSpamAndScams3.populate("parentMenu")
 
             // shopping safety
+            var recognizingScams3 = await Menu.create({
+                name: "Recognizing Scams",
+                parentMenu: shoppingSafety2,
+                nestLevel: 3,
+                order: 1
+            })
+            await recognizingScams3.populate("parentMenu")
+
+            var avoidingScams3 = await Menu.create({
+                name: "Avoiding Scams",
+                parentMenu: shoppingSafety2,
+                nestLevel: 3,
+                order: 2
+            })
+            await avoidingScams3.populate("parentMenu")
+
+            var buyingOnMarketplace3 = await Menu.create({
+                name: "Buying on Marketplace",
+                parentMenu: shoppingSafety2,
+                nestLevel: 3,
+                order: 3
+            })
+            await buyingOnMarketplace3.populate("parentMenu")
+
+            var tipsForShoppingSafely3 = await Menu.create({
+                name: "Tips for Shopping Safely",
+                parentMenu: shoppingSafety2,
+                nestLevel: 3,
+                order: 4
+            })
+            await tipsForShoppingSafely3.populate("parentMenu")
+        } catch (err) {
+            console.error(err)
+        }
+
+        // policies and reporting
+        try {
+            // reporting abuse
+            var reportContentOnFacebook3 = await Menu.create({
+                name: "Report Content on Facebook",
+                parentMenu: reportingAbuse2,
+                nestLevel: 3,
+                order: 1
+            })
+            await reportContentOnFacebook3.populate("parentMenu")
+
+            var dontHaveAnAccount3 = await Menu.create({
+                name: "Don't Have an Account?",
+                parentMenu: reportingAbuse2,
+                nestLevel: 3,
+                order: 2
+            })
+            await dontHaveAnAccount3.populate("parentMenu")
+
+            // reporting a problem with facebook
+            var somethingIsntWorking3 = await Menu.create({
+                name: "Something Isn't Working",
+                parentMenu: reportingAProblem2,
+                nestLevel: 3,
+                order: 1
+            })
+            await somethingIsntWorking3.populate("parentMenu")
+
+            var reportAbusiveContent3 = await Menu.create({
+                name: "Report Abusive Content",
+                parentMenu: reportingAProblem2,
+                nestLevel: 3,
+                order: 2
+            })
+            await reportAbusiveContent3.populate("parentMenu")
+
+            var giveUsFeedback3 = await Menu.create({
+                name: "Give Us Feedback",
+                parentMenu: reportingAProblem2,
+                nestLevel: 3,
+                order: 3
+            })
+            await giveUsFeedback3.populate("parentMenu")
+
+            // being your authentic self on facebook
+            var verifyingYourIdentity3 = await Menu.create({
+                name: "Verifying your identity",
+                parentMenu: beingYourAuthentic2,
+                nestLevel: 3,
+                order: 1
+            })
+            await verifyingYourIdentity3.populate("parentMenu")
+
+            var updatingYourProfileInfo3 = await Menu.create({
+                name: "Updating your profile information",
+                parentMenu: beingYourAuthentic2,
+                nestLevel: 3,
+                order: 2
+            })
+            await updatingYourProfileInfo3.populate("parentMenu")
+
+            var stayingSafeOnFacebook3 = await Menu.create({
+                name: "Staying safe on Facebook",
+                parentMenu: beingYourAuthentic2,
+                nestLevel: 3,
+                order: 3
+            })
+            await stayingSafeOnFacebook3.populate("parentMenu")
+
+            var metaPay3 = await Menu.create({
+                name: "Meta Pay",
+                parentMenu: beingYourAuthentic2,
+                nestLevel: 3,
+                order: 4
+            })
+            await metaPay3.populate("parentMenu")
+
+            // hacked and fake accounts
+            var hackedAccounts3 = await Menu.create({
+                name: "Hacked Accounts",
+                parentMenu: hackedAndFakeAccounts2,
+                nestLevel: 3,
+                order: 1
+            })
+            await hackedAccounts3.populate("parentMenu")
+
+            var impersonatingAccounts3 = await Menu.create({
+                name: "Impersonating Accounts",
+                parentMenu: hackedAndFakeAccounts2,
+                nestLevel: 3,
+                order: 2
+            })
+            await impersonatingAccounts3.populate("parentMenu")
+
+            var fakeAccounts3 = await Menu.create({
+                name: "Fake Accounts",
+                parentMenu: hackedAndFakeAccounts2,
+                nestLevel: 3,
+                order: 3
+            })
+            await fakeAccounts3.populate("parentMenu")
+
         } catch (err) {
             console.error(err)
         }
