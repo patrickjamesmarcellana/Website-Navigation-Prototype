@@ -18,6 +18,10 @@ const menuSchema = new mongoose.Schema({
     isLeaf: {
         type: Boolean,
         default: false
+    },
+    order: {
+        type: Number,   // order within nesting and menu
+        default: 0
     }
 })
 export default model('Menu', menuSchema)
