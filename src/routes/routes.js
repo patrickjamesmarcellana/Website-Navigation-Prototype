@@ -16,11 +16,10 @@ const menusToJson = async (documents) => {
 const menuToJson = async (document) => {
     console.log(document)
     return {
+        menuId: document._id,
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 0,
-
-        bottomMargin: 20, // prototype variable 2
     }
 }
 
@@ -54,8 +53,8 @@ router.get("/helpcenter", async (req, res) => {
         script: "static/js/helpcenter.js",
         menus: initialMenus,
 
-        // prototype variables
         fontSize: 17, // prototype variable 1
+        spaceBetween: 5, // prototype variable 2
     })
 })
 

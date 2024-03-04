@@ -15,3 +15,7 @@ $("#doneBtn").click((e) => {
     window.location.replace("done.html")
 })
 
+$(".menu").click((e) => {
+    const menuSelectedId = e.currentTarget.closest(".menu").getAttribute("menu-id")
+    
+})
