@@ -387,6 +387,67 @@ async function main() {
         } catch (err) {
             console.error(err) 
         }
+
+        // privacy, safety, and security
+        try {
+            // your privacy
+            var controlWhoCanSee3 = await Menu.create({
+                name: "Control who can see what you share on Facebook",
+                parentMenu: yourPrivacy2,
+                nestLevel: 3
+            })
+            await controlWhoCanSee3.populate("parentMenu")
+
+            var manageWhatYouveShared3 = await Menu.create({
+                name: "Manage What You've Shared",
+                parentMenu: yourPrivacy2,
+                nestLevel: 3
+            })
+            await manageWhatYouveShared3.populate("parentMenu")
+
+            var controlWhoCanFindYou3 = await Menu.create({
+                name: "Control Who Can Find You",
+                parentMenu: yourPrivacy2,
+                nestLevel: 3
+            })
+            await controlWhoCanFindYou3.populate("parentMenu")
+
+            // staying safe
+            var abuseResources3 = await Menu.create({
+                name: "Abuse Resources",
+                parentMenu: stayingSafe2,
+                nestLevel: 3
+            })
+            await abuseResources3.populate("parentMenu")
+
+            var suicideAndSelfInjury3 = await Menu.create({
+                name: "Suicide and Self-Injury Resources",
+                parentMenu: stayingSafe2,
+                nestLevel: 3
+            })
+            await suicideAndSelfInjury3.populate("parentMenu")
+
+            var crisisResponse3 = await Menu.create({
+                name: "Crisis Response",
+                parentMenu: stayingSafe2,
+                nestLevel: 3
+            })
+            await crisisResponse3.populate("parentMenu")
+
+            var safetyResourcesForParents3 = await Menu.create({
+                name: "Safety Resources for Parents",
+                parentMenu: stayingSafe2,
+                nestLevel: 3
+            })
+            await safetyResourcesForParents3.populate("parentMenu")
+
+            // keeping your account secure
+
+
+            // shopping safety
+        } catch (err) {
+            console.error(err)
+        }
     
         console.log("facebook-help-center db repopulated successfully")
         
