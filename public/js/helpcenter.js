@@ -1,4 +1,5 @@
-$("#usingFacebook").click((e) => {
+$("#UsingFacebook").click((e) => {
+    console.log("Success")
     $("#yourProfile").removeClass("hidden")
 })
 
