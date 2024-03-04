@@ -14,7 +14,9 @@ app.use(express.urlencoded({extended: true}));
 
 // import and use routers
 import { router } from "./src/routes/routes.js"
+import { menuRouter } from "./src/routes/menu.js"
 app.use("", router)
+app.use("", menuRouter)
 
 // {extname: 'hbs'} informs the handlebars engine that the file extension to read is .hbs
 app.engine("hbs", exphbs.engine({extname: 'hbs'}))
