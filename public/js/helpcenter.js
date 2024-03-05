@@ -1,5 +1,5 @@
 var previouslySelected;
-var paths = 0;
+var paths = 1;
 
 $(".menu").click(async (e) => {
     // selected menu
