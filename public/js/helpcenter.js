@@ -17,22 +17,34 @@
 
 $(".menu").click(async (e) => {
     // e.stopPropagtation()
-    const selectedMenu = e.target
-    const selectedMenuId = selectedMenu.getAttribute("menu-id")
-    console.log(selectedMenuId)
-    const response = await fetch("/getMenu/" + selectedMenuId)
-    console.log(response.status)
+    const selectedMenu = e.target;
 
-    if(response.status === 200) {
-        const subMenus = await response.json()
-        console.log(subMenus)
-        for(const subMenu of subMenus) {
-            const newSubMenu = 
-            `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-sizing pl-[${subMenu.leftPadding}px]">
-                ${subMenu.name}
-            </div>`
-
-            selectedMenu.innerHTML += newSubMenu
+    // don't add children if menu list already is expanded (and children are visible)
+    if (selectedMenu.classList.contains("expanded")) {
+        while (selectedMenu.firstElementChild) {
+            selectedMenu.removeChild(selectedMenu.lastElementChild);
         }
+        selectedMenu.classList.remove("expanded");
+        return;
     }
-})
+
+    const selectedMenuId = selectedMenu.getAttribute("menu-id");
+    console.log(selectedMenuId);
+    const response = await fetch("/getMenu/" + selectedMenuId);
+    console.log(response.status);
+
+    if (response.status === 200) {
+        const subMenus = await response.json();
+        console.log(subMenus);
+        for (const subMenu of subMenus) {
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-sizing pl-[${subMenu.leftPadding}px]">
+                ${subMenu.name}
+            </div>`;
+
+            selectedMenu.insertAdjacentHTML("beforeend", newSubMenu);
+        }
+
+        // add expanded class to prevent adding the submenus again
+        selectedMenu.classList.add("expanded");
+    }
+});
