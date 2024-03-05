@@ -25,9 +25,10 @@ const menuToJson = async (document) => {
 
 menuRouter.get("/getMenu/:menuId", async (req, res) => {
     console.log("Request for menu by id", req.params.menuId)
+    
 
 
     res.sendStatus(500)
 })
 
-export { menuRouter }
+export default menuRouter
