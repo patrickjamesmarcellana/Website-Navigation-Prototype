@@ -70,11 +70,11 @@ $(".menu").click(async (e) => {
         const subMenus = await response.json();
         console.log(subMenus);
         for (const subMenu of subMenus) {
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-sizing pl-[${subMenu.leftPadding}px]">
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-sizing space-y-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
                 ${subMenu.name}
             </div>`;
 
-            selectedMenu.insertAdjacentHTML("beforeend", newSubMenu);
+            selectedMenu.innerHTML += newSubMenu;
         }
 
         // add expanded class to prevent adding the submenus again
