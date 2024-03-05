@@ -25,10 +25,26 @@ const menuToJson = async (document) => {
 
 menuRouter.get("/getMenu/:menuId", async (req, res) => {
     console.log("Request for menu by id", req.params.menuId)
-    
+    try {
+        await connect()
+        const menuToExpand = await Menu.find({_id: req.params.menuId})
+        const subMenus = await Menu.find({parentMenu: menuToExpand})
+        var json = await  menusToJson(subMenus)
+        console.log(json)
+    } catch (err) {
+        console.error(err) 
+    }
 
+    try {
+        await disconnect()
+    } catch (err) {
+        console.error(err)
+    }
 
-    res.sendStatus(500)
+    if(json != null)
+        res.send(json)
+    else
+        res.sendStatus(400)
 })
 
 export default menuRouter
