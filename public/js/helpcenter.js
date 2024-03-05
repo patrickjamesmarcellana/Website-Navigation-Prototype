@@ -19,15 +19,25 @@ $(".menu").click(async (e) => {
     // e.stopPropagtation()
     const selectedMenu = e.target;
 
-    // don't add children if menu list already is expanded (and children are visible)
+    // if selected menu is already expanded, hide its submenus (not grandchildren)
     if (selectedMenu.classList.contains("expanded")) {
-        while (selectedMenu.firstElementChild) {
-            selectedMenu.removeChild(selectedMenu.lastElementChild);
+        for (subMenu of selectedMenu.children) {
+            subMenu.classList.add("hidden");
         }
         selectedMenu.classList.remove("expanded");
         return;
     }
 
+    // display selected menu's hidden submenus if there are any
+    if (selectedMenu.firstElementChild) {
+        for (subMenu of selectedMenu.children) {
+            subMenu.classList.remove("hidden");
+        }
+        selectedMenu.classList.add("expanded");
+        return;
+    }
+
+    // first time accessing the menu and its submenus; add them as menu's children
     const selectedMenuId = selectedMenu.getAttribute("menu-id");
     console.log(selectedMenuId);
     const response = await fetch("/getMenu/" + selectedMenuId);
