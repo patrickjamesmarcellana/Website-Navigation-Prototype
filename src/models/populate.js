@@ -1098,7 +1098,221 @@ async function main() {
             });
             await manageCommunityChats4.populate("parentMenu");
 
-            //
+            // Managing Your Account > Login and Password > Log Into Your Account
+            var logIntoYourFBAcct4 = await Menu.create({
+                name: "Log into your Facebook account",
+                parentMenu: logIntoYourAccount3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await logIntoYourFBAcct4.populate("parentMenu");
+
+            var logOutOfFB4 = await Menu.create({
+                name: "Log out of Facebook",
+                parentMenu: logIntoYourAccount3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await logOutOfFB4.populate("parentMenu");
+
+            var addOrRemovedSaved4 = await Menu.create({
+                name: "Add or remove a saved account from your phone",
+                parentMenu: logIntoYourAccount3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await addOrRemovedSaved4.populate("parentMenu");
+
+            var iDontKnowifI4 = await Menu.create({
+                name: "I don't know if I still have a Facebook account",
+                parentMenu: logIntoYourAccount3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await iDontKnowifI4.populate("parentMenu");
+
+            // Managing Your Account > Login and Password > Change Your Password
+            var changeOrReset4 = await Menu.create({
+                name: "Change or reset your Facebook password",
+                parentMenu: changeYourPassword3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await changeOrReset4.populate("parentMenu");
+
+            var makeAStrongFBPW4 = await Menu.create({
+                name: "Make a strong Facebook password",
+                parentMenu: changeYourPassword3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await makeAStrongFBPW4.populate("parentMenu");
+
+            var canYouSendMe4 = await Menu.create({
+                name: "Can you send me a copy of my Facebook password without resetting it?",
+                parentMenu: changeYourPassword3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await canYouSendMe4.populate("parentMenu");
+
+            var getAOneTimePW4 = await Menu.create({
+                name: "Get a one-time password to log into Facebook",
+                parentMenu: changeYourPassword3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await getAOneTimePW4.populate("parentMenu");
+
+            // Managing Your Account > Login and Password > Fix a Login Problem
+            var loginHelp4 = await Menu.create({
+                name: "Login Help",
+                parentMenu: fixALoginProblem3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await loginHelp4.populate("parentMenu");
+
+            var passwordHelp4 = await Menu.create({
+                name: "Password Help",
+                parentMenu: fixALoginProblem3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await passwordHelp4.populate("parentMenu");
+
+            // Managing Your Account > Login and Password > Uploading Your ID
+            var typesOfIDs4 = await Menu.create({
+                name: "Types of IDs that Facebook accepts",
+                parentMenu: uploadingYourID3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await typesOfIDs4.populate("parentMenu");
+
+            var howToUploadAnID4 = await Menu.create({
+                name: "How to upload an ID to Facebook",
+                parentMenu: uploadingYourID3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await howToUploadAnID4.populate("parentMenu");
+
+            var whyFacebookMayAsk4 = await Menu.create({
+                name: "Why Facebook may ask you to upload an ID",
+                parentMenu: uploadingYourID3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await whyFacebookMayAsk4.populate("parentMenu");
+
+            var whatHappensToYourID4 = await Menu.create({
+                name: "What happens to your ID after you send it to Facebook",
+                parentMenu: uploadingYourID3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await whatHappensToYourID4.populate("parentMenu");
+
+            // Managing Your Account > Account Settings > Adjust Your Account Settings
+            var findYourFBSettings4 = await Menu.create({
+                name: "Find your Facebook settings",
+                parentMenu: adjustYourAccountSettings3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await findYourFBSettings4.populate("parentMenu");
+
+            var howToChangeYourLanguage4 = await Menu.create({
+                name: "How to change your language settings on Facebook",
+                parentMenu: adjustYourAccountSettings3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await howToChangeYourLanguage4.populate("parentMenu");
+
+            var addOrRemoveAnEmail4 = await Menu.create({
+                name: "Add or remove an email from your Facebook account",
+                parentMenu: adjustYourAccountSettings3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await addOrRemoveAnEmail4.populate("parentMenu");
+
+            var addOrRemoveAMobilePhoneNo4 = await Menu.create({
+                name: "Add or remove a mobile phone number from your Facebook account",
+                parentMenu: adjustYourAccountSettings3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await addOrRemoveAMobilePhoneNo4.populate("parentMenu");
+
+            // Managing Your Account > Account Settings > Connect to Facebook Without Data Charges
+            var usingBasicMode4 = await Menu.create({
+                name: "Using basic mode",
+                parentMenu: connectToFacebookWithout3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await usingBasicMode4.populate("parentMenu");
+
+            // Managing Your Account > Account Settings > Your Username
+            var howUsernamesAndUserIDs4 = await Menu.create({
+                name: "How usernames and user IDs are used on Facebook Profiles",
+                parentMenu: yourUsername3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await howUsernamesAndUserIDs4.populate("parentMenu");
+
+            var guidelinesForCreating4 = await Menu.create({
+                name: "Guidelines for creating a custom username or screen name on Facebook",
+                parentMenu: yourUsername3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await guidelinesForCreating4.populate("parentMenu");
+
+            var howToFindOrChange4 = await Menu.create({
+                name: "How to find or change your Facebook username",
+                parentMenu: yourUsername3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await howToFindOrChange4.populate("parentMenu");
+
+            var whatToDoIfTheUsername4 = await Menu.create({
+                name: "What to do if the username you want isn't available on Facebook",
+                parentMenu: yourUsername3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await whatToDoIfTheUsername4.populate("parentMenu");
+
+            // Managing Your Account > Account Settings > Legacy Contacts
+            var chooseALegacyContact4 = await Menu.create({
+                name: "Choose a legacy contact",
+                parentMenu: legacyContacts3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await chooseALegacyContact4.populate("parentMenu");
+
+            var iAmALegacyContact4 = await Menu.create({
+                name: "I am a legacy contact",
+                parentMenu: legacyContacts3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await iAmALegacyContact4.populate("parentMenu");
+
+            var troubleshooting4 = await Menu.create({
+                name: "Troubleshooting",
+                parentMenu: legacyContacts3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await troubleshooting4.populate("parentMenu");
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
