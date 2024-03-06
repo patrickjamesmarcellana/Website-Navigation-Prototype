@@ -104,6 +104,11 @@ $(".menu").click(async (e) => {
         return;
     }
 
+    // TODO: change this to use random leaf node's name at runtime
+    if (selectedMenu.textContent.trim() == "Change name") {
+        document.querySelector("#doneBtn").classList.remove("hidden");
+    }
+
     // first time accessing the menu and its submenus; add them as menu's children
     response = await fetch("/getSubMenus/" + selectedMenuId);
     console.log(response.status);
