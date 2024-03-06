@@ -850,6 +850,39 @@ async function main() {
             });
             await rooms4.populate("parentMenu");
 
+            // Using Facebook > Pages > Create and Manage a Page
+            var createAFacebookPage4 = await Menu.create({
+                name: "Create a Facebook Page",
+                parentMenu: createAndManageAPage3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await createAFacebookPage4.populate("parentMenu");
+
+            var mergeFacebookPages4 = await Menu.create({
+                name: "Merge Facebook Pages",
+                parentMenu: createAndManageAPage3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await mergeFacebookPages4.populate("parentMenu");
+
+            var inviteFriends4 = await Menu.create({
+                name: "Invite friends",
+                parentMenu: createAndManageAPage3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await inviteFriends4.populate("parentMenu");
+
+            var deleteOrDeactivate4 = await Menu.create({
+                name: "Delete or deactivate your Page",
+                parentMenu: createAndManageAPage3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await deleteOrDeactivate4.populate("parentMenu");
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
@@ -917,13 +950,13 @@ async function main() {
             await addYourNamePronunciation5.populate("parentMenu");
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Professional mode
-            var whenToCreateAPage5 = await Menu.create({
+            var whenToCreateAPage5_1 = await Menu.create({
                 name: "When to create a Page or turn on professional mode for your profile",
                 parentMenu: professionalMode4,
                 nestLevel: 5,
                 order: 1,
             });
-            await whenToCreateAPage5.populate("parentMenu");
+            await whenToCreateAPage5_1.populate("parentMenu");
 
             var turnProfessionalMode5 = await Menu.create({
                 name: "Turn professional mode on or off for your Facebook profile",
@@ -1156,6 +1189,74 @@ async function main() {
                 order: 4,
             });
             await createALinkForAVideo5.populate("parentMenu");
+
+            // Using Facebook > Pages > Create and Manage a Page > Create a Facebook Page
+            var differencesBetweenProfiles5 = await Menu.create({
+                name: "Differences between Profiles, Pages, and Groups on Facebook",
+                parentMenu: createAFacebookPage4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await differencesBetweenProfiles5.populate("parentMenu");
+
+            var createAFBPage5 = await Menu.create({
+                name: "Create a Facebook Page",
+                parentMenu: createAFacebookPage4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await createAFBPage5.populate("parentMenu");
+
+            var whenToCreateAPage5_2 = await Menu.create({
+                name: "When to create a Page or turn on professional mode for your profile",
+                parentMenu: createAFacebookPage4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await whenToCreateAPage5_2.populate("parentMenu");
+
+            var canIManageAFBPage5 = await Menu.create({
+                name: "Can I manage a Facebook Page named for a city, country, or other geographic location?",
+                parentMenu: createAFacebookPage4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await canIManageAFBPage5.populate("parentMenu");
+
+            // Using Facebook > Pages > Create and Manage a Page > Merge Facebook Pages
+            var merge2FBPages5 = await Menu.create({
+                name: "Merge 2 Facebook Pages",
+                parentMenu: mergeFacebookPages4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await merge2FBPages5.populate("parentMenu");
+
+            // Using Facebook > Pages > Create and Manage a Page > Invite friends
+            var inviteFriendsToLike5 = await Menu.create({
+                name: "Invite friends to like or follow a Page or profile on Facebook",
+                parentMenu: inviteFriends4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await inviteFriendsToLike5.populate("parentMenu");
+
+            // Using Facebook > Pages > Create and Manage a Page > Delete or deactivate your Page
+            var deleteOrCancelDeletion5 = await Menu.create({
+                name: "Delete or cancel deletion of your Facebook Page",
+                parentMenu: deleteOrDeactivate4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await deleteOrCancelDeletion5.populate("parentMenu");
+
+            var deactiveYourFBPage5 = await Menu.create({
+                name: "Deactive your Facebook Page",
+                parentMenu: deleteOrDeactivate4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await deactiveYourFBPage5.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
