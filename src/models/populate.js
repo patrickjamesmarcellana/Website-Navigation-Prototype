@@ -719,7 +719,7 @@ async function main() {
 
             // Using Facebook > Your Profile > Share and Manage Posts on Your Profile
             var howDoIShareSomething4 = await Menu.create({
-                name: "How do I share soemthing on Facebook?",
+                name: "How do I share something on Facebook?",
                 parentMenu: shareAndManagePosts3,
                 nestLevel: 4,
                 order: 1,
@@ -749,6 +749,97 @@ async function main() {
                 order: 4,
             });
             await howDoIPostSomething4.populate("parentMenu");
+
+            // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
+            var changeName5 = await Menu.create({
+                name: "Change name",
+                parentMenu: basicProfileInfo4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await changeName5.populate("parentMenu");
+
+            var addOrEditIntro5 = await Menu.create({
+                name: "Add or edit intro section",
+                parentMenu: basicProfileInfo4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addOrEditIntro5.populate("parentMenu");
+
+            var editInformationOnFBProfile5 = await Menu.create({
+                name: "Edit information on your Facebook profile and choose who can see it",
+                parentMenu: basicProfileInfo4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await editInformationOnFBProfile5.populate("parentMenu");
+
+            var updatePhotosAndStories5 = await Menu.create({
+                name: "Update photos and stories in the Featured section of your Facebook profile",
+                parentMenu: basicProfileInfo4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await updatePhotosAndStories5.populate("parentMenu");
+
+            // Using Facebook > Your Profile > Add and Edit Your Profile Info > About section of your profile
+            var updateTheAboutSection5 = await Menu.create({
+                name: "Update the About section of your Facebook Profile",
+                parentMenu: aboutSectionProfile4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await updateTheAboutSection5.populate("parentMenu");
+
+            var changeYourRelationship5 = await Menu.create({
+                name: "Change your relationship status on your Facebook profile",
+                parentMenu: aboutSectionProfile4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await changeYourRelationship5.populate("parentMenu");
+
+            var changeYourBirthday5 = await Menu.create({
+                name: "Change your birthday on Facebook and choose who can see it",
+                parentMenu: aboutSectionProfile4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await changeYourBirthday5.populate("parentMenu");
+
+            var addYourNamePronunciation5 = await Menu.create({
+                name: "Add your name pronunciation to your Facebook Profile",
+                parentMenu: aboutSectionProfile4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await addYourNamePronunciation5.populate("parentMenu");
+
+            // Using Facebook > Your Profile > Add and Edit Your Profile Info > Professional mode
+            var whenToCreateAPage5 = await Menu.create({
+                name: "When to create a Page or turn on professional mode for your profile",
+                parentMenu: professionalMode4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await whenToCreateAPage5.populate("parentMenu");
+
+            var turnProfessionalMode5 = await Menu.create({
+                name: "Turn professional mode on or off for your Facebook profile",
+                parentMenu: professionalMode4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await turnProfessionalMode5.populate("parentMenu");
+
+            var profileTransparency5 = await Menu.create({
+                name: "Profile Transparency section on Professional Mode",
+                parentMenu: professionalMode4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await profileTransparency5.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
