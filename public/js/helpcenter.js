@@ -13,7 +13,7 @@ $(window).on("load", (e) => {
 $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
-    const selectedMenuId = selectedMenu.getAttribute("menu-id");
+    const selectedMenuId = selectedMenu.parentElement.getAttribute("menu-id");
     let response = await fetch("/getMenu/" + selectedMenuId);
     if (response.status == 400) {
         console.log("Error in fetching selected menu data from database.");
@@ -24,7 +24,8 @@ $(".menu").click(async (e) => {
     // previously selected menu
     let previouslySelectedId, previouslySelectedData;
     if (previouslySelected) {
-        previouslySelectedId = previouslySelected.getAttribute("menu-id");
+        previouslySelectedId =
+            previouslySelected.parentElement.getAttribute("menu-id");
         response = await fetch("/getMenu/" + previouslySelectedId);
         if (response.status == 400) {
             console.log(
@@ -85,7 +86,7 @@ $(".menu").click(async (e) => {
             !selectedMenuData.isLeaf &&
             previouslySelectedId !== selectedMenuId && // opening, closing, opening the same menu consecutively should not increase path count
             selectedMenuData.parentMenu !==
-                previouslySelected.getAttribute("menu-id") // clicked menu's parent is the previously clicked menu means the same path
+                previouslySelected.parentElement.getAttribute("menu-id") // clicked menu's parent is the previously clicked menu means the same path
         ) {
             if (
                 (selectedMenuData.nestLevel ===
@@ -118,7 +119,7 @@ $(".menu").click(async (e) => {
         console.log(subMenus);
         for (const subMenu of subMenus) {
             const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border space-y-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                ${subMenu.name}
+                <span class="hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
             selectedMenu.innerHTML += newSubMenu;
@@ -133,7 +134,7 @@ $(".menu").click(async (e) => {
             !selectedMenuData.isLeaf && // clicking on leaves does not continue or open a path
             previouslySelectedId !== selectedMenuId && // opening, closing, opening the same menu consecutively should not increase path count
             selectedMenuData.parentMenu !==
-                previouslySelected.getAttribute("menu-id") // clicked menu's parent is the previously clicked menu means the same path
+                previouslySelected.parentElement.getAttribute("menu-id") // clicked menu's parent is the previously clicked menu means the same path
         ) {
             console.log("PASSED HERE");
             if (
