@@ -941,6 +941,163 @@ async function main() {
             });
             await callToActionBtns4.populate("parentMenu");
 
+            // Using Facebook > Pages > Publishing
+            var basics4 = await Menu.create({
+                name: "Basics",
+                parentMenu: publishing3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await basics4.populate("parentMenu");
+
+            var visibilityAndEditing4 = await Menu.create({
+                name: "Visibility & Editing",
+                parentMenu: publishing3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await visibilityAndEditing4.populate("parentMenu");
+
+            var draftsAndScheduledPosts4 = await Menu.create({
+                name: "Drafts & Scheduled Posts",
+                parentMenu: publishing3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await draftsAndScheduledPosts4.populate("parentMenu");
+
+            var events4 = await Menu.create({
+                name: "Events",
+                parentMenu: publishing3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await events4.populate("parentMenu");
+
+            // Using Facebook > Groups > Post, Participate, and Privacy
+            var post4 = await Menu.create({
+                name: "Post",
+                parentMenu: postParticipate3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await post4.populate("parentMenu");
+
+            var participate4 = await Menu.create({
+                name: "Participate",
+                parentMenu: postParticipate3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await participate4.populate("parentMenu");
+
+            var privacy4 = await Menu.create({
+                name: "Privacy",
+                parentMenu: postParticipate3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await privacy4.populate("parentMenu");
+
+            var buyAndSellGroups4 = await Menu.create({
+                name: "Buy and Sell Groups",
+                parentMenu: postParticipate3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await buyAndSellGroups4.populate("parentMenu");
+
+            // Using Facebook > Groups > Create, Engage, and Manage Settings
+            var create4 = await Menu.create({
+                name: "Create",
+                parentMenu: createEngage3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await create4.populate("parentMenu");
+
+            var manageGroupSettings4 = await Menu.create({
+                name: "Manage Group Settings",
+                parentMenu: createEngage3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await manageGroupSettings4.populate("parentMenu");
+
+            var manageGroupFeatures4 = await Menu.create({
+                name: "Manage Group Features",
+                parentMenu: createEngage3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await manageGroupFeatures4.populate("parentMenu");
+
+            var engage4 = await Menu.create({
+                name: "Engage",
+                parentMenu: createEngage3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await engage4.populate("parentMenu");
+
+            // Using Facebook > Groups > Manage People and Content
+            var managePeople4 = await Menu.create({
+                name: "Manage People",
+                parentMenu: managePeopleAndContent3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await managePeople4.populate("parentMenu");
+
+            var manageContent4 = await Menu.create({
+                name: "Manage Content",
+                parentMenu: managePeopleAndContent3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await manageContent4.populate("parentMenu");
+
+            var enforceAndModerate4 = await Menu.create({
+                name: "Enforce and Moderate",
+                parentMenu: managePeopleAndContent3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await enforceAndModerate4.populate("parentMenu");
+
+            var adminAndModeratorTeam4 = await Menu.create({
+                name: "Admin and Moderator Team",
+                parentMenu: managePeopleAndContent3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await adminAndModeratorTeam4.populate("parentMenu");
+
+            // Using Facebook > Groups > Community Chats
+            var getStarted4 = await Menu.create({
+                name: "Get started",
+                parentMenu: communityChats3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await getStarted4.populate("parentMenu");
+
+            var useCommunityChats4 = await Menu.create({
+                name: "Use community chats",
+                parentMenu: communityChats3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await useCommunityChats4.populate("parentMenu");
+
+            var manageCommunityChats4 = await Menu.create({
+                name: "Manage community chats",
+                parentMenu: communityChats3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await manageCommunityChats4.populate("parentMenu");
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
