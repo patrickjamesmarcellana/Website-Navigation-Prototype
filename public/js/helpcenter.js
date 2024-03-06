@@ -1,6 +1,14 @@
 var previouslySelected;
 var paths = 1;
 
+var timePageOpened = null; // set once page is loaded
+var pageStayTimes = [];
+
+// set initial time clicked
+$(window).on("load", (e) => {
+    timePageOpened = e.timeStamp;
+});
+
 $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
@@ -27,6 +35,18 @@ $(".menu").click(async (e) => {
     console.log("Selected ID: " + selectedMenuId)
     console.log("Selected Parent: " + selectedMenuData.parentMenu)
     console.log("Previous Selected ID: " + previouslySelectedId)
+
+    // FIXME: check if it is a leaf properly
+    // check if new page is clicked
+    if(previouslySelectedId !== selectedMenuId && selectedMenuData.nestLevel === 3 /* HACK */) {
+        console.log("Clicked leaf at",  e.timeStamp, "ms elapsed");
+        pageStayTimes.push(e.timeStamp - timePageOpened);
+        console.log("Times spent in pages", pageStayTimes);
+        console.log("Average length of stay in a page is now:", pageStayTimes.reduce((runningTotal, currentValue) => runningTotal + currentValue, 0) / pageStayTimes.length, "ms");
+
+        // TODO (IMPORTANT): set this when page is actually done rendering instead?
+        timePageOpened = e.timeStamp;
+    }
 
     // if selected menu is already expanded, hide its submenus (not grandchildren)
     if (selectedMenu.classList.contains("expanded")) {
