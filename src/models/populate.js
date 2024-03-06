@@ -1098,6 +1098,8 @@ async function main() {
             });
             await manageCommunityChats4.populate("parentMenu");
 
+            //
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
@@ -1647,6 +1649,608 @@ async function main() {
                 order: 2,
             });
             await editOrDeleteYourPages5.populate("parentMenu");
+
+            // Using Facebook > Pages > Publishing > Basics
+            var likeOrCommentOnAnother5 = await Menu.create({
+                name: "Like or comment on another Page's post as your Page",
+                parentMenu: basics4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await likeOrCommentOnAnother5.populate("parentMenu");
+
+            var sharePhotosOrVideos5 = await Menu.create({
+                name: "Share photos or videos from your Facebook Page",
+                parentMenu: basics4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await sharePhotosOrVideos5.populate("parentMenu");
+
+            var shareALinkFrom5 = await Menu.create({
+                name: "Share a link from your Facebook Page",
+                parentMenu: basics4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await shareALinkFrom5.populate("parentMenu");
+
+            var pinItemsToTheTop5 = await Menu.create({
+                name: "Pin items to the top of your Facebook Page",
+                parentMenu: basics4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await pinItemsToTheTop5.populate("parentMenu");
+
+            // Using Facebook > Pages > Publishing > Visibility & Editing
+            var controlWhoCanSeeYourPagesPost5 = await Menu.create({
+                name: "Control who can see your Page's posts on Facebook",
+                parentMenu: visibilityAndEditing4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await controlWhoCanSeeYourPagesPost5.populate("parentMenu");
+
+            var removeOrHidePosts5 = await Menu.create({
+                name: "Remove or hide posts from your Facebook page",
+                parentMenu: visibilityAndEditing4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await removeOrHidePosts5.populate("parentMenu");
+
+            var editYourPagePost5 = await Menu.create({
+                name: "Edit your Page post or see its edit history",
+                parentMenu: visibilityAndEditing4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await editYourPagePost5.populate("parentMenu");
+
+            var howDoIChooseADate5 = await Menu.create({
+                name: "How do I choose a date for my Facebook Page post to stop showing in News Feed?",
+                parentMenu: visibilityAndEditing4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await howDoIChooseADate5.populate("parentMenu");
+
+            // Using Facebook > Pages > Publishing > Drafts & Scheduled Posts
+            var createEditOrPublish5 = await Menu.create({
+                name: "Create, edit, or publish a post draft for your Page",
+                parentMenu: draftsAndScheduledPosts4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await createEditOrPublish5.populate("parentMenu");
+
+            var scheduleAPostAndManage5 = await Menu.create({
+                name: "Schedule a post and manage scheduled posts for your Facebook Page",
+                parentMenu: draftsAndScheduledPosts4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await scheduleAPostAndManage5.populate("parentMenu");
+
+            var changeTheDateOfYourFBPage5 = await Menu.create({
+                name: "Change the date of your Facebook Page's posts",
+                parentMenu: draftsAndScheduledPosts4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await changeTheDateOfYourFBPage5.populate("parentMenu");
+
+            // Using Facebook > Pages > Publishing > Events
+            var createAnEvent5 = await Menu.create({
+                name: "Create an event for your Facebook Page",
+                parentMenu: events4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await createAnEvent5.populate("parentMenu");
+
+            var addOrRemoveAnotherPersons5 = await Menu.create({
+                name: "Add or remove another person's or Page's Facebook event from your Page",
+                parentMenu: events4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addOrRemoveAnotherPersons5.populate("parentMenu");
+
+            // Using Facebook > Groups > Post, Participate, and Privacy > Post
+            var postInAFBGroup5 = await Menu.create({
+                name: "Post in a Facebook group",
+                parentMenu: post4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await postInAFBGroup5.populate("parentMenu");
+
+            var formatYourPost5 = await Menu.create({
+                name: "Format your post in a Facebook group",
+                parentMenu: post4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await formatYourPost5.populate("parentMenu");
+
+            var postAnonymously5 = await Menu.create({
+                name: "Post anonymously in a Facebook group",
+                parentMenu: post4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await postAnonymously5.populate("parentMenu");
+
+            var createAReel5 = await Menu.create({
+                name: "Create a reel in a Facebook group",
+                parentMenu: post4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await createAReel5.populate("parentMenu");
+
+            // Using Facebook > Groups > Post, Participate, and Privacy > Participate
+            var commentOnSomething5 = await Menu.create({
+                name: "Comment on something you see on Facebook",
+                parentMenu: participate4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await commentOnSomething5.populate("parentMenu");
+
+            var joinACommunityChat5 = await Menu.create({
+                name: "Join a community chat in a Facebook group",
+                parentMenu: participate4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await joinACommunityChat5.populate("parentMenu");
+
+            var earnATopContributor5 = await Menu.create({
+                name: "Earn a top contributor badge in a Facebook group",
+                parentMenu: participate4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await earnATopContributor5.populate("parentMenu");
+
+            var awardAPostOrComment5 = await Menu.create({
+                name: "Award a post or comment in a Facebook group",
+                parentMenu: participate4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await awardAPostOrComment5.populate("parentMenu");
+
+            // Using Facebook > Groups > Post, Participate, and Privacy > Privacy
+            var differencesBetweenPublic5_1 = await Menu.create({
+                name: "Differences between public and private Facebook groups",
+                parentMenu: privacy4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await differencesBetweenPublic5_1.populate("parentMenu");
+
+            var changeAFacebookGroup5 = await Menu.create({
+                name: "Change a Facebook group from public to private",
+                parentMenu: privacy4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await changeAFacebookGroup5.populate("parentMenu");
+
+            var hideOrUnhide5 = await Menu.create({
+                name: "Hide or unhide a private",
+                parentMenu: privacy4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await hideOrUnhide5.populate("parentMenu");
+
+            var checkIfAFBGroup5 = await Menu.create({
+                name: "Check if a Facebook group is public or private",
+                parentMenu: privacy4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await checkIfAFBGroup5.populate("parentMenu");
+
+            // Using Facebook > Groups > Post, Participate, and Privacy > Buy and Sell Groups
+            var howBuyAndSellGroups5 = await Menu.create({
+                name: "How buy and sell groups differ from regular Facebook groups",
+                parentMenu: buyAndSellGroups4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await howBuyAndSellGroups5.populate("parentMenu");
+
+            var sellSomethinginAFB5 = await Menu.create({
+                name: "Sell something in a Facebook buy and sell group",
+                parentMenu: buyAndSellGroups4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await sellSomethinginAFB5.populate("parentMenu");
+
+            var editYourListing5 = await Menu.create({
+                name: "Edit your listing in a Facebook buy and sell group",
+                parentMenu: buyAndSellGroups4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await editYourListing5.populate("parentMenu");
+
+            var markSomethingAsSold5 = await Menu.create({
+                name: "Mark something as sold in a Facebook buy and sell group",
+                parentMenu: buyAndSellGroups4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await markSomethingAsSold5.populate("parentMenu");
+
+            // Using Facebook > Groups > Create, Engage, and Manage Settings > Create
+            var createAFBGroup5 = await Menu.create({
+                name: "Create a Facebook group",
+                parentMenu: create4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await createAFBGroup5.populate("parentMenu");
+
+            var differencesBetweenPublic5_2 = await Menu.create({
+                name: "Differences between public and private Facebook groups",
+                parentMenu: create4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await differencesBetweenPublic5_2.populate("parentMenu");
+
+            var addAnAdmin5 = await Menu.create({
+                name: "Add an admin or moderator to your Facebook group",
+                parentMenu: create4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await addAnAdmin5.populate("parentMenu");
+
+            var changeTheColor5 = await Menu.create({
+                name: "Change the color of a Facebook group you admin",
+                parentMenu: create4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await changeTheColor5.populate("parentMenu");
+
+            // Using Facebook > Groups > Create, Engage, and Manage Settings > Manage Group Settings
+            var manageMembership5 = await Menu.create({
+                name: "Manage membership for your Facebook group",
+                parentMenu: manageGroupSettings4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await manageMembership5.populate("parentMenu");
+
+            var managePosts5 = await Menu.create({
+                name: "Manage posts for your Facebook group",
+                parentMenu: manageGroupSettings4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await managePosts5.populate("parentMenu");
+
+            var addAndManageFeatures5_1 = await Menu.create({
+                name: "Add and manage features for a Facebook group you admin",
+                parentMenu: manageGroupSettings4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await addAndManageFeatures5_1.populate("parentMenu");
+
+            var sortPostsInAFBGroup = await Menu.create({
+                name: "Sort posts in a Facebook group you admin",
+                parentMenu: manageGroupSettings4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await sortPostsInAFBGroup.populate("parentMenu");
+
+            // Using Facebook > Groups > Create, Engage, and Manage Settings > Manage Group Features
+            var addAndManageFeatures5_2 = await Menu.create({
+                name: "Add and manage features for a Facebook group you admin",
+                parentMenu: manageGroupFeatures4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await addAndManageFeatures5_2.populate("parentMenu");
+
+            var manageCommunityChats5 = await Menu.create({
+                name: "Manage community chats in a Facebook group you admin",
+                parentMenu: manageGroupFeatures4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await manageCommunityChats5.populate("parentMenu");
+
+            var addOrRemoveTheFBBuy5 = await Menu.create({
+                name: "Add or remove the Facebook buy and sell feature set in your Facebook group",
+                parentMenu: manageGroupFeatures4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await addOrRemoveTheFBBuy5.populate("parentMenu");
+
+            var addOrRemoveAnApp5 = await Menu.create({
+                name: "Add or remove an app from a Facebook group you admin",
+                parentMenu: manageGroupFeatures4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await addOrRemoveAnApp5.populate("parentMenu");
+
+            // Using Facebook > Groups > Create, Engage, and Manage Settings > Engage
+            var welcomeNewMembers5 = await Menu.create({
+                name: "Welcome new members to a Facebook group you manage",
+                parentMenu: engage4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await welcomeNewMembers5.populate("parentMenu");
+
+            var scheduleAPostInAFBGroup5 = await Menu.create({
+                name: "Schedule a post in a Facebook group you manage",
+                parentMenu: engage4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await scheduleAPostInAFBGroup5.populate("parentMenu");
+
+            var createACommunityChat5 = await Menu.create({
+                name: "Create a community chat in a Facebook group",
+                parentMenu: engage4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await createACommunityChat5.populate("parentMenu");
+
+            var attachACommunityChat5 = await Menu.create({
+                name: "Attach a community chat to your Facebook group post",
+                parentMenu: engage4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await attachACommunityChat5.populate("parentMenu");
+
+            // Using Facebook > Groups > Manage People and Content > Manage People
+            var setUpAdminAssist5 = await Menu.create({
+                name: "Set up Admin Assist to automatically manage your Facebook group",
+                parentMenu: managePeople4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await setUpAdminAssist5.populate("parentMenu");
+
+            var turnBadgesOnOrOff5 = await Menu.create({
+                name: "Turn badges on or off in a Facebook group you manage",
+                parentMenu: managePeople4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await turnBadgesOnOrOff5.populate("parentMenu");
+
+            var seeTheMembersOfAFBGroup5 = await Menu.create({
+                name: "See the members of a Facebook group",
+                parentMenu: managePeople4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await seeTheMembersOfAFBGroup5.populate("parentMenu");
+
+            var whatItMeansThatAFBGroup5 = await Menu.create({
+                name: "What it means that a Facebook group member is unavailable",
+                parentMenu: managePeople4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await whatItMeansThatAFBGroup5.populate("parentMenu");
+
+            // Using Facebook > Groups > Manage People and Content > Manage Content
+            var chooseWhatPeople5 = await Menu.create({
+                name: "Choose what people can post in a Facebook group you admin",
+                parentMenu: manageContent4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await chooseWhatPeople5.populate("parentMenu");
+
+            var managePostsForYourFBGroup5 = await Menu.create({
+                name: "Manage posts for your Facebook group",
+                parentMenu: manageContent4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await managePostsForYourFBGroup5.populate("parentMenu");
+
+            var sortPostsInAFBGroup5 = await Menu.create({
+                name: "Sort posts in a Facebook group you admin",
+                parentMenu: manageContent4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await sortPostsInAFBGroup5.populate("parentMenu");
+
+            var whyAFBGroupPost5 = await Menu.create({
+                name: "Why a Facebook group post is empty",
+                parentMenu: manageContent4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await whyAFBGroupPost5.populate("parentMenu");
+
+            // Using Facebook > Groups > Manage People and Content > Enforce and Moderate
+            var removeBanOrUnban5 = await Menu.create({
+                name: "Remove, ban, or unban someone in a Facebook group you manage",
+                parentMenu: enforceAndModerate4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await removeBanOrUnban5.populate("parentMenu");
+
+            var suspendSomeone5 = await Menu.create({
+                name: "Suspend someone in a Facebook group you manage",
+                parentMenu: enforceAndModerate4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await suspendSomeone5.populate("parentMenu");
+
+            var removeAPostInAFBGroup5 = await Menu.create({
+                name: "Remove a post in a Facebook group you manage",
+                parentMenu: enforceAndModerate4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await removeAPostInAFBGroup5.populate("parentMenu");
+
+            var turnOffPostComments5 = await Menu.create({
+                name: "Turn off post comments or comment replies in a Facebook group",
+                parentMenu: enforceAndModerate4,
+                nestLevel: 5,
+                order: 4,
+            });
+
+            // Using Facebook > Groups > Manage People and Content > Admin and Moderator Team
+            var differenceBetweenAdmin5 = await Menu.create({
+                name: "Difference between admin and moderator of a Facebook group",
+                parentMenu: adminAndModeratorTeam4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await differenceBetweenAdmin5.populate("parentMenu");
+
+            var addAnAdminOrModerator5 = await Menu.create({
+                name: "Add an admin or moderator to your Facebook group",
+                parentMenu: adminAndModeratorTeam4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addAnAdminOrModerator5.populate("parentMenu");
+
+            var removeAnAdminOrModerator5 = await Menu.create({
+                name: "Remove an admin or moderator from your Facebook group",
+                parentMenu: adminAndModeratorTeam4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await removeAnAdminOrModerator5.populate("parentMenu");
+
+            var chatWithOtherAdmins5 = await Menu.create({
+                name: "Chat with other admins and moderators in your Facebook group",
+                parentMenu: adminAndModeratorTeam4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await chatWithOtherAdmins5.populate("parentMenu");
+
+            // Using Facebook > Groups > Community Chats > Get started
+            var findAFBGroups5 = await Menu.create({
+                name: "Find a Facebook group's community chat",
+                parentMenu: getStarted4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await findAFBGroups5.populate("parentMenu");
+
+            var createACommunityChat5_2 = await Menu.create({
+                name: "Create a community chat in a Facebook group",
+                parentMenu: getStarted4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await createACommunityChat5_2.populate("parentMenu");
+
+            var privacyAndSafety5 = await Menu.create({
+                name: "Privacy and safety in community chats",
+                parentMenu: getStarted4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await privacyAndSafety5.populate("parentMenu");
+
+            var accessToCommunity5 = await Menu.create({
+                name: "Access to community chats for Facebook groups",
+                parentMenu: getStarted4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await accessToCommunity5.populate("parentMenu");
+
+            // Using Facebook > Groups > Community Chats > Use community chats
+            var joinACommunityChat5_2 = await Menu.create({
+                name: "Join a community chat in a Facebook group",
+                parentMenu: useCommunityChats4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await joinACommunityChat5_2.populate("parentMenu");
+
+            var addSomeoneToYourFacebooks5 = await Menu.create({
+                name: "Add someone to your Facebook group's community chat",
+                parentMenu: useCommunityChats4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addSomeoneToYourFacebooks5.populate("parentMenu");
+
+            var manageCommunityChatNotifs5 = await Menu.create({
+                name: "Manage community chat notifications on Messenger",
+                parentMenu: useCommunityChats4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await manageCommunityChatNotifs5.populate("parentMenu");
+
+            var leaveACommunityChatOnMessenger5 = await Menu.create({
+                name: "Leave a community chat on Messenger or Facebook",
+                parentMenu: useCommunityChats4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await leaveACommunityChatOnMessenger5.populate("parentMenu");
+
+            // Using Facebook > Groups > Community Chats > Manage community chats
+            var addOrRemoveCommunityChat5 = await Menu.create({
+                name: "Add or remove community chat admins and moderators",
+                parentMenu: manageCommunityChats4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await addOrRemoveCommunityChat5.populate("parentMenu");
+
+            var deleteACommunityChat5 = await Menu.create({
+                name: "Delete a community chat on Messenger or Facebook",
+                parentMenu: manageCommunityChats4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await deleteACommunityChat5.populate("parentMenu");
+
+            var createCategories5 = await Menu.create({
+                name: "Create categories for your community chats",
+                parentMenu: manageCommunityChats4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await createCategories5.populate("parentMenu");
+
+            var attachACommunityChat5_2 = await Menu.create({
+                name: "Attach a community chat to your Facebook group posts",
+                parentMenu: manageCommunityChats4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await attachACommunityChat5_2.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
