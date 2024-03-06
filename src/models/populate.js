@@ -908,6 +908,39 @@ async function main() {
             });
             await connectAPage4.populate("parentMenu");
 
+            // Using Facebook > Pages > Customize a Page
+            var profilePicturesAndCover4 = await Menu.create({
+                name: "Profile Pictures and Cover Photos",
+                parentMenu: customizeAPage3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await profilePicturesAndCover4.populate("parentMenu");
+
+            var categoriesAndTemplates4 = await Menu.create({
+                name: "Categories and Templates",
+                parentMenu: customizeAPage3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await categoriesAndTemplates4.populate("parentMenu");
+
+            var editPageDetails4 = await Menu.create({
+                name: "Edit Page Details",
+                parentMenu: customizeAPage3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await editPageDetails4.populate("parentMenu");
+
+            var callToActionBtns4 = await Menu.create({
+                name: "Call-to-Action Buttons",
+                parentMenu: customizeAPage3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await callToActionBtns4.populate("parentMenu");
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
@@ -1373,6 +1406,90 @@ async function main() {
                 order: 3,
             });
             await connectYourFBPage5.populate("parentMenu");
+
+            // Using Facebook > Pages > Customize a Page > Profile Pictures and Cover Photos
+            var addOrChangeYourFBPagesPFP5 = await Menu.create({
+                name: "Add or change your Facebook Page's profile picture",
+                parentMenu: profilePicturesAndCover4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await addOrChangeYourFBPagesPFP5.populate("parentMenu");
+
+            var addOrChangeYourFBPagesCP5 = await Menu.create({
+                name: "Add or change your Facebook Page's cover photo",
+                parentMenu: profilePicturesAndCover4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addOrChangeYourFBPagesCP5.populate("parentMenu");
+
+            // Using Facebook > Pages > Customize a Page > Categories and Templates
+            var whatFeaturesAreAvailable5 = await Menu.create({
+                name: "What features are available based on your Facebook Page's category",
+                parentMenu: categoriesAndTemplates4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await whatFeaturesAreAvailable5.populate("parentMenu");
+
+            var editYourPagesCategory5 = await Menu.create({
+                name: "Edit your Page's category on Facebook",
+                parentMenu: categoriesAndTemplates4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await editYourPagesCategory5.populate("parentMenu");
+
+            // Using Facebook > Pages > Customize a Page > Edit Page Details
+            var addBasicInfo5 = await Menu.create({
+                name: "Add basic information to your Page",
+                parentMenu: editPageDetails4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await addBasicInfo5.populate("parentMenu");
+
+            var addOrEditAnAddress5 = await Menu.create({
+                name: "Add or edit an address on your Facebook Page",
+                parentMenu: editPageDetails4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addOrEditAnAddress5.populate("parentMenu");
+
+            var addOrChangeBusinessHours5 = await Menu.create({
+                name: "Add or change business hours on your Facebook Page",
+                parentMenu: editPageDetails4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await addOrChangeBusinessHours5.populate("parentMenu");
+
+            var addServicesToYourFBPage5 = await Menu.create({
+                name: "Add services to your Facebook Page",
+                parentMenu: editPageDetails4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await addServicesToYourFBPage5.populate("parentMenu");
+
+            // Using Facebook > Pages > Customize a Page > Call-to-Action Buttons
+            var addAnActionButton5 = await Menu.create({
+                name: "Add an action button to your Facebook Page",
+                parentMenu: callToActionBtns4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await addAnActionButton5.populate("parentMenu");
+
+            var editOrDeleteYourPages5 = await Menu.create({
+                name: "Edit or delete your Page's action button",
+                parentMenu: callToActionBtns4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await editOrDeleteYourPages5.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
