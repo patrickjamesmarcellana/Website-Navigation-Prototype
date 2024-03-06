@@ -883,6 +883,31 @@ async function main() {
             });
             await deleteOrDeactivate4.populate("parentMenu");
 
+            // Using Facebook > Pages > Manage Page Settings
+            var pageRoles4 = await Menu.create({
+                name: "Page Roles",
+                parentMenu: managePageSettings3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await pageRoles4.populate("parentMenu");
+
+            var privacyAndVisibility4 = await Menu.create({
+                name: "Privacy and Visibility Settings",
+                parentMenu: managePageSettings3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await privacyAndVisibility4.populate("parentMenu");
+
+            var connectAPage4 = await Menu.create({
+                name: "Connect a Page",
+                parentMenu: managePageSettings3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await connectAPage4.populate("parentMenu");
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
@@ -1257,6 +1282,97 @@ async function main() {
                 order: 2,
             });
             await deactiveYourFBPage5.populate("parentMenu");
+
+            // Using Facebook > Pages > Manage Page Settings > Page Roles
+            var learnAboutFacebookPage5 = await Menu.create({
+                name: "Learn about Facebook Page access and roles",
+                parentMenu: pageRoles4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await learnAboutFacebookPage5.populate("parentMenu");
+
+            var giveEditOrRemoveFBPage5 = await Menu.create({
+                name: "Give, edit, or remove Facebook Page access",
+                parentMenu: pageRoles4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await giveEditOrRemoveFBPage5.populate("parentMenu");
+
+            var seeyourFBPageRole5 = await Menu.create({
+                name: "See your Facebook Page role or access",
+                parentMenu: pageRoles4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await seeyourFBPageRole5.populate("parentMenu");
+
+            var changeYourFBPageNotif5 = await Menu.create({
+                name: "Change your Facebook Page notification settings",
+                parentMenu: pageRoles4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await changeYourFBPageNotif5.populate("parentMenu");
+
+            // Using Facebook > Pages > Manage Page Settings > Privacy and Visibility Settings
+            var controlWhoCanSee5 = await Menu.create({
+                name: "Control who can see your Facebook Page",
+                parentMenu: privacyAndVisibility4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await controlWhoCanSee5.populate("parentMenu");
+
+            var addOrEditCountryAndAge5 = await Menu.create({
+                name: "Add or edit country and age restrictions for your Page",
+                parentMenu: privacyAndVisibility4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await addOrEditCountryAndAge5.populate("parentMenu");
+
+            var turnSimilarPage5 = await Menu.create({
+                name: "Turn similar Page suggestions on or off for your Page",
+                parentMenu: privacyAndVisibility4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await turnSimilarPage5.populate("parentMenu");
+
+            var seeWhatYourPage5 = await Menu.create({
+                name: "See what your Page looks like to visitors",
+                parentMenu: privacyAndVisibility4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await seeWhatYourPage5.populate("parentMenu");
+
+            // Using Facebook > Pages > Manage Page Settings > Connect a Page
+            var addOrRemoveAnIGAccount5 = await Menu.create({
+                name: "Add or remove an Instagram account from your Page",
+                parentMenu: connectAPage4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await addOrRemoveAnIGAccount5.populate("parentMenu");
+
+            var whatHappensAfterConnecting5 = await Menu.create({
+                name: "What happens after connecting your Facebook Page and Instagram account",
+                parentMenu: connectAPage4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await whatHappensAfterConnecting5.populate("parentMenu");
+
+            var connectYourFBPage5 = await Menu.create({
+                name: "Connect your Facebook Page and WhatsApp account",
+                parentMenu: connectAPage4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await connectYourFBPage5.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
