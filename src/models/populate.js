@@ -750,6 +750,39 @@ async function main() {
             });
             await howDoIPostSomething4.populate("parentMenu");
 
+            // Using Facebook > Messaging > Send Messages
+            var sendMessages4 = await Menu.create({
+                name: "Send Messages",
+                parentMenu: sendMessages3,
+                nestLevel: 4,
+                order: 1,
+            });
+            await sendMessages4.populate("parentMenu");
+
+            var deleting4 = await Menu.create({
+                name: "Deleting",
+                parentMenu: sendMessages3,
+                nestLevel: 4,
+                order: 2,
+            });
+            await deleting4.populate("parentMenu");
+
+            var groupConversations4 = await Menu.create({
+                name: "Group Conversations",
+                parentMenu: sendMessages3,
+                nestLevel: 4,
+                order: 3,
+            });
+            await groupConversations4.populate("parentMenu");
+
+            var messagingPagesEvents4 = await Menu.create({
+                name: "Messaging Pages, Events, and Groups",
+                parentMenu: sendMessages3,
+                nestLevel: 4,
+                order: 4,
+            });
+            await messagingPagesEvents4.populate("parentMenu");
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
@@ -840,6 +873,98 @@ async function main() {
                 order: 3,
             });
             await profileTransparency5.populate("parentMenu");
+
+            // Using Facebook > Messaging > Send Messages > Send Messages
+            var editAMessageOnFB5 = await Menu.create({
+                name: "Edit a message on Facebook",
+                parentMenu: sendMessages4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await editAMessageOnFB5.populate("parentMenu");
+
+            var removeAMessage5 = await Menu.create({
+                name: "Remove a message you've sent on Facebook",
+                parentMenu: sendMessages4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await removeAMessage5.populate("parentMenu");
+
+            var whoCanISendMessages5 = await Menu.create({
+                name: "Who can I send messages to on Facebook",
+                parentMenu: sendMessages4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await whoCanISendMessages5.populate("parentMenu");
+
+            var howMessageOnFBWork5 = await Menu.create({
+                name: "How messages on Facebook work",
+                parentMenu: sendMessages4,
+                nestLevel: 5,
+                order: 4,
+            });
+            await howMessageOnFBWork5.populate("parentMenu");
+
+            // Using Facebook > Messaging > Send Messages > Deleting
+            var howDoIdeleteSticker5 = await Menu.create({
+                name: "How do I delete sticker packs for my Facebook messages?",
+                parentMenu: deleting4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await howDoIdeleteSticker5.populate("parentMenu");
+
+            var canIRetrieveDeleted5 = await Menu.create({
+                name: "Can I retrieve deleted messages on Facebook?",
+                parentMenu: deleting4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await canIRetrieveDeleted5.populate("parentMenu");
+
+            // Using Facebook > Messaging > Send Messages > Group Conversations
+            var howManyPeopleCanIMessage5 = await Menu.create({
+                name: "How many people can I message at once on Facebook?",
+                parentMenu: groupConversations4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await howManyPeopleCanIMessage5.populate("parentMenu");
+
+            var howDoIChatWithMore5 = await Menu.create({
+                name: "How do I chat with more than one friend at once on Facebook?",
+                parentMenu: groupConversations4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await howDoIChatWithMore5.populate("parentMenu");
+
+            var leaveAGroupChatOnFB5 = await Menu.create({
+                name: "Leave a group chat on Facebook",
+                parentMenu: groupConversations4,
+                nestLevel: 5,
+                order: 3,
+            });
+            await leaveAGroupChatOnFB5.populate("parentMenu");
+
+            // Using Facebook > Messaging > Send Messages > Messaging Pages, Events, and Groups
+            var sendAMessageToYourFB5 = await Menu.create({
+                name: "Send a message to your Facebook event guest list",
+                parentMenu: messagingPagesEvents4,
+                nestLevel: 5,
+                order: 1,
+            });
+            await sendAMessageToYourFB5.populate("parentMenu");
+
+            var sendAPrivateMessage5 = await Menu.create({
+                name: "Send a private message to a Facebook Page",
+                parentMenu: messagingPagesEvents4,
+                nestLevel: 5,
+                order: 2,
+            });
+            await sendAPrivateMessage5.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
