@@ -1590,7 +1590,7 @@ async function main() {
 
             // Using Facebook > Messaging > Video Calling > Rooms
             var createAVideoCall5 = await Menu.create({
-                name: "Create a video call from your Facebook",
+                name: "Create a video call from your Facebook feed",
                 parentMenu: rooms4,
                 nestLevel: 5,
                 order: 1,
