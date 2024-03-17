@@ -2177,6 +2177,57 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
+
+            // Managing Your Account > Login and Password > Fix a Login Problem > Login Help
+            var recoverYourFBAccount5 = await Menu.create({
+                name: "Recover your Facebook Account if You Can't Log In",
+                parentMenu: loginHelp4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var troubleshootLogin5 = await Menu.create({
+                name: "Troubleshoot login with a phone number on Facebook",
+                parentMenu: loginHelp4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var findYourAccount5 = await Menu.create({
+                name: 'Find your account from the "Find your account" page',
+                parentMenu: loginHelp4,
+                nestLevel: 5,
+                order: 3,
+            });
+
+            var iHaveToEnterASecurity5 = await Menu.create({
+                name: "I have to enter a security code every time I log into Facebook",
+                parentMenu: loginHelp4,
+                nestLevel: 5,
+                order: 4,
+            });
+
+            // Managing Your Account > Login and Password > Log Fix a Login Problem > Password Help
+            var unableToResetPW5 = await Menu.create({
+                name: "Unable to reset password because of password reset limit",
+                parentMenu: passwordHelp4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var problemsWithResetting5 = await Menu.create({
+                name: "Problems with resetting your Facebook password",
+                parentMenu: passwordHelp4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var recoverYourAccountIf5 = await Menu.create({
+                name: "Recover Your Account If You Can't Access the Email or Mobile Number on the Account",
+                parentMenu: passwordHelp4,
+                nestLevel: 5,
+                order: 3,
+            });
         } catch (err) {
             console.error(err);
         }
