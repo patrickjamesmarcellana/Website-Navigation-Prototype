@@ -55,7 +55,6 @@ async function main() {
                 nestLevel: 2,
                 order: 1,
             });
-            await yourProfile2.populate("parentMenu");
 
             var messaging2 = await Menu.create({
                 name: "Messaging",
@@ -63,7 +62,6 @@ async function main() {
                 nestLevel: 2,
                 order: 2,
             });
-            await messaging2.populate("parentMenu");
 
             var pages2 = await Menu.create({
                 name: "Pages",
@@ -71,7 +69,6 @@ async function main() {
                 nestLevel: 2,
                 order: 3,
             });
-            await pages2.populate("parentMenu");
 
             var groups2 = await Menu.create({
                 name: "Groups",
@@ -79,7 +76,6 @@ async function main() {
                 nestLevel: 2,
                 order: 4,
             });
-            await groups2.populate("parentMenu");
 
             // managing your account
             var loginAndPassword2 = await Menu.create({
@@ -88,7 +84,6 @@ async function main() {
                 nestLevel: 2,
                 order: 1,
             });
-            await loginAndPassword2.populate("parentMenu");
 
             var accountSettings2 = await Menu.create({
                 name: "Account Settings",
@@ -96,7 +91,6 @@ async function main() {
                 nestLevel: 2,
                 order: 2,
             });
-            await accountSettings2.populate("parentMenu");
 
             var notifications2 = await Menu.create({
                 name: "Notifications",
@@ -104,7 +98,6 @@ async function main() {
                 nestLevel: 2,
                 order: 3,
             });
-            await notifications2.populate("parentMenu");
 
             var adPreferences2 = await Menu.create({
                 name: "Ad Preferences",
@@ -112,7 +105,6 @@ async function main() {
                 nestLevel: 2,
                 order: 4,
             });
-            await adPreferences2.populate("parentMenu");
 
             // privacy, safety, and security
             var yourPrivacy2 = await Menu.create({
@@ -121,7 +113,6 @@ async function main() {
                 nestLevel: 2,
                 order: 1,
             });
-            await yourPrivacy2.populate("parentMenu");
 
             var stayingSafe2 = await Menu.create({
                 name: "Staying Safe",
@@ -129,7 +120,6 @@ async function main() {
                 nestLevel: 2,
                 order: 2,
             });
-            await stayingSafe2.populate("parentMenu");
 
             var keepingYourAccount2 = await Menu.create({
                 name: "Keeping Your Account Secure",
@@ -137,7 +127,6 @@ async function main() {
                 nestLevel: 2,
                 order: 3,
             });
-            await keepingYourAccount2.populate("parentMenu");
 
             var shoppingSafety2 = await Menu.create({
                 name: "Shopping Safety",
@@ -145,7 +134,6 @@ async function main() {
                 nestLevel: 2,
                 order: 4,
             });
-            await shoppingSafety2.populate("parentMenu");
 
             // policies and reporting
             var reportingAbuse2 = await Menu.create({
@@ -154,7 +142,6 @@ async function main() {
                 nestLevel: 2,
                 order: 1,
             });
-            await reportingAbuse2.populate("parentMenu");
 
             var reportingAProblem2 = await Menu.create({
                 name: "Reporting a Problem with Facebook",
@@ -162,7 +149,6 @@ async function main() {
                 nestLevel: 2,
                 order: 2,
             });
-            await reportingAProblem2.populate("parentMenu");
 
             var beingYourAuthentic2 = await Menu.create({
                 name: "Being Your Authentic Self on Facebook",
@@ -170,7 +156,6 @@ async function main() {
                 nestLevel: 2,
                 order: 4,
             });
-            await beingYourAuthentic2.populate("parentMenu");
 
             var hackedAndFakeAccounts2 = await Menu.create({
                 name: "Hacked and Fake Accounts",
@@ -178,7 +163,6 @@ async function main() {
                 nestLevel: 2,
                 order: 3,
             });
-            await hackedAndFakeAccounts2.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
@@ -194,7 +178,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await addAndEditYourProfile3.populate("parentMenu");
 
             var yourProfilePicture3 = await Menu.create({
                 name: "Your Profile Picture and Cover Photo",
@@ -202,7 +185,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await yourProfilePicture3.populate("parentMenu");
 
             var shareAndManagePosts3 = await Menu.create({
                 name: "Share and Manage Posts on Your Profile",
@@ -210,7 +192,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await shareAndManagePosts3.populate("parentMenu");
 
             // messaging
             var sendMessages3 = await Menu.create({
@@ -219,7 +200,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await sendMessages3.populate("parentMenu");
 
             var viewAndManageMessages3 = await Menu.create({
                 name: "View and Manage Messages",
@@ -227,7 +207,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await viewAndManageMessages3.populate("parentMenu");
 
             var reportAMessage3 = await Menu.create({
                 name: "Report a Message",
@@ -235,7 +214,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await reportAMessage3.populate("parentMenu");
 
             var videoCalling3 = await Menu.create({
                 name: "Video Calling",
@@ -243,7 +221,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await videoCalling3.populate("parentMenu");
 
             // pages
             var createAndManageAPage3 = await Menu.create({
@@ -252,7 +229,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await createAndManageAPage3.populate("parentMenu");
 
             var managePageSettings3 = await Menu.create({
                 name: "Manage Page Settings",
@@ -260,7 +236,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await managePageSettings3.populate("parentMenu");
 
             var customizeAPage3 = await Menu.create({
                 name: "Customize a Page",
@@ -268,7 +243,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await customizeAPage3.populate("parentMenu");
 
             var publishing3 = await Menu.create({
                 name: "Publishing",
@@ -276,7 +250,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await publishing3.populate("parentMenu");
 
             // groups
             var postParticipate3 = await Menu.create({
@@ -285,7 +258,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await postParticipate3.populate("parentMenu");
 
             var createEngage3 = await Menu.create({
                 name: "Create, Engage, and Manage Settings",
@@ -293,7 +265,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await createEngage3.populate("parentMenu");
 
             var managePeopleAndContent3 = await Menu.create({
                 name: "Manage People and Content",
@@ -301,7 +272,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await managePeopleAndContent3.populate("parentMenu");
 
             var communityChats3 = await Menu.create({
                 name: "Community Chats",
@@ -309,7 +279,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await communityChats3.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
@@ -324,7 +293,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await logIntoYourAccount3.populate("parentMenu");
 
             var changeYourPassword3 = await Menu.create({
                 name: "Change Your Password",
@@ -332,7 +300,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await changeYourPassword3.populate("parentMenu");
 
             var fixALoginProblem3 = await Menu.create({
                 name: "Fix a Login Problem",
@@ -340,7 +307,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await fixALoginProblem3.populate("parentMenu");
 
             var uploadingYourID3 = await Menu.create({
                 name: "Uploading Your ID",
@@ -348,7 +314,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await uploadingYourID3.populate("parentMenu");
 
             // account settings
             var adjustYourAccountSettings3 = await Menu.create({
@@ -357,7 +322,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await adjustYourAccountSettings3.populate("parentMenu");
 
             var connectToFacebookWithout3 = await Menu.create({
                 name: "Connect to Facebook Without Data Charges",
@@ -365,7 +329,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await connectToFacebookWithout3.populate("parentMenu");
 
             var yourUsername3 = await Menu.create({
                 name: "Your Username",
@@ -373,7 +336,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await yourUsername3.populate("parentMenu");
 
             var legacyContacts3 = await Menu.create({
                 name: "Legacy Contacts",
@@ -381,7 +343,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await legacyContacts3.populate("parentMenu");
 
             // notifications
             var pushEmailAndText3 = await Menu.create({
@@ -390,7 +351,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await pushEmailAndText3.populate("parentMenu");
 
             var chooseWhatYoureNotified3 = await Menu.create({
                 name: "Choose What You're Notified About",
@@ -398,7 +358,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await chooseWhatYoureNotified3.populate("parentMenu");
 
             var fixAProblem3 = await Menu.create({
                 name: "Fix a Problem",
@@ -406,7 +365,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await fixAProblem3.populate("parentMenu");
 
             // ad preferences
             var howAdsWork3 = await Menu.create({
@@ -415,7 +373,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await howAdsWork3.populate("parentMenu");
 
             var controlTheAds3 = await Menu.create({
                 name: "Control the Ads You See",
@@ -423,7 +380,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await controlTheAds3.populate("parentMenu");
 
             var yourInfoAndFacebook3 = await Menu.create({
                 name: "Your Info and Facebook Ads",
@@ -431,7 +387,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await yourInfoAndFacebook3.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
@@ -445,7 +400,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await controlWhoCanSee3.populate("parentMenu");
 
             var manageWhatYouveShared3 = await Menu.create({
                 name: "Manage What You've Shared",
@@ -453,7 +407,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await manageWhatYouveShared3.populate("parentMenu");
 
             var controlWhoCanFindYou3 = await Menu.create({
                 name: "Control Who Can Find You",
@@ -461,7 +414,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await controlWhoCanFindYou3.populate("parentMenu");
 
             // staying safe
             var abuseResources3 = await Menu.create({
@@ -470,7 +422,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await abuseResources3.populate("parentMenu");
 
             var suicideAndSelfInjury3 = await Menu.create({
                 name: "Suicide and Self-Injury Resources",
@@ -478,7 +429,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await suicideAndSelfInjury3.populate("parentMenu");
 
             var crisisResponse3 = await Menu.create({
                 name: "Crisis Response",
@@ -486,7 +436,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await crisisResponse3.populate("parentMenu");
 
             var safetyResourcesForParents3 = await Menu.create({
                 name: "Safety Resources for Parents",
@@ -494,7 +443,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await safetyResourcesForParents3.populate("parentMenu");
 
             // keeping your account secure
             var securityFeatures3 = await Menu.create({
@@ -503,7 +451,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await securityFeatures3.populate("parentMenu");
 
             var loginAlertsAnd3 = await Menu.create({
                 name: "Login Alerts and Two-Factor Authentication",
@@ -511,7 +458,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await loginAlertsAnd3.populate("parentMenu");
 
             var avoidSpamAndScams3 = await Menu.create({
                 name: "Avoid Spam and Scams",
@@ -519,7 +465,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await avoidSpamAndScams3.populate("parentMenu");
 
             // shopping safety
             var recognizingScams3 = await Menu.create({
@@ -528,7 +473,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await recognizingScams3.populate("parentMenu");
 
             var avoidingScams3 = await Menu.create({
                 name: "Avoiding Scams",
@@ -536,7 +480,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await avoidingScams3.populate("parentMenu");
 
             var buyingOnMarketplace3 = await Menu.create({
                 name: "Buying on Marketplace",
@@ -544,7 +487,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await buyingOnMarketplace3.populate("parentMenu");
 
             var tipsForShoppingSafely3 = await Menu.create({
                 name: "Tips for Shopping Safely",
@@ -552,7 +494,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await tipsForShoppingSafely3.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
@@ -566,7 +507,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await reportContentOnFacebook3.populate("parentMenu");
 
             var dontHaveAnAccount3 = await Menu.create({
                 name: "Don't Have an Account?",
@@ -574,7 +514,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await dontHaveAnAccount3.populate("parentMenu");
 
             // reporting a problem with facebook
             var somethingIsntWorking3 = await Menu.create({
@@ -583,7 +522,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await somethingIsntWorking3.populate("parentMenu");
 
             var reportAbusiveContent3 = await Menu.create({
                 name: "Report Abusive Content",
@@ -591,7 +529,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await reportAbusiveContent3.populate("parentMenu");
 
             var giveUsFeedback3 = await Menu.create({
                 name: "Give Us Feedback",
@@ -599,7 +536,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await giveUsFeedback3.populate("parentMenu");
 
             // being your authentic self on facebook
             var verifyingYourIdentity3 = await Menu.create({
@@ -608,7 +544,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await verifyingYourIdentity3.populate("parentMenu");
 
             var updatingYourProfileInfo3 = await Menu.create({
                 name: "Updating your profile information",
@@ -616,7 +551,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await updatingYourProfileInfo3.populate("parentMenu");
 
             var stayingSafeOnFacebook3 = await Menu.create({
                 name: "Staying safe on Facebook",
@@ -624,7 +558,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await stayingSafeOnFacebook3.populate("parentMenu");
 
             var metaPay3 = await Menu.create({
                 name: "Meta Pay",
@@ -632,7 +565,6 @@ async function main() {
                 nestLevel: 3,
                 order: 4,
             });
-            await metaPay3.populate("parentMenu");
 
             // hacked and fake accounts
             var hackedAccounts3 = await Menu.create({
@@ -641,7 +573,6 @@ async function main() {
                 nestLevel: 3,
                 order: 1,
             });
-            await hackedAccounts3.populate("parentMenu");
 
             var impersonatingAccounts3 = await Menu.create({
                 name: "Impersonating Accounts",
@@ -649,7 +580,6 @@ async function main() {
                 nestLevel: 3,
                 order: 2,
             });
-            await impersonatingAccounts3.populate("parentMenu");
 
             var fakeAccounts3 = await Menu.create({
                 name: "Fake Accounts",
@@ -657,7 +587,6 @@ async function main() {
                 nestLevel: 3,
                 order: 3,
             });
-            await fakeAccounts3.populate("parentMenu");
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info
             var basicProfileInfo4 = await Menu.create({
@@ -666,7 +595,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await basicProfileInfo4.populate("parentMenu");
 
             var aboutSectionProfile4 = await Menu.create({
                 name: "About Section of your Profile",
@@ -674,7 +602,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await aboutSectionProfile4.populate("parentMenu");
 
             var professionalMode4 = await Menu.create({
                 name: "Professional mode",
@@ -682,7 +609,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await professionalMode4.populate("parentMenu");
 
             // Using Facebook > Your Profile > Your Profile Picture and Cover Photo
             var addOrChangeFBPFP4 = await Menu.create({
@@ -691,7 +617,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await addOrChangeFBPFP4.populate("parentMenu");
 
             var howDoIEditFBPFPThumb4 = await Menu.create({
                 name: "How do I edit my Facebook profile picture thumbnail?",
@@ -699,7 +624,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await howDoIEditFBPFPThumb4.populate("parentMenu");
 
             var howDoISeeOldProfileVids4 = await Menu.create({
                 name: "How do I see old profile videos on Facebook?",
@@ -707,7 +631,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await howDoISeeOldProfileVids4.populate("parentMenu");
 
             var howDoIAddFrameToPhoto4 = await Menu.create({
                 name: "How do I add a frame to a photo, or remove a frame on Facebook?",
@@ -715,7 +638,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await howDoIAddFrameToPhoto4.populate("parentMenu");
 
             // Using Facebook > Your Profile > Share and Manage Posts on Your Profile
             var howDoIShareSomething4 = await Menu.create({
@@ -724,7 +646,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await howDoIShareSomething4.populate("parentMenu");
 
             var turnOnTimelineReview4 = await Menu.create({
                 name: "How do I share something on Facebook?",
@@ -732,7 +653,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await turnOnTimelineReview4.populate("parentMenu");
 
             var stopPeopleFromPosting4 = await Menu.create({
                 name: "Stop people from posting on your Facebook profile",
@@ -740,7 +660,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await stopPeopleFromPosting4.populate("parentMenu");
 
             var howDoIPostSomething4 = await Menu.create({
                 name: "How do I post something on someone else's Facebook timeline?",
@@ -748,7 +667,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await howDoIPostSomething4.populate("parentMenu");
 
             // Using Facebook > Messaging > Send Messages
             var sendMessages4 = await Menu.create({
@@ -757,7 +675,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await sendMessages4.populate("parentMenu");
 
             var deleting4 = await Menu.create({
                 name: "Deleting",
@@ -765,7 +682,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await deleting4.populate("parentMenu");
 
             var groupConversations4 = await Menu.create({
                 name: "Group Conversations",
@@ -773,7 +689,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await groupConversations4.populate("parentMenu");
 
             var messagingPagesEvents4 = await Menu.create({
                 name: "Messaging Pages, Events, and Groups",
@@ -781,7 +696,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await messagingPagesEvents4.populate("parentMenu");
 
             // Using Facebook > Messaging > View and Manage Messages
             var viewMessages4 = await Menu.create({
@@ -790,7 +704,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await viewMessages4.populate("parentMenu");
 
             var deleteAndArchive4 = await Menu.create({
                 name: "Delete and Archive Messages",
@@ -798,7 +711,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await deleteAndArchive4.populate("parentMenu");
 
             // Using Facebook > Messaging > Report a Message
             var whatToDoIfSomeonesBothering4 = await Menu.create({
@@ -807,7 +719,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await whatToDoIfSomeonesBothering4.populate("parentMenu");
 
             var blockMessagesFromAProfile4 = await Menu.create({
                 name: "Block messages from a profile on Facebook",
@@ -815,7 +726,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await blockMessagesFromAProfile4.populate("parentMenu");
 
             var reportAMessageOnFBAsSpam4 = await Menu.create({
                 name: "Report a message on Facebook as spam",
@@ -823,7 +733,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await reportAMessageOnFBAsSpam4.populate("parentMenu");
 
             var howToHandleBullying4 = await Menu.create({
                 name: "How to handle bullying, harassment, or personal attack on Facebook",
@@ -831,7 +740,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await howToHandleBullying4.populate("parentMenu");
 
             // Using Facebook > messaging > Video Calling
             var calling4 = await Menu.create({
@@ -840,7 +748,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await calling4.populate("parentMenu");
 
             var rooms4 = await Menu.create({
                 name: "Rooms",
@@ -848,7 +755,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await rooms4.populate("parentMenu");
 
             // Using Facebook > Pages > Create and Manage a Page
             var createAFacebookPage4 = await Menu.create({
@@ -857,7 +763,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await createAFacebookPage4.populate("parentMenu");
 
             var mergeFacebookPages4 = await Menu.create({
                 name: "Merge Facebook Pages",
@@ -865,7 +770,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await mergeFacebookPages4.populate("parentMenu");
 
             var inviteFriends4 = await Menu.create({
                 name: "Invite friends",
@@ -873,7 +777,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await inviteFriends4.populate("parentMenu");
 
             var deleteOrDeactivate4 = await Menu.create({
                 name: "Delete or deactivate your Page",
@@ -881,7 +784,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await deleteOrDeactivate4.populate("parentMenu");
 
             // Using Facebook > Pages > Manage Page Settings
             var pageRoles4 = await Menu.create({
@@ -890,7 +792,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await pageRoles4.populate("parentMenu");
 
             var privacyAndVisibility4 = await Menu.create({
                 name: "Privacy and Visibility Settings",
@@ -898,7 +799,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await privacyAndVisibility4.populate("parentMenu");
 
             var connectAPage4 = await Menu.create({
                 name: "Connect a Page",
@@ -906,7 +806,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await connectAPage4.populate("parentMenu");
 
             // Using Facebook > Pages > Customize a Page
             var profilePicturesAndCover4 = await Menu.create({
@@ -915,7 +814,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await profilePicturesAndCover4.populate("parentMenu");
 
             var categoriesAndTemplates4 = await Menu.create({
                 name: "Categories and Templates",
@@ -923,7 +821,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await categoriesAndTemplates4.populate("parentMenu");
 
             var editPageDetails4 = await Menu.create({
                 name: "Edit Page Details",
@@ -931,7 +828,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await editPageDetails4.populate("parentMenu");
 
             var callToActionBtns4 = await Menu.create({
                 name: "Call-to-Action Buttons",
@@ -939,7 +835,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await callToActionBtns4.populate("parentMenu");
 
             // Using Facebook > Pages > Publishing
             var basics4 = await Menu.create({
@@ -948,7 +843,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await basics4.populate("parentMenu");
 
             var visibilityAndEditing4 = await Menu.create({
                 name: "Visibility & Editing",
@@ -956,7 +850,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await visibilityAndEditing4.populate("parentMenu");
 
             var draftsAndScheduledPosts4 = await Menu.create({
                 name: "Drafts & Scheduled Posts",
@@ -964,7 +857,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await draftsAndScheduledPosts4.populate("parentMenu");
 
             var events4 = await Menu.create({
                 name: "Events",
@@ -972,7 +864,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await events4.populate("parentMenu");
 
             // Using Facebook > Groups > Post, Participate, and Privacy
             var post4 = await Menu.create({
@@ -981,7 +872,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await post4.populate("parentMenu");
 
             var participate4 = await Menu.create({
                 name: "Participate",
@@ -989,7 +879,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await participate4.populate("parentMenu");
 
             var privacy4 = await Menu.create({
                 name: "Privacy",
@@ -997,7 +886,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await privacy4.populate("parentMenu");
 
             var buyAndSellGroups4 = await Menu.create({
                 name: "Buy and Sell Groups",
@@ -1005,7 +893,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await buyAndSellGroups4.populate("parentMenu");
 
             // Using Facebook > Groups > Create, Engage, and Manage Settings
             var create4 = await Menu.create({
@@ -1014,7 +901,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await create4.populate("parentMenu");
 
             var manageGroupSettings4 = await Menu.create({
                 name: "Manage Group Settings",
@@ -1022,7 +908,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await manageGroupSettings4.populate("parentMenu");
 
             var manageGroupFeatures4 = await Menu.create({
                 name: "Manage Group Features",
@@ -1030,7 +915,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await manageGroupFeatures4.populate("parentMenu");
 
             var engage4 = await Menu.create({
                 name: "Engage",
@@ -1038,7 +922,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await engage4.populate("parentMenu");
 
             // Using Facebook > Groups > Manage People and Content
             var managePeople4 = await Menu.create({
@@ -1047,7 +930,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await managePeople4.populate("parentMenu");
 
             var manageContent4 = await Menu.create({
                 name: "Manage Content",
@@ -1055,7 +937,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await manageContent4.populate("parentMenu");
 
             var enforceAndModerate4 = await Menu.create({
                 name: "Enforce and Moderate",
@@ -1063,7 +944,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await enforceAndModerate4.populate("parentMenu");
 
             var adminAndModeratorTeam4 = await Menu.create({
                 name: "Admin and Moderator Team",
@@ -1071,7 +951,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await adminAndModeratorTeam4.populate("parentMenu");
 
             // Using Facebook > Groups > Community Chats
             var getStarted4 = await Menu.create({
@@ -1080,7 +959,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await getStarted4.populate("parentMenu");
 
             var useCommunityChats4 = await Menu.create({
                 name: "Use community chats",
@@ -1088,7 +966,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await useCommunityChats4.populate("parentMenu");
 
             var manageCommunityChats4 = await Menu.create({
                 name: "Manage community chats",
@@ -1096,7 +973,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await manageCommunityChats4.populate("parentMenu");
 
             // Managing Your Account > Login and Password > Log Into Your Account
             var logIntoYourFBAcct4 = await Menu.create({
@@ -1105,7 +981,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await logIntoYourFBAcct4.populate("parentMenu");
 
             var logOutOfFB4 = await Menu.create({
                 name: "Log out of Facebook",
@@ -1113,7 +988,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await logOutOfFB4.populate("parentMenu");
 
             var addOrRemovedSaved4 = await Menu.create({
                 name: "Add or remove a saved account from your phone",
@@ -1121,7 +995,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await addOrRemovedSaved4.populate("parentMenu");
 
             var iDontKnowifI4 = await Menu.create({
                 name: "I don't know if I still have a Facebook account",
@@ -1129,7 +1002,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await iDontKnowifI4.populate("parentMenu");
 
             // Managing Your Account > Login and Password > Change Your Password
             var changeOrReset4 = await Menu.create({
@@ -1138,7 +1010,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await changeOrReset4.populate("parentMenu");
 
             var makeAStrongFBPW4 = await Menu.create({
                 name: "Make a strong Facebook password",
@@ -1146,7 +1017,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await makeAStrongFBPW4.populate("parentMenu");
 
             var canYouSendMe4 = await Menu.create({
                 name: "Can you send me a copy of my Facebook password without resetting it?",
@@ -1154,7 +1024,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await canYouSendMe4.populate("parentMenu");
 
             var getAOneTimePW4 = await Menu.create({
                 name: "Get a one-time password to log into Facebook",
@@ -1162,7 +1031,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await getAOneTimePW4.populate("parentMenu");
 
             // Managing Your Account > Login and Password > Fix a Login Problem
             var loginHelp4 = await Menu.create({
@@ -1171,7 +1039,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await loginHelp4.populate("parentMenu");
 
             var passwordHelp4 = await Menu.create({
                 name: "Password Help",
@@ -1179,7 +1046,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await passwordHelp4.populate("parentMenu");
 
             // Managing Your Account > Login and Password > Uploading Your ID
             var typesOfIDs4 = await Menu.create({
@@ -1188,7 +1054,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await typesOfIDs4.populate("parentMenu");
 
             var howToUploadAnID4 = await Menu.create({
                 name: "How to upload an ID to Facebook",
@@ -1196,7 +1061,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await howToUploadAnID4.populate("parentMenu");
 
             var whyFacebookMayAsk4 = await Menu.create({
                 name: "Why Facebook may ask you to upload an ID",
@@ -1204,7 +1068,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await whyFacebookMayAsk4.populate("parentMenu");
 
             var whatHappensToYourID4 = await Menu.create({
                 name: "What happens to your ID after you send it to Facebook",
@@ -1212,7 +1075,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await whatHappensToYourID4.populate("parentMenu");
 
             // Managing Your Account > Account Settings > Adjust Your Account Settings
             var findYourFBSettings4 = await Menu.create({
@@ -1221,7 +1083,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await findYourFBSettings4.populate("parentMenu");
 
             var howToChangeYourLanguage4 = await Menu.create({
                 name: "How to change your language settings on Facebook",
@@ -1229,7 +1090,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await howToChangeYourLanguage4.populate("parentMenu");
 
             var addOrRemoveAnEmail4 = await Menu.create({
                 name: "Add or remove an email from your Facebook account",
@@ -1237,7 +1097,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await addOrRemoveAnEmail4.populate("parentMenu");
 
             var addOrRemoveAMobilePhoneNo4 = await Menu.create({
                 name: "Add or remove a mobile phone number from your Facebook account",
@@ -1245,7 +1104,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await addOrRemoveAMobilePhoneNo4.populate("parentMenu");
 
             // Managing Your Account > Account Settings > Connect to Facebook Without Data Charges
             var usingBasicMode4 = await Menu.create({
@@ -1254,7 +1112,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await usingBasicMode4.populate("parentMenu");
 
             // Managing Your Account > Account Settings > Your Username
             var howUsernamesAndUserIDs4 = await Menu.create({
@@ -1263,7 +1120,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await howUsernamesAndUserIDs4.populate("parentMenu");
 
             var guidelinesForCreating4 = await Menu.create({
                 name: "Guidelines for creating a custom username or screen name on Facebook",
@@ -1271,7 +1127,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await guidelinesForCreating4.populate("parentMenu");
 
             var howToFindOrChange4 = await Menu.create({
                 name: "How to find or change your Facebook username",
@@ -1279,7 +1134,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await howToFindOrChange4.populate("parentMenu");
 
             var whatToDoIfTheUsername4 = await Menu.create({
                 name: "What to do if the username you want isn't available on Facebook",
@@ -1287,7 +1141,6 @@ async function main() {
                 nestLevel: 4,
                 order: 4,
             });
-            await whatToDoIfTheUsername4.populate("parentMenu");
 
             // Managing Your Account > Account Settings > Legacy Contacts
             var chooseALegacyContact4 = await Menu.create({
@@ -1296,7 +1149,6 @@ async function main() {
                 nestLevel: 4,
                 order: 1,
             });
-            await chooseALegacyContact4.populate("parentMenu");
 
             var iAmALegacyContact4 = await Menu.create({
                 name: "I am a legacy contact",
@@ -1304,7 +1156,6 @@ async function main() {
                 nestLevel: 4,
                 order: 2,
             });
-            await iAmALegacyContact4.populate("parentMenu");
 
             var troubleshooting4 = await Menu.create({
                 name: "Troubleshooting",
@@ -1312,7 +1163,6 @@ async function main() {
                 nestLevel: 4,
                 order: 3,
             });
-            await troubleshooting4.populate("parentMenu");
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
@@ -1321,7 +1171,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await changeName5.populate("parentMenu");
 
             var addOrEditIntro5 = await Menu.create({
                 name: "Add or edit intro section",
@@ -1329,7 +1178,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addOrEditIntro5.populate("parentMenu");
 
             var editInformationOnFBProfile5 = await Menu.create({
                 name: "Edit information on your Facebook profile and choose who can see it",
@@ -1337,7 +1185,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await editInformationOnFBProfile5.populate("parentMenu");
 
             var updatePhotosAndStories5 = await Menu.create({
                 name: "Update photos and stories in the Featured section of your Facebook profile",
@@ -1345,7 +1192,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await updatePhotosAndStories5.populate("parentMenu");
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > About section of your profile
             var updateTheAboutSection5 = await Menu.create({
@@ -1354,7 +1200,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await updateTheAboutSection5.populate("parentMenu");
 
             var changeYourRelationship5 = await Menu.create({
                 name: "Change your relationship status on your Facebook profile",
@@ -1362,7 +1207,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await changeYourRelationship5.populate("parentMenu");
 
             var changeYourBirthday5 = await Menu.create({
                 name: "Change your birthday on Facebook and choose who can see it",
@@ -1370,7 +1214,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await changeYourBirthday5.populate("parentMenu");
 
             var addYourNamePronunciation5 = await Menu.create({
                 name: "Add your name pronunciation to your Facebook Profile",
@@ -1378,7 +1221,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await addYourNamePronunciation5.populate("parentMenu");
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Professional mode
             var whenToCreateAPage5_1 = await Menu.create({
@@ -1387,7 +1229,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await whenToCreateAPage5_1.populate("parentMenu");
 
             var turnProfessionalMode5 = await Menu.create({
                 name: "Turn professional mode on or off for your Facebook profile",
@@ -1395,7 +1236,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await turnProfessionalMode5.populate("parentMenu");
 
             var profileTransparency5 = await Menu.create({
                 name: "Profile Transparency section on Professional Mode",
@@ -1403,7 +1243,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await profileTransparency5.populate("parentMenu");
 
             // Using Facebook > Messaging > Send Messages > Send Messages
             var editAMessageOnFB5 = await Menu.create({
@@ -1412,7 +1251,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await editAMessageOnFB5.populate("parentMenu");
 
             var removeAMessage5 = await Menu.create({
                 name: "Remove a message you've sent on Facebook",
@@ -1420,7 +1258,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await removeAMessage5.populate("parentMenu");
 
             var whoCanISendMessages5 = await Menu.create({
                 name: "Who can I send messages to on Facebook",
@@ -1428,7 +1265,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await whoCanISendMessages5.populate("parentMenu");
 
             var howMessageOnFBWork5 = await Menu.create({
                 name: "How messages on Facebook work",
@@ -1436,7 +1272,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await howMessageOnFBWork5.populate("parentMenu");
 
             // Using Facebook > Messaging > Send Messages > Deleting
             var howDoIdeleteSticker5 = await Menu.create({
@@ -1445,7 +1280,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await howDoIdeleteSticker5.populate("parentMenu");
 
             var canIRetrieveDeleted5_1 = await Menu.create({
                 name: "Can I retrieve deleted messages on Facebook?",
@@ -1453,7 +1287,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await canIRetrieveDeleted5_1.populate("parentMenu");
 
             // Using Facebook > Messaging > Send Messages > Group Conversations
             var howManyPeopleCanIMessage5 = await Menu.create({
@@ -1462,7 +1295,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await howManyPeopleCanIMessage5.populate("parentMenu");
 
             var howDoIChatWithMore5 = await Menu.create({
                 name: "How do I chat with more than one friend at once on Facebook?",
@@ -1470,7 +1302,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await howDoIChatWithMore5.populate("parentMenu");
 
             var leaveAGroupChatOnFB5 = await Menu.create({
                 name: "Leave a group chat on Facebook",
@@ -1478,7 +1309,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await leaveAGroupChatOnFB5.populate("parentMenu");
 
             // Using Facebook > Messaging > Send Messages > Messaging Pages, Events, and Groups
             var sendAMessageToYourFB5 = await Menu.create({
@@ -1487,7 +1317,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await sendAMessageToYourFB5.populate("parentMenu");
 
             var sendAPrivateMessage5 = await Menu.create({
                 name: "Send a private message to a Facebook Page",
@@ -1495,7 +1324,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await sendAPrivateMessage5.populate("parentMenu");
 
             // Using Facebook > Messaging > View and Manage Messages > View Messages
             var messagesYoullGet5 = await Menu.create({
@@ -1504,7 +1332,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await messagesYoullGet5.populate("parentMenu");
 
             var whatAreMessageRequests5 = await Menu.create({
                 name: "What are message requests?",
@@ -1512,7 +1339,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await whatAreMessageRequests5.populate("parentMenu");
 
             var checkYourMessageRequests5 = await Menu.create({
                 name: "Check your message requests on Facebook",
@@ -1520,7 +1346,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await checkYourMessageRequests5.populate("parentMenu");
 
             // Using Facebook > Messaging > View and Manage Messages > Delete and Archive Messages
             var deleteAChatOnFB5 = await Menu.create({
@@ -1529,7 +1354,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await deleteAChatOnFB5.populate("parentMenu");
 
             var canIRetrieveDeleted5_2 = await Menu.create({
                 name: "Can I retrieve deleted messages on Facebook?",
@@ -1537,7 +1361,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await canIRetrieveDeleted5_2.populate("parentMenu");
 
             var hideOrArchiveAChat5 = await Menu.create({
                 name: "Hide or archive a chat on Facebook",
@@ -1545,7 +1368,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await hideOrArchiveAChat5.populate("parentMenu");
 
             var searchForAChat5 = await Menu.create({
                 name: "Search for a chat or message on Facebook",
@@ -1553,7 +1375,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await searchForAChat5.populate("parentMenu");
 
             // Using Facebook > Messaging > Video Calling > Calling
             var callPeopleOnFB5 = await Menu.create({
@@ -1562,7 +1383,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await callPeopleOnFB5.populate("parentMenu");
 
             var troubleshootProblems5 = await Menu.create({
                 name: "Troubleshoot problems with your camera, microphone, or speakers for video calling on Facebook",
@@ -1570,7 +1390,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await troubleshootProblems5.populate("parentMenu");
 
             var whatToDoIfYourConnection5 = await Menu.create({
                 name: "What to do if your connection is too slow for Facebook calls",
@@ -1578,7 +1397,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await whatToDoIfYourConnection5.populate("parentMenu");
 
             var browsersThatSupport5 = await Menu.create({
                 name: "Browsers that support video calling on Facebook",
@@ -1586,7 +1404,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await browsersThatSupport5.populate("parentMenu");
 
             // Using Facebook > Messaging > Video Calling > Rooms
             var createAVideoCall5 = await Menu.create({
@@ -1595,7 +1412,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await createAVideoCall5.populate("parentMenu");
 
             var stopSharingYourRoom5 = await Menu.create({
                 name: "Stop sharing your room on Facebook",
@@ -1603,7 +1419,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await stopSharingYourRoom5.populate("parentMenu");
 
             var editYourSettingsForACall5 = await Menu.create({
                 name: "Edit your settings for a call you're sharing on Facebook",
@@ -1611,7 +1426,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await editYourSettingsForACall5.populate("parentMenu");
 
             var createALinkForAVideo5 = await Menu.create({
                 name: "Create a link for a video or audio call on Facebook",
@@ -1619,7 +1433,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await createALinkForAVideo5.populate("parentMenu");
 
             // Using Facebook > Pages > Create and Manage a Page > Create a Facebook Page
             var differencesBetweenProfiles5 = await Menu.create({
@@ -1628,7 +1441,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await differencesBetweenProfiles5.populate("parentMenu");
 
             var createAFBPage5 = await Menu.create({
                 name: "Create a Facebook Page",
@@ -1636,7 +1448,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await createAFBPage5.populate("parentMenu");
 
             var whenToCreateAPage5_2 = await Menu.create({
                 name: "When to create a Page or turn on professional mode for your profile",
@@ -1644,7 +1455,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await whenToCreateAPage5_2.populate("parentMenu");
 
             var canIManageAFBPage5 = await Menu.create({
                 name: "Can I manage a Facebook Page named for a city, country, or other geographic location?",
@@ -1652,7 +1462,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await canIManageAFBPage5.populate("parentMenu");
 
             // Using Facebook > Pages > Create and Manage a Page > Merge Facebook Pages
             var merge2FBPages5 = await Menu.create({
@@ -1661,7 +1470,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await merge2FBPages5.populate("parentMenu");
 
             // Using Facebook > Pages > Create and Manage a Page > Invite friends
             var inviteFriendsToLike5 = await Menu.create({
@@ -1670,7 +1478,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await inviteFriendsToLike5.populate("parentMenu");
 
             // Using Facebook > Pages > Create and Manage a Page > Delete or deactivate your Page
             var deleteOrCancelDeletion5 = await Menu.create({
@@ -1679,7 +1486,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await deleteOrCancelDeletion5.populate("parentMenu");
 
             var deactiveYourFBPage5 = await Menu.create({
                 name: "Deactive your Facebook Page",
@@ -1687,7 +1493,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await deactiveYourFBPage5.populate("parentMenu");
 
             // Using Facebook > Pages > Manage Page Settings > Page Roles
             var learnAboutFacebookPage5 = await Menu.create({
@@ -1696,7 +1501,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await learnAboutFacebookPage5.populate("parentMenu");
 
             var giveEditOrRemoveFBPage5 = await Menu.create({
                 name: "Give, edit, or remove Facebook Page access",
@@ -1704,7 +1508,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await giveEditOrRemoveFBPage5.populate("parentMenu");
 
             var seeyourFBPageRole5 = await Menu.create({
                 name: "See your Facebook Page role or access",
@@ -1712,7 +1515,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await seeyourFBPageRole5.populate("parentMenu");
 
             var changeYourFBPageNotif5 = await Menu.create({
                 name: "Change your Facebook Page notification settings",
@@ -1720,7 +1522,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await changeYourFBPageNotif5.populate("parentMenu");
 
             // Using Facebook > Pages > Manage Page Settings > Privacy and Visibility Settings
             var controlWhoCanSee5 = await Menu.create({
@@ -1729,7 +1530,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await controlWhoCanSee5.populate("parentMenu");
 
             var addOrEditCountryAndAge5 = await Menu.create({
                 name: "Add or edit country and age restrictions for your Page",
@@ -1737,7 +1537,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addOrEditCountryAndAge5.populate("parentMenu");
 
             var turnSimilarPage5 = await Menu.create({
                 name: "Turn similar Page suggestions on or off for your Page",
@@ -1745,7 +1544,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await turnSimilarPage5.populate("parentMenu");
 
             var seeWhatYourPage5 = await Menu.create({
                 name: "See what your Page looks like to visitors",
@@ -1753,7 +1551,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await seeWhatYourPage5.populate("parentMenu");
 
             // Using Facebook > Pages > Manage Page Settings > Connect a Page
             var addOrRemoveAnIGAccount5 = await Menu.create({
@@ -1762,7 +1559,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await addOrRemoveAnIGAccount5.populate("parentMenu");
 
             var whatHappensAfterConnecting5 = await Menu.create({
                 name: "What happens after connecting your Facebook Page and Instagram account",
@@ -1770,7 +1566,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await whatHappensAfterConnecting5.populate("parentMenu");
 
             var connectYourFBPage5 = await Menu.create({
                 name: "Connect your Facebook Page and WhatsApp account",
@@ -1778,7 +1573,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await connectYourFBPage5.populate("parentMenu");
 
             // Using Facebook > Pages > Customize a Page > Profile Pictures and Cover Photos
             var addOrChangeYourFBPagesPFP5 = await Menu.create({
@@ -1787,7 +1581,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await addOrChangeYourFBPagesPFP5.populate("parentMenu");
 
             var addOrChangeYourFBPagesCP5 = await Menu.create({
                 name: "Add or change your Facebook Page's cover photo",
@@ -1795,7 +1588,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addOrChangeYourFBPagesCP5.populate("parentMenu");
 
             // Using Facebook > Pages > Customize a Page > Categories and Templates
             var whatFeaturesAreAvailable5 = await Menu.create({
@@ -1804,7 +1596,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await whatFeaturesAreAvailable5.populate("parentMenu");
 
             var editYourPagesCategory5 = await Menu.create({
                 name: "Edit your Page's category on Facebook",
@@ -1812,7 +1603,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await editYourPagesCategory5.populate("parentMenu");
 
             // Using Facebook > Pages > Customize a Page > Edit Page Details
             var addBasicInfo5 = await Menu.create({
@@ -1821,7 +1611,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await addBasicInfo5.populate("parentMenu");
 
             var addOrEditAnAddress5 = await Menu.create({
                 name: "Add or edit an address on your Facebook Page",
@@ -1829,7 +1618,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addOrEditAnAddress5.populate("parentMenu");
 
             var addOrChangeBusinessHours5 = await Menu.create({
                 name: "Add or change business hours on your Facebook Page",
@@ -1837,7 +1625,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await addOrChangeBusinessHours5.populate("parentMenu");
 
             var addServicesToYourFBPage5 = await Menu.create({
                 name: "Add services to your Facebook Page",
@@ -1845,7 +1632,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await addServicesToYourFBPage5.populate("parentMenu");
 
             // Using Facebook > Pages > Customize a Page > Call-to-Action Buttons
             var addAnActionButton5 = await Menu.create({
@@ -1854,7 +1640,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await addAnActionButton5.populate("parentMenu");
 
             var editOrDeleteYourPages5 = await Menu.create({
                 name: "Edit or delete your Page's action button",
@@ -1862,7 +1647,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await editOrDeleteYourPages5.populate("parentMenu");
 
             // Using Facebook > Pages > Publishing > Basics
             var likeOrCommentOnAnother5 = await Menu.create({
@@ -1871,7 +1655,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await likeOrCommentOnAnother5.populate("parentMenu");
 
             var sharePhotosOrVideos5 = await Menu.create({
                 name: "Share photos or videos from your Facebook Page",
@@ -1879,7 +1662,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await sharePhotosOrVideos5.populate("parentMenu");
 
             var shareALinkFrom5 = await Menu.create({
                 name: "Share a link from your Facebook Page",
@@ -1887,7 +1669,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await shareALinkFrom5.populate("parentMenu");
 
             var pinItemsToTheTop5 = await Menu.create({
                 name: "Pin items to the top of your Facebook Page",
@@ -1895,7 +1676,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await pinItemsToTheTop5.populate("parentMenu");
 
             // Using Facebook > Pages > Publishing > Visibility & Editing
             var controlWhoCanSeeYourPagesPost5 = await Menu.create({
@@ -1904,7 +1684,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await controlWhoCanSeeYourPagesPost5.populate("parentMenu");
 
             var removeOrHidePosts5 = await Menu.create({
                 name: "Remove or hide posts from your Facebook page",
@@ -1912,7 +1691,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await removeOrHidePosts5.populate("parentMenu");
 
             var editYourPagePost5 = await Menu.create({
                 name: "Edit your Page post or see its edit history",
@@ -1920,7 +1698,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await editYourPagePost5.populate("parentMenu");
 
             var howDoIChooseADate5 = await Menu.create({
                 name: "How do I choose a date for my Facebook Page post to stop showing in News Feed?",
@@ -1928,7 +1705,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await howDoIChooseADate5.populate("parentMenu");
 
             // Using Facebook > Pages > Publishing > Drafts & Scheduled Posts
             var createEditOrPublish5 = await Menu.create({
@@ -1937,7 +1713,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await createEditOrPublish5.populate("parentMenu");
 
             var scheduleAPostAndManage5 = await Menu.create({
                 name: "Schedule a post and manage scheduled posts for your Facebook Page",
@@ -1945,7 +1720,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await scheduleAPostAndManage5.populate("parentMenu");
 
             var changeTheDateOfYourFBPage5 = await Menu.create({
                 name: "Change the date of your Facebook Page's posts",
@@ -1953,7 +1727,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await changeTheDateOfYourFBPage5.populate("parentMenu");
 
             // Using Facebook > Pages > Publishing > Events
             var createAnEvent5 = await Menu.create({
@@ -1962,7 +1735,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await createAnEvent5.populate("parentMenu");
 
             var addOrRemoveAnotherPersons5 = await Menu.create({
                 name: "Add or remove another person's or Page's Facebook event from your Page",
@@ -1970,7 +1742,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addOrRemoveAnotherPersons5.populate("parentMenu");
 
             // Using Facebook > Groups > Post, Participate, and Privacy > Post
             var postInAFBGroup5 = await Menu.create({
@@ -1979,7 +1750,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await postInAFBGroup5.populate("parentMenu");
 
             var formatYourPost5 = await Menu.create({
                 name: "Format your post in a Facebook group",
@@ -1987,7 +1757,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await formatYourPost5.populate("parentMenu");
 
             var postAnonymously5 = await Menu.create({
                 name: "Post anonymously in a Facebook group",
@@ -1995,7 +1764,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await postAnonymously5.populate("parentMenu");
 
             var createAReel5 = await Menu.create({
                 name: "Create a reel in a Facebook group",
@@ -2003,7 +1771,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await createAReel5.populate("parentMenu");
 
             // Using Facebook > Groups > Post, Participate, and Privacy > Participate
             var commentOnSomething5 = await Menu.create({
@@ -2012,7 +1779,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await commentOnSomething5.populate("parentMenu");
 
             var joinACommunityChat5 = await Menu.create({
                 name: "Join a community chat in a Facebook group",
@@ -2020,7 +1786,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await joinACommunityChat5.populate("parentMenu");
 
             var earnATopContributor5 = await Menu.create({
                 name: "Earn a top contributor badge in a Facebook group",
@@ -2028,7 +1793,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await earnATopContributor5.populate("parentMenu");
 
             var awardAPostOrComment5 = await Menu.create({
                 name: "Award a post or comment in a Facebook group",
@@ -2036,7 +1800,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await awardAPostOrComment5.populate("parentMenu");
 
             // Using Facebook > Groups > Post, Participate, and Privacy > Privacy
             var differencesBetweenPublic5_1 = await Menu.create({
@@ -2045,7 +1808,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await differencesBetweenPublic5_1.populate("parentMenu");
 
             var changeAFacebookGroup5 = await Menu.create({
                 name: "Change a Facebook group from public to private",
@@ -2053,7 +1815,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await changeAFacebookGroup5.populate("parentMenu");
 
             var hideOrUnhide5 = await Menu.create({
                 name: "Hide or unhide a private",
@@ -2061,7 +1822,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await hideOrUnhide5.populate("parentMenu");
 
             var checkIfAFBGroup5 = await Menu.create({
                 name: "Check if a Facebook group is public or private",
@@ -2069,7 +1829,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await checkIfAFBGroup5.populate("parentMenu");
 
             // Using Facebook > Groups > Post, Participate, and Privacy > Buy and Sell Groups
             var howBuyAndSellGroups5 = await Menu.create({
@@ -2078,7 +1837,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await howBuyAndSellGroups5.populate("parentMenu");
 
             var sellSomethinginAFB5 = await Menu.create({
                 name: "Sell something in a Facebook buy and sell group",
@@ -2086,7 +1844,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await sellSomethinginAFB5.populate("parentMenu");
 
             var editYourListing5 = await Menu.create({
                 name: "Edit your listing in a Facebook buy and sell group",
@@ -2094,7 +1851,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await editYourListing5.populate("parentMenu");
 
             var markSomethingAsSold5 = await Menu.create({
                 name: "Mark something as sold in a Facebook buy and sell group",
@@ -2102,7 +1858,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await markSomethingAsSold5.populate("parentMenu");
 
             // Using Facebook > Groups > Create, Engage, and Manage Settings > Create
             var createAFBGroup5 = await Menu.create({
@@ -2111,7 +1866,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await createAFBGroup5.populate("parentMenu");
 
             var differencesBetweenPublic5_2 = await Menu.create({
                 name: "Differences between public and private Facebook groups",
@@ -2119,7 +1873,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await differencesBetweenPublic5_2.populate("parentMenu");
 
             var addAnAdmin5 = await Menu.create({
                 name: "Add an admin or moderator to your Facebook group",
@@ -2127,7 +1880,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await addAnAdmin5.populate("parentMenu");
 
             var changeTheColor5 = await Menu.create({
                 name: "Change the color of a Facebook group you admin",
@@ -2135,7 +1887,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await changeTheColor5.populate("parentMenu");
 
             // Using Facebook > Groups > Create, Engage, and Manage Settings > Manage Group Settings
             var manageMembership5 = await Menu.create({
@@ -2144,7 +1895,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await manageMembership5.populate("parentMenu");
 
             var managePosts5 = await Menu.create({
                 name: "Manage posts for your Facebook group",
@@ -2152,7 +1902,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await managePosts5.populate("parentMenu");
 
             var addAndManageFeatures5_1 = await Menu.create({
                 name: "Add and manage features for a Facebook group you admin",
@@ -2160,7 +1909,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await addAndManageFeatures5_1.populate("parentMenu");
 
             var sortPostsInAFBGroup = await Menu.create({
                 name: "Sort posts in a Facebook group you admin",
@@ -2168,7 +1916,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await sortPostsInAFBGroup.populate("parentMenu");
 
             // Using Facebook > Groups > Create, Engage, and Manage Settings > Manage Group Features
             var addAndManageFeatures5_2 = await Menu.create({
@@ -2177,7 +1924,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await addAndManageFeatures5_2.populate("parentMenu");
 
             var manageCommunityChats5 = await Menu.create({
                 name: "Manage community chats in a Facebook group you admin",
@@ -2185,7 +1931,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await manageCommunityChats5.populate("parentMenu");
 
             var addOrRemoveTheFBBuy5 = await Menu.create({
                 name: "Add or remove the Facebook buy and sell feature set in your Facebook group",
@@ -2193,7 +1938,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await addOrRemoveTheFBBuy5.populate("parentMenu");
 
             var addOrRemoveAnApp5 = await Menu.create({
                 name: "Add or remove an app from a Facebook group you admin",
@@ -2201,7 +1945,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await addOrRemoveAnApp5.populate("parentMenu");
 
             // Using Facebook > Groups > Create, Engage, and Manage Settings > Engage
             var welcomeNewMembers5 = await Menu.create({
@@ -2210,7 +1953,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await welcomeNewMembers5.populate("parentMenu");
 
             var scheduleAPostInAFBGroup5 = await Menu.create({
                 name: "Schedule a post in a Facebook group you manage",
@@ -2218,7 +1960,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await scheduleAPostInAFBGroup5.populate("parentMenu");
 
             var createACommunityChat5 = await Menu.create({
                 name: "Create a community chat in a Facebook group",
@@ -2226,7 +1967,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await createACommunityChat5.populate("parentMenu");
 
             var attachACommunityChat5 = await Menu.create({
                 name: "Attach a community chat to your Facebook group post",
@@ -2234,7 +1974,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await attachACommunityChat5.populate("parentMenu");
 
             // Using Facebook > Groups > Manage People and Content > Manage People
             var setUpAdminAssist5 = await Menu.create({
@@ -2243,7 +1982,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await setUpAdminAssist5.populate("parentMenu");
 
             var turnBadgesOnOrOff5 = await Menu.create({
                 name: "Turn badges on or off in a Facebook group you manage",
@@ -2251,7 +1989,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await turnBadgesOnOrOff5.populate("parentMenu");
 
             var seeTheMembersOfAFBGroup5 = await Menu.create({
                 name: "See the members of a Facebook group",
@@ -2259,7 +1996,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await seeTheMembersOfAFBGroup5.populate("parentMenu");
 
             var whatItMeansThatAFBGroup5 = await Menu.create({
                 name: "What it means that a Facebook group member is unavailable",
@@ -2267,7 +2003,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await whatItMeansThatAFBGroup5.populate("parentMenu");
 
             // Using Facebook > Groups > Manage People and Content > Manage Content
             var chooseWhatPeople5 = await Menu.create({
@@ -2276,7 +2011,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await chooseWhatPeople5.populate("parentMenu");
 
             var managePostsForYourFBGroup5 = await Menu.create({
                 name: "Manage posts for your Facebook group",
@@ -2284,7 +2018,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await managePostsForYourFBGroup5.populate("parentMenu");
 
             var sortPostsInAFBGroup5 = await Menu.create({
                 name: "Sort posts in a Facebook group you admin",
@@ -2292,7 +2025,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await sortPostsInAFBGroup5.populate("parentMenu");
 
             var whyAFBGroupPost5 = await Menu.create({
                 name: "Why a Facebook group post is empty",
@@ -2300,7 +2032,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await whyAFBGroupPost5.populate("parentMenu");
 
             // Using Facebook > Groups > Manage People and Content > Enforce and Moderate
             var removeBanOrUnban5 = await Menu.create({
@@ -2309,7 +2040,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await removeBanOrUnban5.populate("parentMenu");
 
             var suspendSomeone5 = await Menu.create({
                 name: "Suspend someone in a Facebook group you manage",
@@ -2317,7 +2047,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await suspendSomeone5.populate("parentMenu");
 
             var removeAPostInAFBGroup5 = await Menu.create({
                 name: "Remove a post in a Facebook group you manage",
@@ -2325,7 +2054,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await removeAPostInAFBGroup5.populate("parentMenu");
 
             var turnOffPostComments5 = await Menu.create({
                 name: "Turn off post comments or comment replies in a Facebook group",
@@ -2341,7 +2069,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await differenceBetweenAdmin5.populate("parentMenu");
 
             var addAnAdminOrModerator5 = await Menu.create({
                 name: "Add an admin or moderator to your Facebook group",
@@ -2349,7 +2076,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addAnAdminOrModerator5.populate("parentMenu");
 
             var removeAnAdminOrModerator5 = await Menu.create({
                 name: "Remove an admin or moderator from your Facebook group",
@@ -2357,7 +2083,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await removeAnAdminOrModerator5.populate("parentMenu");
 
             var chatWithOtherAdmins5 = await Menu.create({
                 name: "Chat with other admins and moderators in your Facebook group",
@@ -2365,7 +2090,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await chatWithOtherAdmins5.populate("parentMenu");
 
             // Using Facebook > Groups > Community Chats > Get started
             var findAFBGroups5 = await Menu.create({
@@ -2374,7 +2098,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await findAFBGroups5.populate("parentMenu");
 
             var createACommunityChat5_2 = await Menu.create({
                 name: "Create a community chat in a Facebook group",
@@ -2382,7 +2105,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await createACommunityChat5_2.populate("parentMenu");
 
             var privacyAndSafety5 = await Menu.create({
                 name: "Privacy and safety in community chats",
@@ -2390,7 +2112,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await privacyAndSafety5.populate("parentMenu");
 
             var accessToCommunity5 = await Menu.create({
                 name: "Access to community chats for Facebook groups",
@@ -2398,7 +2119,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await accessToCommunity5.populate("parentMenu");
 
             // Using Facebook > Groups > Community Chats > Use community chats
             var joinACommunityChat5_2 = await Menu.create({
@@ -2407,7 +2127,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await joinACommunityChat5_2.populate("parentMenu");
 
             var addSomeoneToYourFacebooks5 = await Menu.create({
                 name: "Add someone to your Facebook group's community chat",
@@ -2415,7 +2134,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await addSomeoneToYourFacebooks5.populate("parentMenu");
 
             var manageCommunityChatNotifs5 = await Menu.create({
                 name: "Manage community chat notifications on Messenger",
@@ -2423,7 +2141,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await manageCommunityChatNotifs5.populate("parentMenu");
 
             var leaveACommunityChatOnMessenger5 = await Menu.create({
                 name: "Leave a community chat on Messenger or Facebook",
@@ -2431,7 +2148,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await leaveACommunityChatOnMessenger5.populate("parentMenu");
 
             // Using Facebook > Groups > Community Chats > Manage community chats
             var addOrRemoveCommunityChat5 = await Menu.create({
@@ -2440,7 +2156,6 @@ async function main() {
                 nestLevel: 5,
                 order: 1,
             });
-            await addOrRemoveCommunityChat5.populate("parentMenu");
 
             var deleteACommunityChat5 = await Menu.create({
                 name: "Delete a community chat on Messenger or Facebook",
@@ -2448,7 +2163,6 @@ async function main() {
                 nestLevel: 5,
                 order: 2,
             });
-            await deleteACommunityChat5.populate("parentMenu");
 
             var createCategories5 = await Menu.create({
                 name: "Create categories for your community chats",
@@ -2456,7 +2170,6 @@ async function main() {
                 nestLevel: 5,
                 order: 3,
             });
-            await createCategories5.populate("parentMenu");
 
             var attachACommunityChat5_2 = await Menu.create({
                 name: "Attach a community chat to your Facebook group posts",
@@ -2464,7 +2177,6 @@ async function main() {
                 nestLevel: 5,
                 order: 4,
             });
-            await attachACommunityChat5_2.populate("parentMenu");
         } catch (err) {
             console.error(err);
         }
