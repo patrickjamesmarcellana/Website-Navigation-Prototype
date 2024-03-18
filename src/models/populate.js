@@ -1318,7 +1318,7 @@ async function main() {
             });
 
             var whyDidISeeMyFriends4 = await Menu.create({
-                name: "Why did I see my friend’s name or photo paired with an ad on Facebook?",
+                name: "Why did I see my friend's name or photo paired with an ad on Facebook?",
                 parentMenu: yourInfoAndFacebook3,
                 nestLevel: 4,
                 order: 3,
@@ -2471,14 +2471,14 @@ async function main() {
 
             // Managing Your Account > Account Settings > Legacy Contacts > Troubleshooting
             var requestRemoval5 = await Menu.create({
-                name: "Request removal of a deceased family member’s Facebook account",
+                name: "Request removal of a deceased family member's Facebook account",
                 parentMenu: troubleshooting4,
                 nestLevel: 5,
                 order: 1,
             });
 
             var askAQuestionAboutA5 = await Menu.create({
-                name: "Ask a question about a deceased person’s account on Facebook",
+                name: "Ask a question about a deceased person's account on Facebook",
                 parentMenu: troubleshooting4,
                 nestLevel: 5,
                 order: 2,
