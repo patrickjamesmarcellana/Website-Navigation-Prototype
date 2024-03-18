@@ -574,8 +574,8 @@ async function main() {
                 order: 1,
             });
 
-            var impersonatingAccounts3 = await Menu.create({
-                name: "Impersonating Accounts",
+            var impersonationAccounts3 = await Menu.create({
+                name: "Impersonation Accounts",
                 parentMenu: hackedAndFakeAccounts2,
                 nestLevel: 3,
                 order: 2,
@@ -1616,6 +1616,238 @@ async function main() {
                 parentMenu: tipsForShoppingSafely3,
                 nestLevel: 4,
                 order: 4,
+            });
+
+            // Policies and Reporting > Reporting Abuse > Report Content on Facebook
+            var reportContent4 = await Menu.create({
+                name: "Report Content",
+                parentMenu: reportContentOnFacebook3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            // Policies and Reporting > Reporting Abuse > Don't Have an Account?
+            var howDoIReportSomething4 = await Menu.create({
+                name: "How do I report something on Facebook if I don't have an account or can't see it?",
+                parentMenu: dontHaveAnAccount3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var howToReportAFacebookAccount4 = await Menu.create({
+                name: "How to report a Facebook account or Page that's pretending to be me or someone else",
+                parentMenu: dontHaveAnAccount3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            // Policies and Reporting > Being Your Authentic Self on Facebook > Verifying your identity
+            var whyFacebookMayAskYouTo4 = await Menu.create({
+                name: "Why Facebook may ask you to upload an ID",
+                parentMenu: verifyingYourIdentity3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var howToUploadAnIDToFB4 = await Menu.create({
+                name: "How to upload an ID to Facebook",
+                parentMenu: verifyingYourIdentity3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var typesOfIDsThatFacebook4 = await Menu.create({
+                name: "What happens to your ID after you send it to Facebook",
+                parentMenu: verifyingYourIdentity3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var howDoIReviewSettings4 = await Menu.create({
+                name: "How do I review settings related to my ID being stored on Facebook?",
+                parentMenu: verifyingYourIdentity3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            // Policies and Reporting > Being Your Authentic Self on Facebook > Updating your profile information
+            var whatNamesAreAllowed4 = await Menu.create({
+                name: "What names are allowed on Facebook?",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var howToChangeYourName4 = await Menu.create({
+                name: "How to change your name on Facebook",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var rejectedName4 = await Menu.create({
+                name: "Rejected name when creating a Facebook account",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var howYouCanAddAnotherName4 = await Menu.create({
+                name: "How you can add another name (example: nickname, maiden name) to your Facebook account",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            var editALanguageSpecificName4 = await Menu.create({
+                name: "Edit a language-specific name on Facebook",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 5,
+            });
+
+            var whatYouCanDoIfYouHaveOneName4 = await Menu.create({
+                name: "What you can do if you have one name instead of a first and last name",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 6,
+            });
+
+            var whichNameToUse4 = await Menu.create({
+                name: "Which name to use on Facebook when you're in the process of changing your name",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 7,
+            });
+
+            var addYourNamePronunciation4 = await Menu.create({
+                name: "Add your name pronunciation to your Facebook profile",
+                parentMenu: updatingYourProfileInfo3,
+                nestLevel: 4,
+                order: 8,
+            });
+
+            // Policies and Reporting > Being Your Authentic Self on Facebook > Staying safe on Facebook
+            var howToBlockSomeonesProfile4 = await Menu.create({
+                name: "How to block someone's profile on Facebook",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var safetyResourcesAndWays4 = await Menu.create({
+                name: "Safety resources & ways to stay safe on Facebook",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var howToHandleBullyingHarassment4 = await Menu.create({
+                name: "How to handle bullying, harassment, or personal attack on Facebook",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var howToHandleDaresOrChallenges4 = await Menu.create({
+                name: "How to handle dares or challenges on Facebook",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            var howToHandleThreatsToShareNudeOr4 = await Menu.create({
+                name: "How to handle threats to share nude or sexual images of you on Instagram",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 5,
+            });
+
+            var waysToHandleARelationship4 = await Menu.create({
+                name: "Ways to handle a relationship that makes you uncomfortable on Instagram",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 6,
+            });
+
+            var ifYourCurrentOrPrevious4 = await Menu.create({
+                name: "If your current or previous partner is controlling or monitoring your Facebook activity",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 7,
+            });
+
+            var whatShouldIDoIfISeeImages4 = await Menu.create({
+                name: "What should I do if I see images on Facebook of a child being physically abused or sexually exploited?",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 8,
+            });
+
+            var whatShouldIDoIfSomeonePosts4 = await Menu.create({
+                name: "What should I do if someone posts something on Facebook related to human trafficking?",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 9,
+            });
+
+            var learnMoreAboutTheMeta4 = await Menu.create({
+                name: "Learn more about the Meta Safety Advisory Council",
+                parentMenu: stayingSafeOnFacebook3,
+                nestLevel: 4,
+                order: 10,
+            });
+
+            // Policies and Reporting > Hacked and Fake Accounts > Hacked Accounts
+            var recoverYourAccountIfYouThink4 = await Menu.create({
+                name: "Recover Your Account if You Think Your Facebook Account Was Hacked or if Someone Is Using It Without Your Permission",
+                parentMenu: hackedAccounts3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var helpYourFriendRecover4 = await Menu.create({
+                name: "Help your friend recover their hacked Facebook account",
+                parentMenu: hackedAccounts3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            // Policies and Reporting > Hacked and Fake Accounts > Impersonation Accounts
+            var howDoIReportAnAccount4 = await Menu.create({
+                name: "How do I report an account for impersonation?",
+                parentMenu: impersonationAccounts3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var howToReportAFacebookAccountOrPage4 = await Menu.create({
+                name: "How to report a Facebook account or Page that's pretending to be me or someone else",
+                parentMenu: impersonationAccounts3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var howToRequestInformation4 = await Menu.create({
+                name: "How to request information about an account that was impersonating you on Facebook",
+                parentMenu: impersonationAccounts3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var howToKnowIfAPublicFigure4 = await Menu.create({
+                name: "How to know if a public figure or brand on Facebook is authentic",
+                parentMenu: impersonationAccounts3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            // Policies and Reporting > Hacked and Fake Accounts > Fake Accounts
+            var reportFakeFacebookProfiles4 = await Menu.create({
+                name: "Report fake Facebook profiles",
+                parentMenu: fakeAccounts3,
+                nestLevel: 4,
+                order: 1,
             });
 
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
@@ -3271,6 +3503,84 @@ async function main() {
                 parentMenu: reportAConcern4,
                 nestLevel: 5,
                 order: 3,
+            });
+
+            // Policies and Reporting > Reporting Abuse > Report Content on Facebook > Report Content
+            var reportAProfile5 = await Menu.create({
+                name: "Report a profile",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var posts5 = await Menu.create({
+                name: "Posts",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var postsOnYourTimeline5 = await Menu.create({
+                name: "Posts on Your Timeline",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 3,
+            });
+
+            var photosAndVideos5 = await Menu.create({
+                name: "Photos and Videos",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 4,
+            });
+
+            var messages5 = await Menu.create({
+                name: "Messages",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 5,
+            });
+
+            var pages5 = await Menu.create({
+                name: "Pages",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 6,
+            });
+
+            var groups5 = await Menu.create({
+                name: "Groups",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 7,
+            });
+
+            var events5 = await Menu.create({
+                name: "Events",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 8,
+            });
+
+            var comments5 = await Menu.create({
+                name: "Comments",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 9,
+            });
+
+            var adsOnFacebook5 = await Menu.create({
+                name: "Ads on Facebook",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 10,
+            });
+
+            var hashtags5 = await Menu.create({
+                name: "Hashtags",
+                parentMenu: reportContent4,
+                nestLevel: 5,
+                order: 11,
             });
         } catch (err) {
             console.error(err);
