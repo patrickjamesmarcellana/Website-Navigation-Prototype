@@ -1164,6 +1164,166 @@ async function main() {
                 order: 3,
             });
 
+            // Managing Your Account > Notifications > Push, Email, and Text Notifications
+            var pushNotifications4 = await Menu.create({
+                name: "Push Notifications",
+                parentMenu: pushEmailAndText3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var emailNotifications4 = await Menu.create({
+                name: "Email Notifications",
+                parentMenu: pushEmailAndText3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var textNotifications4 = await Menu.create({
+                name: "Text Notifications",
+                parentMenu: pushEmailAndText3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            // Managing Your Account > Notifications > Choose What You're Notified About
+            var whatTypesOfNotifications4 = await Menu.create({
+                name: "What types of notifications does Facebook send?",
+                parentMenu: chooseWhatYoureNotified3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var chooseWhatYouGetNotifications4 = await Menu.create({
+                name: "Choose what you get notifications for on Facebook",
+                parentMenu: chooseWhatYoureNotified3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var changeYourFacebookPage4 = await Menu.create({
+                name: "Change your Facebook Page notification settings",
+                parentMenu: chooseWhatYoureNotified3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var turnNotificationsOnOrOff4 = await Menu.create({
+                name: "Turn notifications on or off for a Facebook group",
+                parentMenu: chooseWhatYoureNotified3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            // Managing Your Account > Notifications > Fix a Problem
+            var imGettingPushNotifications4 = await Menu.create({
+                name: "I'm getting push notifications on Facebook even though I've set them to \"off.\"",
+                parentMenu: fixAProblem3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var imNotReceivingEmail4 = await Menu.create({
+                name: "I'm not receiving email notifications about my Facebook account.",
+                parentMenu: fixAProblem3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var imReceivingEmailOrText4 = await Menu.create({
+                name: "I'm receiving email or text notifications about a Facebook account that doesn't belong to me.",
+                parentMenu: fixAProblem3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var iDidntReceiveAConfirmation4 = await Menu.create({
+                name: "I didn't receive a confirmation code to finish setting up Facebook texts.",
+                parentMenu: fixAProblem3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            // Managing Your Account > Ad Preferences > How Ads Work on Facebook
+            var adsAndHowTheyreManaged4 = await Menu.create({
+                name: "Ads and how they're managed in the EU",
+                parentMenu: howAdsWork3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var makingAdsBetter4 = await Menu.create({
+                name: "Making ads better and giving you more control on Facebook",
+                parentMenu: howAdsWork3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var howDoesFacebookDecide4 = await Menu.create({
+                name: "How does Facebook decide which ads to show me?",
+                parentMenu: howAdsWork3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var doesFacebookReceiveCookie4 = await Menu.create({
+                name: "Does Facebook receive cookie information when I visit a site with the Like button?",
+                parentMenu: howAdsWork3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            // Managing Your Account > Ad Preferences > Control the Ads You See
+            var yourAdPreferences4 = await Menu.create({
+                name: "Your Ad preferences and how you can adjust them on Facebook",
+                parentMenu: controlTheAds3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var adjustHowAdsOnFB4 = await Menu.create({
+                name: "Adjust how ads on Facebook are shown to you based on your Activity Information from ad partners",
+                parentMenu: controlTheAds3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var canIBlockOrHideAds4 = await Menu.create({
+                name: "Can I block or hide ads showing on my Facebook account?",
+                parentMenu: controlTheAds3,
+                nestLevel: 4,
+                order: 3,
+            });
+
+            var howCanIGiveFeedback4 = await Menu.create({
+                name: "How can I give feedback about the ads I see on Facebook?",
+                parentMenu: controlTheAds3,
+                nestLevel: 4,
+                order: 4,
+            });
+
+            // Managing Your Account > Ad Preferences > Your Info and Facebook Ads
+            var doAdvertisersHaveAccess4 = await Menu.create({
+                name: "Do advertisers have access to my personal information on Facebook?",
+                parentMenu: yourInfoAndFacebook3,
+                nestLevel: 4,
+                order: 1,
+            });
+
+            var whyDoesMyNameOrProfile4 = await Menu.create({
+                name: "Why does my name or profile photo show in some ads to my friends on Facebook?",
+                parentMenu: yourInfoAndFacebook3,
+                nestLevel: 4,
+                order: 2,
+            });
+
+            var whyDidISeeMyFriends4 = await Menu.create({
+                name: "Why did I see my friend’s name or photo paired with an ad on Facebook?",
+                parentMenu: yourInfoAndFacebook3,
+                nestLevel: 4,
+                order: 3,
+            });
+
             // Using Facebook > Your Profile > Add and Edit Your Profile Info > Basic Profile Information
             var changeName5 = await Menu.create({
                 name: "Change name",
@@ -2227,6 +2387,153 @@ async function main() {
                 parentMenu: passwordHelp4,
                 nestLevel: 5,
                 order: 3,
+            });
+
+            // Managing Your Account > Account Settings > Connect to Facebook Without Data Charges > Using basic mode
+            var optInToBasic5 = await Menu.create({
+                name: "Opt in to basic mode on Facebook",
+                parentMenu: usingBasicMode4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var unableToSeePhotos5 = await Menu.create({
+                name: "Unable to see photos or videos when I'm connected to basic mode on Facebook",
+                parentMenu: usingBasicMode4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var devicesYouCanUse5 = await Menu.create({
+                name: "Devices you can use to connect to Facebook without data charges",
+                parentMenu: usingBasicMode4,
+                nestLevel: 5,
+                order: 3,
+            });
+
+            var optOutOfBasicMode5 = await Menu.create({
+                name: "Opt out of basic mode on Facebook",
+                parentMenu: usingBasicMode4,
+                nestLevel: 5,
+                order: 4,
+            });
+
+            // Managing Your Account > Account Settings > Legacy Contacts > Choose a legacy contact
+            var addALegacyContact5 = await Menu.create({
+                name: "Add a legacy contact to a memorialized Facebook profile",
+                parentMenu: chooseALegacyContact4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var whatHappensToYourFB5 = await Menu.create({
+                name: "What happens to your Facebook profile if you pass away",
+                parentMenu: chooseALegacyContact4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var addChangeOrRemove5 = await Menu.create({
+                name: "Add, change, or remove your legacy contact on Facebook",
+                parentMenu: chooseALegacyContact4,
+                nestLevel: 5,
+                order: 3,
+            });
+
+            var onlyOneOfYourFB5 = await Menu.create({
+                name: "Only one of your Facebook friends can act as your legacy contact",
+                parentMenu: chooseALegacyContact4,
+                nestLevel: 5,
+                order: 4,
+            });
+
+            // Managing Your Account > Account Settings > Legacy Contacts > I am a legacy contact
+            var manageAMemorialized5 = await Menu.create({
+                name: "Manage a memorialized profile on Facebook",
+                parentMenu: iAmALegacyContact4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var addAPinnedPost5 = await Menu.create({
+                name: "Add a pinned post to a memorialized profile on Facebook",
+                parentMenu: iAmALegacyContact4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var declineBeingALegacy5 = await Menu.create({
+                name: "Decline being a legacy contact on Facebook",
+                parentMenu: iAmALegacyContact4,
+                nestLevel: 5,
+                order: 3,
+            });
+
+            // Managing Your Account > Account Settings > Legacy Contacts > Troubleshooting
+            var requestRemoval5 = await Menu.create({
+                name: "Request removal of a deceased family member’s Facebook account",
+                parentMenu: troubleshooting4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var askAQuestionAboutA5 = await Menu.create({
+                name: "Ask a question about a deceased person’s account on Facebook",
+                parentMenu: troubleshooting4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            var reportingADeceasedPerson5 = await Menu.create({
+                name: "Reporting a deceased person or a Facebook account that needs to be memorialized",
+                parentMenu: troubleshooting4,
+                nestLevel: 5,
+                order: 3,
+            });
+
+            // Managing Your Account > Notifications > Push, Email, and Text Notifications > Push Notifications
+            var howDoIAdjustMyMobile5 = await Menu.create({
+                name: "How do I adjust my mobile push notifications from Facebook?",
+                parentMenu: pushNotifications4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var howDoITurnOnFacebook5 = await Menu.create({
+                name: "How do I turn on Facebook push notifications through Google Chrome or Firefox?",
+                parentMenu: pushNotifications4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            // Managing Your Account > Notifications > Push, Email, and Text Notifications > Email Notifications
+            var adjustYourEmailNotifications5 = await Menu.create({
+                name: "Adjust your email notifications from Facebook",
+                parentMenu: emailNotifications4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var whyAmIReceivingEmail5 = await Menu.create({
+                name: "Why am I receiving email notifications from Facebookmail.com and Metamail.com?",
+                parentMenu: emailNotifications4,
+                nestLevel: 5,
+                order: 2,
+            });
+
+            // Managing Your Account > Notifications > Push, Email, and Text Notifications > Text Notifications
+            var setUpFacebookTexts5 = await Menu.create({
+                name: "Set up Facebook texts",
+                parentMenu: textNotifications4,
+                nestLevel: 5,
+                order: 1,
+            });
+
+            var updateFacebookUsing5 = await Menu.create({
+                name: "Update Facebook using a text message (SMS)",
+                parentMenu: textNotifications4,
+                nestLevel: 5,
+                order: 2,
             });
         } catch (err) {
             console.error(err);
