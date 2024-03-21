@@ -3586,6 +3586,18 @@ async function main() {
             console.error(err);
         }
 
+        const allMenus = await Menu.find({});
+        for (const menu of allMenus) {
+            const childMenu = await Menu.findOne({
+                parentMenu: menu,
+                nestLevel: menu.nestLevel + 1,
+            });
+            if (childMenu === null) {
+                menu.isLeaf = true;
+                await menu.save();
+            }
+        }
+
         console.log("facebook-help-center db repopulated successfully");
     } catch (err) {
         console.error(err);
