@@ -41,12 +41,16 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/helpcenter", async (req, res) => {
+    let prompt;
     try {
         await connect();
 
         const query = await Menu.find({ nestLevel: 1 });
         var initialMenus = await menusToJson(query);
         console.log(initialMenus);
+
+        const promptId = atob(req.query["pid"]);
+        prompt = await Menu.findOne({ _id: promptId });
     } catch (err) {
         console.error(err);
     }
@@ -61,6 +65,7 @@ router.get("/helpcenter", async (req, res) => {
         title: "Navigation Prototype",
         script: "static/js/helpcenter.js",
         menus: initialMenus,
+        promptName: prompt.name,
 
         fontSize: 17, // prototype variable 1
         spaceBetween: 0, // prototype variable 2; change also in menu.js
