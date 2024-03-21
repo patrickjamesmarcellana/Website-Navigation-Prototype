@@ -24,11 +24,19 @@ const menuToJson = async (document) => {
     };
 };
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+    await connect();
+    let randomPrompt = await Menu.aggregate([
+        { $match: { isLeaf: true } },
+        { $sample: { size: 1 } },
+    ]);
+    randomPrompt = randomPrompt[0];
+    await disconnect();
+
     res.render("index", {
         title: "Website Navigation Test",
         script: "static/js/index.js",
-        prompt: "Change name.", // TODO: Randomize prompt by extracting data from arrays from file.
+        prompt: randomPrompt,
     });
 });
 
@@ -49,7 +57,7 @@ router.get("/helpcenter", async (req, res) => {
         console.error(err);
     }
 
-    await res.render("helpcenter", {
+    res.render("helpcenter", {
         title: "Navigation Prototype",
         script: "static/js/helpcenter.js",
         menus: initialMenus,
@@ -60,7 +68,7 @@ router.get("/helpcenter", async (req, res) => {
 });
 
 router.get("/done", async (req, res) => {
-    await res.render("done", {
+    res.render("done", {
         paths: req.query.paths,
         avgTime: req.query.avgTime,
     });

@@ -7,10 +7,11 @@
     </p>
     <div class="mt-5 ">
         <div class="text-center font-bold">Prompt:</div>
-        Find "<span id="prompt" class="">{{ prompt }}</span>"
+        Find "<span id="prompt" class="">{{ prompt.name }}</span>"
     </div>
 
     <div class="mt-8">
         <button id="startButton" class="border rounded-lg py-4 px-8 bg-green-500" >Start</button>
     </div>
 </div>
+<div class="hidden" id="random-prompt-id">{{ prompt._id }}</div>

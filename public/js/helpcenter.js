@@ -5,6 +5,9 @@ var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 
+const url = new URL(window.location.href);
+const randomPromptId = atob(url.searchParams.get("pid"));
+
 // set initial time clicked
 $(window).on("load", (e) => {
     timePageOpened = e.timeStamp;
@@ -105,8 +108,7 @@ $(".menu").click(async (e) => {
         return;
     }
 
-    // TODO: change this to use random leaf node's name at runtime
-    if (selectedMenu.textContent.trim() == "Change name") {
+    if (selectedMenu.parentElement.getAttribute("menu-id") === randomPromptId) {
         document.querySelector("#doneBtn").classList.remove("hidden");
     }
 
