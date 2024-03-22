@@ -46,12 +46,8 @@ $(".menu").click(async (e) => {
     console.log("Selected Parent: " + selectedMenuData.parentMenu);
     console.log("Previous Selected ID: " + previouslySelectedId);
 
-    // FIXME: check if it is a leaf properly
     // check if new page is clicked
-    if (
-        previouslySelectedId !== selectedMenuId &&
-        selectedMenuData.nestLevel === 3 /* HACK */
-    ) {
+    if (selectedMenuData.isLeaf) {
         console.log("Clicked leaf at", e.timeStamp, "ms elapsed");
         pageStayTimes.push(e.timeStamp - timePageOpened);
         console.log("Times spent in pages", pageStayTimes);
