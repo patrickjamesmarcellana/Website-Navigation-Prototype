@@ -20,7 +20,7 @@ const menuToJson = async (document) => {
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 0,
-        spaceBetween: 0, // change also below and in menu.js
+        spaceBetween: 10, // change also below and in menu.js
     };
 };
 
@@ -68,7 +68,7 @@ router.get("/helpcenter", async (req, res) => {
         promptName: prompt.name,
 
         fontSize: 17, // prototype variable 1
-        spaceBetween: 0, // prototype variable 2; change also in menu.js
+        spaceBetween: 10, // prototype variable 2; change also in menu.js
     });
 });
 

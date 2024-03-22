@@ -119,12 +119,25 @@ $(".menu").click(async (e) => {
     if (response.status === 200) {
         const subMenus = await response.json();
         console.log(subMenus);
-        for (const subMenu of subMenus) {
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border space-y-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="hover:bg-gray-400">${subMenu.name}</span>
-            </div>`;
+        for (i = 0; i < subMenus.length; i++) {
+            
+            if(i === 0) {
+                const subMenu = subMenus[i]
 
-            selectedMenu.innerHTML += newSubMenu;
+                const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                    <span class="hover:bg-gray-400">${subMenu.name}</span>
+                </div>`;
+
+                selectedMenu.innerHTML += newSubMenu;
+            } else {
+                const subMenu = subMenus[i]
+
+                const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                    <span class="hover:bg-gray-400">${subMenu.name}</span>
+                </div>`;
+
+                selectedMenu.innerHTML += newSubMenu;
+            }
         }
 
         // add expanded class to prevent adding the submenus again
