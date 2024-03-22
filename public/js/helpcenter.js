@@ -5,6 +5,8 @@ var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 
+const SUBSECTIONS_VAR = 3 // prototype variable 3
+
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));
 
@@ -118,8 +120,9 @@ $(".menu").click(async (e) => {
 
     if (response.status === 200) {
         const subMenus = await response.json();
+        const subsectionsCount = Math.min(subMenus.length, SUBSECTIONS_VAR)
         console.log(subMenus);
-        for (i = 0; i < subMenus.length; i++) {
+        for (i = 0; i < subsectionsCount; i++) {
             
             if(i === 0) {
                 const subMenu = subMenus[i]
@@ -172,6 +175,6 @@ $(".menu").click(async (e) => {
 
 $("#doneBtn").click(async (e) => {
     window.location.replace(
-        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}`
+        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&subsections=${SUBSECTIONS_VAR}`
     );
 });

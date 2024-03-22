@@ -97,7 +97,8 @@ router.get("/done", async (req, res) => {
         avgTime: req.query.avgTime,
         prompt: prompt.name,
         fontSize: FONTSIZE, 
-        spaceBetween: SPACEBETWEEN
+        spaceBetween: SPACEBETWEEN,
+        subsectionsCount: req.query.subsections
     });
 });
 
