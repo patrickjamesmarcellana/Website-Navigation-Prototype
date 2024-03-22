@@ -73,9 +73,26 @@ router.get("/helpcenter", async (req, res) => {
 });
 
 router.get("/done", async (req, res) => {
+    let prompt;
+    try {
+        await connect();
+
+        const promptId = atob(req.query["pid"]);
+        prompt = await Menu.findOne({ _id: promptId });
+    } catch (err) {
+        console.error(err);
+    }
+
+    try {
+        await disconnect();
+    } catch (err) {
+        console.error(err);
+    }
+
     res.render("done", {
         paths: req.query.paths,
         avgTime: req.query.avgTime,
+        prompt: prompt.name
     });
 });
 

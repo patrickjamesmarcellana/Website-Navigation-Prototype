@@ -172,6 +172,6 @@ $(".menu").click(async (e) => {
 
 $("#doneBtn").click(async (e) => {
     window.location.replace(
-        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}`
+        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}`
     );
 });

@@ -1,14 +1,19 @@
 <div class="flex flex-col items-center">
     <h1 class="text-5xl font-bold m-0 mt-16">Results</h1>
 
-    <p class="mt-8 text-center">
-
-        Number of Paths Made: {{paths}} <br>
-        <!-- Afterward, you will be provided the number of paths you took and average time spent per page before you <br>
-                reached the target. -->
-        Average Time Spent Per Page: {{avgTime}}ms <br> <br> <br>
-    </p>
-    <a href="/" class="underline text-blue-500">
+    <table class="mt-8 border-2 border-black">
+        <tr class="text-center border-2 border-black">
+            <th class="p-2 border-2 border-black text-center">Prompt</th>
+            <th class="p-2 border-2 border-black text-center">No. of Paths</th>
+            <th class="p-2 border-2 border-black text-center">Ave. Time Spent Per Page (ms)</th>
+        </tr>
+        <tr>
+            <td class="p-2 border-2 border-black text-center">{{prompt}}</td>
+            <td class="p-2 border-2 border-black text-center">{{paths}}</td>
+            <td class="p-2 border-2 border-black text-center">{{avgTime}}</td>
+        </tr>
+    </table>
+    <a href="/" class="underline text-blue-500 mt-8">
         Restart the test? <br> <br>
     </a>
 </div>
