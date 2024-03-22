@@ -5,7 +5,8 @@ var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 
-const SUBSECTIONS_VAR = 4; // prototype variable 3
+// prototype variable 3; change along with the variable in routes.js
+const SUBSECTIONS_VAR = 4;
 
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));

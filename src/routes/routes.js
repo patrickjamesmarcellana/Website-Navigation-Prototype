@@ -3,8 +3,9 @@ const router = express.Router();
 import { connect, disconnect } from "../models/db.js";
 import Menu from "../models/menu.js";
 
-const FONTSIZE = 17 // prototype variable 1
-const SPACEBETWEEN = 10 // prototype variable 2; change also in menu.js
+const FONTSIZE = 17; // prototype variable 1
+const SPACEBETWEEN = 10; // prototype variable 2; change also in menu.js
+const SUBSECTIONS_VAR = 4; // prototype variable 3; change also in helpcenter.js
 
 const menusToJson = async (documents) => {
     const json = [];
@@ -23,14 +24,19 @@ const menuToJson = async (document) => {
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 0,
-        spaceBetween: SPACEBETWEEN // change also below and in menu.js
+        spaceBetween: SPACEBETWEEN, // change also below and in menu.js
     };
 };
 
 router.get("/", async (req, res) => {
     await connect();
     let randomPrompt = await Menu.aggregate([
-        { $match: { isLeaf: true } },
+        {
+            $match: {
+                isLeaf: true,
+                order: { $lte: SUBSECTIONS_VAR },
+            },
+        },
         { $sample: { size: 1 } },
     ]);
     randomPrompt = randomPrompt[0];
@@ -71,7 +77,7 @@ router.get("/helpcenter", async (req, res) => {
         promptName: prompt.name,
 
         fontSize: FONTSIZE,
-        spaceBetween: SPACEBETWEEN
+        spaceBetween: SPACEBETWEEN,
     });
 });
 
@@ -96,9 +102,9 @@ router.get("/done", async (req, res) => {
         paths: req.query.paths,
         avgTime: req.query.avgTime,
         prompt: prompt.name,
-        fontSize: FONTSIZE, 
+        fontSize: FONTSIZE,
         spaceBetween: SPACEBETWEEN,
-        subsectionsCount: req.query.subsections
+        subsectionsCount: req.query.subsections,
     });
 });
 
