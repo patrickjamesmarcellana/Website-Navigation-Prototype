@@ -5,7 +5,7 @@ var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 
-const SUBSECTIONS_VAR = 3 // prototype variable 3
+const SUBSECTIONS_VAR = 4; // prototype variable 3
 
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));
@@ -120,12 +120,11 @@ $(".menu").click(async (e) => {
 
     if (response.status === 200) {
         const subMenus = await response.json();
-        const subsectionsCount = Math.min(subMenus.length, SUBSECTIONS_VAR)
+        const subsectionsCount = Math.min(subMenus.length, SUBSECTIONS_VAR);
         console.log(subMenus);
         for (i = 0; i < subsectionsCount; i++) {
-            
-            if(i === 0) {
-                const subMenu = subMenus[i]
+            if (i === 0) {
+                const subMenu = subMenus[i];
 
                 const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
                     <span class="hover:bg-gray-400">${subMenu.name}</span>
@@ -133,7 +132,7 @@ $(".menu").click(async (e) => {
 
                 selectedMenu.innerHTML += newSubMenu;
             } else {
-                const subMenu = subMenus[i]
+                const subMenu = subMenus[i];
 
                 const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
                     <span class="hover:bg-gray-400">${subMenu.name}</span>
@@ -175,6 +174,8 @@ $(".menu").click(async (e) => {
 
 $("#doneBtn").click(async (e) => {
     window.location.replace(
-        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&subsections=${SUBSECTIONS_VAR}`
+        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(
+            2
+        )}&pid=${btoa(randomPromptId)}&subsections=${SUBSECTIONS_VAR}`
     );
 });
