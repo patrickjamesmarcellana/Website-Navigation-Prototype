@@ -2,7 +2,8 @@ import express from "express"
 const menuRouter = express.Router()
 import { connect, disconnect } from "../models/db.js"
 import Menu from "../models/menu.js"
-import menu from "../models/menu.js"
+
+const SPACEBETWEEN = 10 // variable 2, also change in routes.js
 
 const menusToJson = async (documents) => {
     const json = []
@@ -21,7 +22,7 @@ const menuToJson = async (document) => {
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 20,
-        spaceBetween: 10,
+        spaceBetween: SPACEBETWEEN,
 
         parentMenu: document.parentMenu,
         nestLevel: document.nestLevel,

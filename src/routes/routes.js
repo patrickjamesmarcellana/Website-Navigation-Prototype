@@ -3,6 +3,9 @@ const router = express.Router();
 import { connect, disconnect } from "../models/db.js";
 import Menu from "../models/menu.js";
 
+const FONTSIZE = 17 // prototype variable 1
+const SPACEBETWEEN = 10 // prototype variable 2; change also in menu.js
+
 const menusToJson = async (documents) => {
     const json = [];
 
@@ -20,7 +23,7 @@ const menuToJson = async (document) => {
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 0,
-        spaceBetween: 10, // change also below and in menu.js
+        spaceBetween: SPACEBETWEEN // change also below and in menu.js
     };
 };
 
@@ -67,8 +70,8 @@ router.get("/helpcenter", async (req, res) => {
         menus: initialMenus,
         promptName: prompt.name,
 
-        fontSize: 17, // prototype variable 1
-        spaceBetween: 10, // prototype variable 2; change also in menu.js
+        fontSize: FONTSIZE,
+        spaceBetween: SPACEBETWEEN
     });
 });
 
@@ -92,7 +95,9 @@ router.get("/done", async (req, res) => {
     res.render("done", {
         paths: req.query.paths,
         avgTime: req.query.avgTime,
-        prompt: prompt.name
+        prompt: prompt.name,
+        fontSize: FONTSIZE, 
+        spaceBetween: SPACEBETWEEN
     });
 });
 
