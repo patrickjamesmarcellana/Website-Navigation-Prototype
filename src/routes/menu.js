@@ -20,7 +20,7 @@ const menuToJson = async (document) => {
         menuId: document._id,
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
-        leftPadding: (document.nestLevel - 1) * 10,
+        leftPadding: 20,
         spaceBetween: 10,
 
         parentMenu: document.parentMenu,
