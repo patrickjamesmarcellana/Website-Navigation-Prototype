@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router();
 import { connect, disconnect } from "../models/db.js";
 import Menu from "../models/menu.js";
+import { subMenuToJson } from "./utils.js";
 
 const FONTSIZE = 17; // prototype variable 1
 const SPACEBETWEEN = 10; // prototype variable 2; change also in menu.js
@@ -50,7 +51,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/helpcenter", async (req, res) => {
-    let prompt;
+    let prompt, allData = {};
     try {
         await connect();
 
@@ -60,6 +61,11 @@ router.get("/helpcenter", async (req, res) => {
 
         const promptId = atob(req.query["pid"]);
         prompt = await Menu.findOne({ _id: promptId });
+
+        const allDocuments = await Menu.find();
+        for(const document of allDocuments) {
+            allData[document._id] = await subMenuToJson(document);
+        }
     } catch (err) {
         console.error(err);
     }
@@ -73,6 +79,7 @@ router.get("/helpcenter", async (req, res) => {
     res.render("helpcenter", {
         title: "Navigation Prototype",
         script: "static/js/helpcenter.js",
+        scriptData: JSON.stringify(allData),
         menus: initialMenus,
         promptName: prompt.name,
 

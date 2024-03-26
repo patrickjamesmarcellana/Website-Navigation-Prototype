@@ -1,3 +1,39 @@
+// store a reference to the script tag that loaded this file
+const scriptObject = document.currentScript;
+
+// utils
+const getSubMenus = async (id) => {
+    const menuJson = JSON.parse(scriptObject.dataset["extradata"]);
+    if(menuJson) {
+        return Object.values(menuJson).filter((document) => document.parentMenu === id);
+    } else { // fallback
+        response = await fetch("/getSubMenus/" + id);
+        if (response.status == 400) {
+            console.log(
+                "Error in fetching previously selected menu data from database."
+            );
+            return;
+        }
+        return response.json();
+    }
+}
+
+const getMenu = async (id) => {
+    const menuJson = JSON.parse(scriptObject.dataset["extradata"]);
+    if(menuJson && menuJson[id]) {
+        return menuJson[id];
+    } else { // fallback
+        response = await fetch("/getMenu/" + id);
+        if (response.status == 400) {
+            console.log(
+                "Error in fetching previously selected menu data from database."
+            );
+            return;
+        }
+        return response.json();
+    }
+}
+
 var previouslySelected;
 var paths = 1;
 
@@ -20,26 +56,15 @@ $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
     const selectedMenuId = selectedMenu.parentElement.getAttribute("menu-id");
-    let response = await fetch("/getMenu/" + selectedMenuId);
-    if (response.status == 400) {
-        console.log("Error in fetching selected menu data from database.");
-        return;
-    }
-    const selectedMenuData = await response.json();
+    const selectedMenuData = await getMenu(selectedMenuId);
 
     // previously selected menu
     let previouslySelectedId, previouslySelectedData;
     if (previouslySelected) {
         previouslySelectedId =
             previouslySelected.parentElement.getAttribute("menu-id");
-        response = await fetch("/getMenu/" + previouslySelectedId);
-        if (response.status == 400) {
-            console.log(
-                "Error in fetching previously selected menu data from database."
-            );
-            return;
-        }
-        previouslySelectedData = await response.json();
+        
+        previouslySelectedData = await getMenu(previouslySelectedId);
     }
 
     console.log("Selected ID: " + selectedMenuId);
@@ -112,61 +137,56 @@ $(".menu").click(async (e) => {
     }
 
     // first time accessing the menu and its submenus; add them as menu's children
-    response = await fetch("/getSubMenus/" + selectedMenuId);
-    console.log(response.status);
+    const subMenus = await getSubMenus(selectedMenuId);
+    const subsectionsCount = Math.min(subMenus.length, SUBSECTIONS_VAR);
+    console.log(subMenus);
+    for (i = 0; i < subsectionsCount; i++) {
+        if (i === 0) {
+            const subMenu = subMenus[i];
 
-    if (response.status === 200) {
-        const subMenus = await response.json();
-        const subsectionsCount = Math.min(subMenus.length, SUBSECTIONS_VAR);
-        console.log(subMenus);
-        for (i = 0; i < subsectionsCount; i++) {
-            if (i === 0) {
-                const subMenu = subMenus[i];
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="hover:bg-gray-400">${subMenu.name}</span>
+            </div>`;
 
-                const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                    <span class="hover:bg-gray-400">${subMenu.name}</span>
-                </div>`;
+            selectedMenu.innerHTML += newSubMenu;
+        } else {
+            const subMenu = subMenus[i];
 
-                selectedMenu.innerHTML += newSubMenu;
-            } else {
-                const subMenu = subMenus[i];
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="hover:bg-gray-400">${subMenu.name}</span>
+            </div>`;
 
-                const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                    <span class="hover:bg-gray-400">${subMenu.name}</span>
-                </div>`;
-
-                selectedMenu.innerHTML += newSubMenu;
-            }
+            selectedMenu.innerHTML += newSubMenu;
         }
-
-        // add expanded class to prevent adding the submenus again
-        selectedMenu.classList.add("expanded");
-
-        // update paths (backtracking) count
-        if (
-            previouslySelected && // defensive, displaying hidden submenus should not happen on initial state (i.e., no menu clicked yet at all)
-            !selectedMenuData.isLeaf && // clicking on leaves does not continue or open a path
-            previouslySelectedId !== selectedMenuId && // opening, closing, opening the same menu consecutively should not increase path count
-            selectedMenuData.parentMenu !==
-                previouslySelected.parentElement.getAttribute("menu-id") // clicked menu's parent is the previously clicked menu means the same path
-        ) {
-            console.log("PASSED HERE");
-            if (
-                (selectedMenuData.nestLevel ===
-                    previouslySelectedData.nestLevel &&
-                    selectedMenuData.parentMenu ===
-                        previouslySelectedData.parentMenu) ||
-                selectedMenuData.parentMenu !==
-                    previouslySelectedData.parentMenu
-            ) {
-                paths += 1;
-            }
-        }
-
-        console.log("Path count: " + paths);
-        previouslySelected = selectedMenu;
-        return;
     }
+
+    // add expanded class to prevent adding the submenus again
+    selectedMenu.classList.add("expanded");
+
+    // update paths (backtracking) count
+    if (
+        previouslySelected && // defensive, displaying hidden submenus should not happen on initial state (i.e., no menu clicked yet at all)
+        !selectedMenuData.isLeaf && // clicking on leaves does not continue or open a path
+        previouslySelectedId !== selectedMenuId && // opening, closing, opening the same menu consecutively should not increase path count
+        selectedMenuData.parentMenu !==
+            previouslySelected.parentElement.getAttribute("menu-id") // clicked menu's parent is the previously clicked menu means the same path
+    ) {
+        console.log("PASSED HERE");
+        if (
+            (selectedMenuData.nestLevel ===
+                previouslySelectedData.nestLevel &&
+                selectedMenuData.parentMenu ===
+                    previouslySelectedData.parentMenu) ||
+            selectedMenuData.parentMenu !==
+                previouslySelectedData.parentMenu
+        ) {
+            paths += 1;
+        }
+    }
+
+    console.log("Path count: " + paths);
+    previouslySelected = selectedMenu;
+    return;
 });
 
 $("#doneBtn").click(async (e) => {
