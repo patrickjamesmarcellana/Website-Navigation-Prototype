@@ -141,7 +141,7 @@ $(".menu").click(async (e) => {
                     break;
                 }
                 ancestors.push(curNode.parentMenu);
-                curNode = getMenu(curNode.parentMenu);
+                curNode = await getMenu(curNode.parentMenu);
             }
 
             if(!isDescendantOfDeepest) { // is not the deepest clicked node nor its ancestor/descendant, this is a new path
