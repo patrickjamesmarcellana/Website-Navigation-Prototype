@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router();
 import { connect, disconnect } from "../models/db.js";
 import Menu from "../models/menu.js";
+import Data from "../models/data.js";
 import { subMenuToJson } from "./utils.js";
 
 const FONTSIZE = 17; // prototype variable 1
@@ -97,6 +98,15 @@ router.get("/done", async (req, res) => {
 
         const promptId = atob(req.query["pid"]);
         prompt = await Menu.findOne({ _id: promptId });
+        await Data.create({
+            participantName: PARTICIPANT_NAME,
+            prompt: prompt.name,
+            fontSize: FONTSIZE,
+            spaceBetweenMenus: SPACEBETWEEN, 
+            subsectionsCount: req.query.subsections,
+            pathCount: req.query.paths,
+            aveTimeSpent: req.query.avgTime,
+        })
     } catch (err) {
         console.error(err);
     }
