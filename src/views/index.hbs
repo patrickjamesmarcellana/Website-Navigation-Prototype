@@ -11,7 +11,7 @@
                 reached the target. -->
         </p>
         <div class="mt-5">
-            <div class="text-2xl font-bold text-red-600 mb-2">Prompt {{promptNumber}}:</div>
+            <div class="text-2xl font-bold text-red-600 mb-2">Prompt <span id="indexPromptNo">{{promptNumber}}</span>:</div>
             Find "<span id="prompt" class="font-bold">{{ prompt.name }}</span>"
         </div>
 
@@ -19,6 +19,6 @@
             <button id="startButton" class="border rounded-lg py-4 px-8 bg-green-500" >Start</button>
         </div>
     </div>
-    <div class="hidden" id="random-prompt-id">{{ prompt._id }}</div>
 </div>
+<div class="hidden" id="random-prompt-id">{{ prompt._id }}</div>
 <div class="hidden" id="promptParticipant">{{participantName}}</div>

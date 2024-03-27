@@ -52,7 +52,7 @@ router.get("/prompt", async (req, res) => {
         // script: "static/js/index.js",
         prompt: randomPrompt,
         promptNumber: req.query.promptNumber,
-        participantName: req.query.participantName
+        participantName: req.query.participantName,
     });
 });
 
@@ -88,6 +88,7 @@ router.get("/helpcenter", async (req, res) => {
         scriptData: JSON.stringify(allData),
         menus: initialMenus,
         promptName: prompt.name,
+        promptNumber: req.query.promptNumber,
         participantName: req.query.participantName,
 
         fontSize: req.query.fontSize,
@@ -112,23 +113,27 @@ router.get("/done", async (req, res) => {
         })
     } catch (err) {
         console.error(err);
+        res.sendStatus(500)
     }
 
     try {
         await disconnect();
     } catch (err) {
         console.error(err);
+        res.sendStatus(500)
     }
 
-    res.render("done", {
-        participantName: req.query.participantName,
-        paths: req.query.paths,
-        avgTime: req.query.avgTime,
-        prompt: prompt.name,
-        fontSize: req.query.fontSize,
-        spaceBetween: req.query.spaceBetween,
-        subsectionsCount: req.query.subsections,
-    });
+    res.sendStatus(200)
+
+    // res.render("done", {
+    //     participantName: req.query.participantName,
+    //     paths: req.query.paths,
+    //     avgTime: req.query.avgTime,
+    //     prompt: prompt.name,
+    //     fontSize: req.query.fontSize,
+    //     spaceBetween: req.query.spaceBetween,
+    //     subsectionsCount: req.query.subsections,
+    // });
 });
 
 router.use((req, res) => {

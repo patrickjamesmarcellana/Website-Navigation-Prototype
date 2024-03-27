@@ -12,6 +12,14 @@ var subsectionsCounts = []
 var pathCounts = []
 var aveTimes = []
 
+// hack
+let promptNumber = parseInt($("#helpCenterPromptNo").text())
+if(promptNumber === 6) {
+    SUBSECTIONS_VAR = 3;
+} else if(promptNumber === 7) {
+    SUBSECTIONS_VAR = 2;
+}
+
 // store a reference to the script tag that loaded this file
 const scriptObject = document.currentScript;
 
@@ -206,20 +214,55 @@ $(".menu").click(async (e) => {
 
 $("#doneBtn").click(async (e) => {
     const participantName = $("#helpCenterParticipant").text()
-    await fetch(
+    let promptNumber = parseInt($("#helpCenterPromptNo").text())
+    console.log(promptNumber)
+
+     const status = await fetch(
         `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}&participantName=${participantName}`
     );
 
+    if(status != 200) {
+        window.location.replace("/")
+    }
+
     // save data for full display later
-    promptIds[trialCount - 1] = randomPromptId
-    fontSizes[trialCount - 1] = FONTSIZE
-    spacesBetween[trialCount - 1] = SPACEBETWEEN
-    subsectionsCounts[trialCount - 1] = SUBSECTIONS_VAR
-    pathCounts[trialCount - 1] = paths
-    aveTimes[trialCount - 1] = avgTimeSpentPerPage.toFixed(2)
+    promptIds[promptNumber - 1] = randomPromptId
+    fontSizes[promptNumber - 1] = FONTSIZE
+    spacesBetween[promptNumber - 1] = SPACEBETWEEN
+    subsectionsCounts[promptNumber - 1] = SUBSECTIONS_VAR
+    pathCounts[promptNumber - 1] = paths
+    aveTimes[promptNumber - 1] = avgTimeSpentPerPage.toFixed(2)
 
     // modify parameters based on stage of test
-    switch(trialCount) {
+    console.log("Reach here 1")
+    switch(promptNumber) {
+        case 1: break;                                          // 17 10 4
+        case 2: FONTSIZE = 14; break;                           // 14 10 4
+        case 3: FONTSIZE = 20; break;                           // 11 10 4
+        case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
+        case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
+        case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
+        case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
+        default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
+    }
+
+    console.log("Reach here?")
+
+    if(promptNumber != 7) {
+        promptNumber += 1
+        window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
+    } else {
+        console.log('DONE') // TODO: Done Page
+    }
+});
+
+$("#nextButton").click((e) => {
+    const participantName = $("#participantName").val()
+    const promptNumber = parseInt($("#landingPromptNo").text())
+    // console.log(promptNumberText)
+    // const promptNumber = parseInt(promptNumberText)
+    console.log(participantName)
+    switch(promptNumber) {
         case 1: break;                                          // 17 10 4
         case 2: FONTSIZE = 14; break;                           // 14 10 4
         case 3: FONTSIZE = 11; break;                           // 11 10 4
@@ -229,23 +272,22 @@ $("#doneBtn").click(async (e) => {
         case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
         default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
     }
-
-    if(trialCount != 8) {
-        trialCount += 1
-        window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${trialCount}&participantName=${participantName}`)
-    } else {
-        console.log('DONE') // TODO: Done Page
-    }
-});
-
-$("#nextButton").click((e) => {
-    const participantName = $("#participantName").val()
-    console.log(participantName)
-    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${trialCount}&participantName=${participantName}`)
+    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
 })
 
 $("#startButton").click(async (e) => {
     const promptId = $("#random-prompt-id").text();
     const participantName = $("#promptParticipant").text()
-    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&participantName=${participantName}`);
+    const promptNumber = parseInt($("#indexPromptNo").text())
+    switch(promptNumber) {
+        case 1: break;                                          // 17 10 4
+        case 2: FONTSIZE = 14; break;                           // 14 10 4
+        case 3: FONTSIZE = 11; break;                           // 11 10 4
+        case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
+        case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
+        case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
+        case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
+        default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
+    }
+    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&participantName=${participantName}&promptNumber=${promptNumber}`);
 });
