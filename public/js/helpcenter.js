@@ -4,7 +4,13 @@ var FONTSIZE = 17;
 var SPACEBETWEEN = 10;
 var SUBSECTIONS_VAR = 4;
 
-var participantName = ""
+var trialCount = 1       // count of repetition per test
+var promptIds = []
+var fontSizes = []
+var spacesBetween = []
+var subsectionsCounts = []
+var pathCounts = []
+var aveTimes = []
 
 // store a reference to the script tag that loaded this file
 const scriptObject = document.currentScript;
@@ -245,19 +251,47 @@ $(".menu").click(async (e) => {
 });
 
 $("#doneBtn").click(async (e) => {
-    window.location.replace(
-        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(
-            2
-        )}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}`
+    const participantName = $("#helpCenterParticipant").text()
+    await fetch(
+        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}&participantName=${participantName}`
     );
+
+    // save data for full display later
+    promptIds[trialCount - 1] = randomPromptId
+    fontSizes[trialCount - 1] = FONTSIZE
+    spacesBetween[trialCount - 1] = SPACEBETWEEN
+    subsectionsCounts[trialCount - 1] = SUBSECTIONS_VAR
+    pathCounts[trialCount - 1] = paths
+    aveTimes[trialCount - 1] = avgTimeSpentPerPage.toFixed(2)
+
+    // modify parameters based on stage of test
+    switch(trialCount) {
+        case 1: break;                                          // 17 10 4
+        case 2: FONTSIZE = 14; break;                           // 14 10 4
+        case 3: FONTSIZE = 11; break;                           // 11 10 4
+        case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
+        case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
+        case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
+        case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
+        default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
+    }
+
+    if(trialCount != 8) {
+        trialCount += 1
+        window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${trialCount}&participantName=${participantName}`)
+    } else {
+        console.log('DONE') // TODO: Done Page
+    }
 });
 
 $("#nextButton").click((e) => {
-    participantName = $("#participantName").val()
-    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}`)
+    const participantName = $("#participantName").val()
+    console.log(participantName)
+    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${trialCount}&participantName=${participantName}`)
 })
 
 $("#startButton").click(async (e) => {
     const promptId = $("#random-prompt-id").text();
-    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&participantName=${participantName}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}`);
+    const participantName = $("#promptParticipant").text()
+    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&participantName=${participantName}`);
 });
