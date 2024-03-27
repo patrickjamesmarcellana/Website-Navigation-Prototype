@@ -151,7 +151,7 @@ $(".menu").click(async (e) => {
             const subMenu = subMenus[i];
 
             const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="hover:bg-gray-400">${subMenu.name}</span>
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
             selectedMenu.innerHTML += newSubMenu;
@@ -159,7 +159,7 @@ $(".menu").click(async (e) => {
             const subMenu = subMenus[i];
 
             const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="hover:bg-gray-400">${subMenu.name}</span>
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
             selectedMenu.innerHTML += newSubMenu;
