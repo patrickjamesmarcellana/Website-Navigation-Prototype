@@ -59,10 +59,11 @@ $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
     const selectedMenuId = selectedMenu.parentElement.getAttribute("menu-id");
-    let selectedMenuData
-    if (selectedMenuId) {
-        selectedMenuData = await getMenu(selectedMenuId);   
+    if (!selectedMenuId) {
+        return;
     }
+    
+    const selectedMenuData = await getMenu(selectedMenuId);   
 
     // previously selected menu
     let previouslySelectedId, previouslySelectedData;
