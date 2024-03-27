@@ -70,10 +70,16 @@ var avgTimeSpentPerPage = 0;
 
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));
+var promptName = ""
+
 
 // set initial time clicked
-$(window).on("load", (e) => {
+$(window).on("load", async (e) => {
     timePageOpened = e.timeStamp;
+
+    const promptData = await getMenu(randomPromptId)
+    promptName = promptData.name
+    console.log("Prompt Name: ", promptName)
 });
 
 /*
@@ -204,7 +210,8 @@ $(".menu").click(async (e) => {
         return;
     }
 
-    if (selectedMenu.parentElement.getAttribute("menu-id") === randomPromptId) {
+    console.log(selectedMenuData.name)
+    if (selectedMenuData.name === promptName) {
         document.querySelector("#doneBtn").classList.remove("hidden");
     }
 
@@ -312,7 +319,7 @@ $("#nextButton").click((e) => {
     switch(promptNumber) {
         case 1: break;                                          // 17 10 4
         case 2: FONTSIZE = 14; break;                           // 14 10 4
-        case 3: FONTSIZE = 11; break;                           // 11 10 4
+        case 3: FONTSIZE = 20; break;                           // 11 10 4
         case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
         case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
         case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
@@ -329,7 +336,7 @@ $("#startButton").click(async (e) => {
     switch(promptNumber) {
         case 1: break;                                          // 17 10 4
         case 2: FONTSIZE = 14; break;                           // 14 10 4
-        case 3: FONTSIZE = 11; break;                           // 11 10 4
+        case 3: FONTSIZE = 20; break;                           // 11 10 4
         case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
         case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
         case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
