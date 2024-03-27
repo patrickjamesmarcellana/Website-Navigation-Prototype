@@ -103,7 +103,7 @@ router.get("/done", async (req, res) => {
             prompt: prompt.name,
             fontSize: FONTSIZE,
             spaceBetweenMenus: SPACEBETWEEN, 
-            subsectionsCount: req.query.subsections,
+            subsectionsCount: SUBSECTIONS_VAR,
             pathCount: req.query.paths,
             aveTimeSpent: req.query.avgTime,
         })
@@ -124,7 +124,7 @@ router.get("/done", async (req, res) => {
         prompt: prompt.name,
         fontSize: FONTSIZE,
         spaceBetween: SPACEBETWEEN,
-        subsectionsCount: req.query.subsections,
+        subsectionsCount: SUBSECTIONS_VAR,
     });
 });
 
