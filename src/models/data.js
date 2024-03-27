@@ -2,6 +2,11 @@ import mongoose from 'mongoose'
 import { Schema, model } from 'mongoose'
 
 const dataSchema = new mongoose.Schema({
+    date: {
+        type: Date,
+        required: true,
+        default: new Date()
+    },
     participantName: {
         type: String,
         required: true,
