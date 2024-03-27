@@ -2503,7 +2503,7 @@ async function main() {
             });
 
             var hideOrUnhide5 = await Menu.create({
-                name: "Hide or unhide a private",
+                name: "Hide or unhide a private Facebook group you admin",
                 parentMenu: privacy4,
                 nestLevel: 5,
                 order: 3,
