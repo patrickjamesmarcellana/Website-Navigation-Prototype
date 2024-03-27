@@ -8,13 +8,12 @@
         <!-- Afterward, you will be provided the number of paths you took and average time spent per page before you <br>
         reached the target. -->
     </p>
-    <div class="mt-5 ">
-        <div class="text-center font-bold">Prompt:</div>
-        Find "<span id="prompt" class="font-bold">{{ prompt.name }}</span>"
+    <div class="mt-5 text-center"> 
+        Enter your name: <br>
+        <input id="participantName" name="participantName" type="text" class="mt-2 border-2 rounded border-black">
     </div>
 
     <div class="mt-8">
-        <button id="startButton" class="border rounded-lg py-4 px-8 bg-green-500" >Start</button>
+        <button id="nextButton" class="border rounded-lg py-4 px-8 bg-green-500" >Get Prompt</button>
     </div>
 </div>
-<div class="hidden" id="random-prompt-id">{{ prompt._id }}</div>

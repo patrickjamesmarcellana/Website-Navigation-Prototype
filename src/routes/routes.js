@@ -5,7 +5,6 @@ import Menu from "../models/menu.js";
 import Data from "../models/data.js";
 import { subMenuToJson } from "./utils.js";
 
-const SUBSECTIONS_VAR = 4; // prototype variable 3; change also in helpcenter.js
 var PARTICIPANT_NAME = ""
 
 const menusToJson = async (documents, spaceBetween) => {
@@ -30,12 +29,18 @@ const menuToJson = async (document, spaceBetween) => {
 };
 
 router.get("/", async (req, res) => {
+    res.render("landing", {
+        title: "Website Navigation Test"
+    })
+})
+
+router.get("/prompt", async (req, res) => {
     await connect();
     let randomPrompt = await Menu.aggregate([
         {
             $match: {
                 isLeaf: true,
-                order: { $lte: SUBSECTIONS_VAR },
+                order: { $lte: parseInt(req.query.subsections) },
             },
         },
         { $sample: { size: 1 } },
@@ -43,6 +48,7 @@ router.get("/", async (req, res) => {
     randomPrompt = randomPrompt[0];
     await disconnect();
 
+    console.log(req.query.subsections)
     res.render("index", {
         title: "Website Navigation Test",
         // script: "static/js/index.js",
@@ -101,7 +107,7 @@ router.get("/done", async (req, res) => {
             prompt: prompt.name,
             fontSize: req.query.fontSize,
             spaceBetweenMenus: req.query.spaceBetween, 
-            subsectionsCount: SUBSECTIONS_VAR,
+            subsectionsCount: req.query.subsections,
             pathCount: req.query.paths,
             aveTimeSpent: req.query.avgTime,
         })
@@ -122,7 +128,7 @@ router.get("/done", async (req, res) => {
         prompt: prompt.name,
         fontSize: req.query.fontSize,
         spaceBetween: req.query.spaceBetween,
-        subsectionsCount: SUBSECTIONS_VAR,
+        subsectionsCount: req.query.subsections,
     });
 });
 

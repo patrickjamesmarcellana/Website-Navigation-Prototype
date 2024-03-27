@@ -2,7 +2,9 @@
 // prototype variables
 var FONTSIZE = 17;
 var SPACEBETWEEN = 10;
-const SUBSECTIONS_VAR = 4;
+var SUBSECTIONS_VAR = 4;
+
+var participantName = ""
 
 // store a reference to the script tag that loaded this file
 const scriptObject = document.currentScript;
@@ -199,12 +201,16 @@ $("#doneBtn").click(async (e) => {
     window.location.replace(
         `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(
             2
-        )}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}`
+        )}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}`
     );
 });
 
+$("#nextButton").click((e) => {
+    participantName = $("#participantName").val()
+    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}`)
+})
+
 $("#startButton").click(async (e) => {
     const promptId = $("#random-prompt-id").text();
-    const participantName = $("#participantName").val()
     window.location.replace(`/helpcenter?pid=${btoa(promptId)}&participantName=${participantName}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}`);
 });
