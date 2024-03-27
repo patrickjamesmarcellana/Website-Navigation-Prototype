@@ -9,24 +9,24 @@ const SPACEBETWEEN = 10; // prototype variable 2; change also in menu.js
 const SUBSECTIONS_VAR = 4; // prototype variable 3; change also in helpcenter.js
 var PARTICIPANT_NAME = ""
 
-const menusToJson = async (documents) => {
+const menusToJson = async (documents, spaceBetween) => {
     const json = [];
 
     for (let i = 0; i < documents.length; i++) {
-        json.push(await menuToJson(documents[i]));
+        json.push(await menuToJson(documents[i], spaceBetween));
     }
 
     return json;
 };
 
-const menuToJson = async (document) => {
+const menuToJson = async (document, spaceBetween) => {
     console.log(document);
     return {
         menuId: document._id,
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 0,
-        spaceBetween: SPACEBETWEEN, // change also below and in menu.js
+        spaceBetween: spaceBetween, // change also below and in menu.js
     };
 };
 
@@ -58,7 +58,7 @@ router.get("/helpcenter", async (req, res) => {
         await connect();
 
         const query = await Menu.find({ nestLevel: 1 });
-        var initialMenus = await menusToJson(query);
+        var initialMenus = await menusToJson(query, req.query.spaceBetween);
         console.log(initialMenus);
 
         const promptId = atob(req.query["pid"]);
@@ -66,7 +66,7 @@ router.get("/helpcenter", async (req, res) => {
 
         const allDocuments = await Menu.find();
         for(const document of allDocuments) {
-            allData[document._id] = await subMenuToJson(document);
+            allData[document._id] = await subMenuToJson(document, req.query.spaceBetween);
         }
     } catch (err) {
         console.error(err);
@@ -86,7 +86,7 @@ router.get("/helpcenter", async (req, res) => {
         promptName: prompt.name,
 
         fontSize: req.query.fontSize,
-        spaceBetween: SPACEBETWEEN,
+        spaceBetween: req.query.spaceBetween,
     });
 });
 
@@ -101,7 +101,7 @@ router.get("/done", async (req, res) => {
             participantName: PARTICIPANT_NAME,
             prompt: prompt.name,
             fontSize: req.query.fontSize,
-            spaceBetweenMenus: SPACEBETWEEN, 
+            spaceBetweenMenus: req.query.spaceBetween, 
             subsectionsCount: SUBSECTIONS_VAR,
             pathCount: req.query.paths,
             aveTimeSpent: req.query.avgTime,
@@ -122,7 +122,7 @@ router.get("/done", async (req, res) => {
         avgTime: req.query.avgTime,
         prompt: prompt.name,
         fontSize: req.query.fontSize,
-        spaceBetween: SPACEBETWEEN,
+        spaceBetween: req.query.spaceBetween,
         subsectionsCount: SUBSECTIONS_VAR,
     });
 });

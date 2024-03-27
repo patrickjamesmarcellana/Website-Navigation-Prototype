@@ -10,7 +10,7 @@ menuRouter.get("/getSubMenus/:menuId", async (req, res) => {
         await connect()
         const menuToExpand = await Menu.find({_id: req.params.menuId})
         const subMenus = await Menu.find({parentMenu: menuToExpand})
-        var json = await  menusToJson(subMenus)
+        var json = await  menusToJson(subMenus, req.query.spaceBetween)
         console.log(json)
     } catch (err) {
         console.error(err) 
@@ -33,7 +33,7 @@ menuRouter.get("/getMenu/:menuId", async (req, res) => {
     try {
         await connect()
         const menu = await Menu.findById(req.params.menuId)
-        var json = await  menuToJson(menu)
+        var json = await  menuToJson(menu, req.query.spaceBetween)
         console.log(json)
     } catch (err) {
         console.error(err) 

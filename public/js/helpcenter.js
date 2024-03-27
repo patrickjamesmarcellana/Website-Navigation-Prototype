@@ -1,3 +1,9 @@
+// prototype variable 3; change along with the variable in routes.js
+// prototype variables
+var FONTSIZE = 17;
+var SPACEBETWEEN = 10;
+const SUBSECTIONS_VAR = 4;
+
 // store a reference to the script tag that loaded this file
 const scriptObject = document.currentScript;
 
@@ -7,7 +13,7 @@ const getSubMenus = async (id) => {
     if(menuJson) {
         return Object.values(menuJson).filter((document) => document.parentMenu === id);
     } else { // fallback
-        response = await fetch("/getSubMenus/" + id);
+        response = await fetch(`/getSubMenus/` + id + `?spaceBetween=${SPACEBETWEEN}`);
         if (response.status == 400) {
             console.log(
                 "Error in fetching previously selected menu data from database."
@@ -23,7 +29,7 @@ const getMenu = async (id) => {
     if(menuJson && menuJson[id]) {
         return menuJson[id];
     } else { // fallback
-        response = await fetch("/getMenu/" + id);
+        response = await fetch(`/getMenu/` + id + `?spaceBetween=${SPACEBETWEEN}`);
         if (response.status == 400) {
             console.log(
                 "Error in fetching previously selected menu data from database."
@@ -41,11 +47,6 @@ var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 
-// prototype variable 3; change along with the variable in routes.js
-// prototype variables
-var FONTSIZE = 17;
-const SUBSECTIONS_VAR = 4;
-
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));
 
@@ -58,7 +59,10 @@ $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
     const selectedMenuId = selectedMenu.parentElement.getAttribute("menu-id");
-    const selectedMenuData = await getMenu(selectedMenuId);
+    let selectedMenuData
+    if (selectedMenuId) {
+        selectedMenuData = await getMenu(selectedMenuId);   
+    }
 
     // previously selected menu
     let previouslySelectedId, previouslySelectedData;
@@ -195,12 +199,12 @@ $("#doneBtn").click(async (e) => {
     window.location.replace(
         `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(
             2
-        )}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}`
+        )}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}`
     );
 });
 
 $("#startButton").click(async (e) => {
     const promptId = $("#random-prompt-id").text();
     const participantName = $("#participantName").val()
-    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&participantName=${participantName}&fontSize=${FONTSIZE}`);
+    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&participantName=${participantName}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}`);
 });
