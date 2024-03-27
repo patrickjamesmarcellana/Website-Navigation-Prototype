@@ -57,7 +57,7 @@ const getMenu = async (id) => {
 }
 
 var previouslySelected;
-var paths = 1;
+var paths = 0;
 
 var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
@@ -71,6 +71,17 @@ $(window).on("load", (e) => {
     timePageOpened = e.timeStamp;
 });
 
+/*
+path counting idea:
+maintain a stack of clicked menus (deepest menu entry clicked M and all of its ancestors)
+
+1. clicking a child of M adds it to the stack, it will then be the newest deepest entry
+2. clicking an ancestor of M does not change the stack (nothing is popped) nor the count
+2.1. reclicking on M or its other ancestors also does not change anything
+2.2. clicking on anything else such as the sibling of M increases the count by 1, and then updates the stack to store N and its ancestors
+3. basucally clicking on anything (say node N) not currently stored in the stack increases the count by 1, and then updates the stack to store N and its ancestors instead
+*/
+let clickStack = [];
 $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
@@ -123,6 +134,37 @@ $(".menu").click(async (e) => {
         return;
     }
 
+    // update path count
+    // more info about this above (in "path counting idea")
+    if(!selectedMenuData.isLeaf) { // clicking on leaves does not continue or open a path 
+        if(!clickStack.includes(selectedMenuId)) { // check condition #2 (ensure it is not deepest clicked node or its ancestor)
+            // find relation between the deepest clicked node and current menu entry
+            let curNode = selectedMenuData;
+            let isDescendantOfDeepest = false;
+            const ancestors = [selectedMenuId];
+            while(curNode?.parentMenu) {
+                console.log(clickStack, curNode);
+                if(clickStack.length > 0 && clickStack.at(-1) === curNode.parentMenu) {
+                    isDescendantOfDeepest = true;
+                    break;
+                }
+                ancestors.push(curNode.parentMenu);
+                curNode = await getMenu(curNode.parentMenu);
+            }
+
+            if(!isDescendantOfDeepest) { // is not the deepest clicked node nor its ancestor/descendant, this is a new path
+                // increment by 1 and create new click stack
+                paths += 1;
+                clickStack = ancestors.reverse();
+            } else { // descendant of the current deepest clicked node (an even deeper node)
+                // add the elements between the deepest clicked node and the current node
+                // effectively designating a new deepest clicked node
+                clickStack = clickStack.concat(ancestors.reverse());
+            }
+        }
+    }
+    console.log("Path count: " + paths);
+
     // display selected menu's hidden submenus if there are any
     if (selectedMenu.firstElementChild) {
         for (subMenu of selectedMenu.children) {
@@ -131,6 +173,7 @@ $(".menu").click(async (e) => {
         selectedMenu.classList.add("expanded");
 
         // update paths (backtracking) count
+        /*
         if (
             previouslySelected && // defensive, displaying hidden submenus should not happen on initial state (i.e., no menu clicked yet at all)
             !selectedMenuData.isLeaf &&
@@ -152,6 +195,7 @@ $(".menu").click(async (e) => {
 
         console.log("Path count: " + paths);
         previouslySelected = selectedMenu;
+        */
         return;
     }
 
@@ -187,6 +231,7 @@ $(".menu").click(async (e) => {
     selectedMenu.classList.add("expanded");
 
     // update paths (backtracking) count
+    /*
     if (
         previouslySelected && // defensive, displaying hidden submenus should not happen on initial state (i.e., no menu clicked yet at all)
         !selectedMenuData.isLeaf && // clicking on leaves does not continue or open a path
@@ -206,8 +251,8 @@ $(".menu").click(async (e) => {
             paths += 1;
         }
     }
+    */
 
-    console.log("Path count: " + paths);
     previouslySelected = selectedMenu;
     return;
 });
