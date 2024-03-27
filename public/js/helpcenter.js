@@ -187,8 +187,8 @@ $(".menu").click(async (e) => {
 
         console.log("Path count: " + paths);
         previouslySelected = selectedMenu;
-        return;
         */
+        return;
     }
 
     if (selectedMenu.parentElement.getAttribute("menu-id") === randomPromptId) {
