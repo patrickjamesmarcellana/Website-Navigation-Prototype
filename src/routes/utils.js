@@ -1,5 +1,3 @@
-const SPACEBETWEEN = 10 // variable 2, also change in routes.js
-
 const subMenusToJson = async (documents, spaceBetween) => {
     const json = []
     

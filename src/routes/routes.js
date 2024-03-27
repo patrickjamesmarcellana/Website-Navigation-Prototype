@@ -5,7 +5,6 @@ import Menu from "../models/menu.js";
 import Data from "../models/data.js";
 import { subMenuToJson } from "./utils.js";
 
-const SPACEBETWEEN = 10; // prototype variable 2; change also in menu.js
 const SUBSECTIONS_VAR = 4; // prototype variable 3; change also in helpcenter.js
 var PARTICIPANT_NAME = ""
 
