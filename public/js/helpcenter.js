@@ -61,10 +61,11 @@ $(".menu").click(async (e) => {
     // selected menu
     const selectedMenu = e.target;
     const selectedMenuId = selectedMenu.parentElement.getAttribute("menu-id");
-    let selectedMenuData
-    if (selectedMenuId) {
-        selectedMenuData = await getMenu(selectedMenuId);   
+    if (!selectedMenuId) {
+        return;
     }
+    
+    const selectedMenuData = await getMenu(selectedMenuId);   
 
     // previously selected menu
     let previouslySelectedId, previouslySelectedData;
@@ -152,16 +153,16 @@ $(".menu").click(async (e) => {
         if (i === 0) {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="hover:bg-gray-400">${subMenu.name}</span>
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border pb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
             selectedMenu.innerHTML += newSubMenu;
         } else {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="hover:bg-gray-400">${subMenu.name}</span>
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border pb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
             selectedMenu.innerHTML += newSubMenu;
