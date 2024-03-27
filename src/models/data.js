@@ -1,0 +1,42 @@
+import mongoose from 'mongoose'
+import { Schema, model } from 'mongoose'
+
+const dataSchema = new mongoose.Schema({
+    participantName: {
+        type: String,
+        required: true,
+        default: ""
+    },
+    prompt: {
+        type: String,
+        required: true,
+        default: ""
+    },
+    fontSize: {
+        type: Number,
+        required: true,
+        default: -1
+    },
+    spaceBetweenMenus: {
+        type: Number,
+        required: true,
+        default: -1
+    },
+    subsectionsCount : {
+        type: Number,
+        required: true,
+        default: -1
+    },
+    pathCount: {
+        type: Number,
+        required: true,
+        default: -1
+    }, 
+    aveTimeSpent: {
+        type: Number,
+        required: true,
+        default: -1
+    }
+    
+})
+export default model('Data', dataSchema)
