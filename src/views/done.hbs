@@ -3,6 +3,7 @@
 
     <table class="mt-8 border-2 border-black">
         <tr class="text-center border-2 border-black">
+            <th class="p-2 border-2 border-black text-center">Date</th>
             <th class="p-2 border-2 border-black text-center">Participant</th>
             <th class="p-2 border-2 border-black text-center">Prompt</th>
             <th class="p-2 border-2 border-black text-center">Font Size</th>
@@ -11,15 +12,9 @@
             <th class="p-2 border-2 border-black text-center">No. of Paths</th>
             <th class="p-2 border-2 border-black text-center">Ave. Time Spent Per Page (ms)</th>
         </tr>
-        <tr>
-            <td class="p-2 border-2 border-black text-center">{{participantName}}</td>
-            <td class="p-2 border-2 border-black text-center">{{prompt}}</td>
-            <td class="p-2 border-2 border-black text-center">{{fontSize}}</td>
-            <td class="p-2 border-2 border-black text-center">{{spaceBetween}}</td>
-            <td class="p-2 border-2 border-black text-center">{{subsectionsCount}}</td>
-            <td class="p-2 border-2 border-black text-center">{{paths}}</td>
-            <td class="p-2 border-2 border-black text-center">{{avgTime}}</td>
-        </tr>
+        {{#each data}}
+        {{> datarow this}}
+        {{/each}}  
     </table>
     <a href="/" class="underline text-blue-500 mt-8">
         Restart the test? <br> <br>

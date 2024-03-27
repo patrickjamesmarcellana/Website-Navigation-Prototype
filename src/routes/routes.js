@@ -16,13 +16,36 @@ const menusToJson = async (documents, spaceBetween) => {
 };
 
 const menuToJson = async (document, spaceBetween) => {
-    console.log(document);
     return {
         menuId: document._id,
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
         leftPadding: 0,
         spaceBetween: spaceBetween, // change also below and in menu.js
+    };
+};
+
+const dataToJson = async (documents) => {
+    const json = []
+
+    for (let i = 0; i < documents.length; i++) {
+        json.push(await dataRowToJson(documents[i]));
+    }
+
+    return json;
+}
+
+const dataRowToJson = async (document) => {
+    console.log(document);
+    return {
+        date: document.date.toLocaleString('en-US'),
+        participantName: document.participantName,
+        prompt: document.prompt,
+        fontSize: document.fontSize,
+        spaceBetweenMenus: document.spaceBetweenMenus, 
+        subsectionsCount: document.subsectionsCount,
+        pathCount: document.pathCount,
+        aveTimeSpent: document.aveTimeSpent,
     };
 };
 
@@ -124,17 +147,24 @@ router.get("/done", async (req, res) => {
     }
 
     res.sendStatus(200)
-
-    // res.render("done", {
-    //     participantName: req.query.participantName,
-    //     paths: req.query.paths,
-    //     avgTime: req.query.avgTime,
-    //     prompt: prompt.name,
-    //     fontSize: req.query.fontSize,
-    //     spaceBetween: req.query.spaceBetween,
-    //     subsectionsCount: req.query.subsections,
-    // });
 });
+
+router.get("/complete", async (req, res) => {
+    let json = {}
+    try {
+        await connect();
+
+        const query = await Data.find().sort({ _id: -1 }).limit(7);
+        json = await dataToJson(query)
+        console.log(json)
+    } catch (err) {
+        console.error(err);
+    }
+
+    res.render("done", {
+        data: json
+    });
+})
 
 router.use((req, res) => {
     res.render("error", {

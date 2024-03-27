@@ -14,10 +14,15 @@ var aveTimes = []
 
 // hack
 let promptNumber = parseInt($("#helpCenterPromptNo").text())
-if(promptNumber === 6) {
-    SUBSECTIONS_VAR = 3;
-} else if(promptNumber === 7) {
-    SUBSECTIONS_VAR = 2;
+switch(promptNumber) {
+    case 1: break;                                          // 17 10 4
+    case 2: FONTSIZE = 14; break;                           // 14 10 4
+    case 3: FONTSIZE = 20; break;                           // 11 10 4
+    case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
+    case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
+    case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
+    case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
+    default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
 }
 
 // store a reference to the script tag that loaded this file
@@ -279,7 +284,6 @@ $("#doneBtn").click(async (e) => {
     aveTimes[promptNumber - 1] = avgTimeSpentPerPage.toFixed(2)
 
     // modify parameters based on stage of test
-    console.log("Reach here 1")
     switch(promptNumber) {
         case 1: break;                                          // 17 10 4
         case 2: FONTSIZE = 14; break;                           // 14 10 4
@@ -291,13 +295,11 @@ $("#doneBtn").click(async (e) => {
         default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
     }
 
-    console.log("Reach here?")
-
     if(promptNumber != 7) {
         promptNumber += 1
         window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
     } else {
-        console.log('DONE') // TODO: Done Page
+        window.location.replace('/complete') // TODO: Done Page
     }
 });
 
