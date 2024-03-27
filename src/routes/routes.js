@@ -57,23 +57,28 @@ router.get("/", async (req, res) => {
 
 router.get("/prompt", async (req, res) => {
     await connect();
-    let randomPrompt = await Menu.aggregate([
-        {
-            $match: {
-                isLeaf: true,
-                order: { $lte: parseInt(req.query.subsections) },
+
+    let randomNode;
+    while(!randomNode?.isLeaf) {
+        randomNode = (await Menu.aggregate([
+            {
+                $match: {
+                    parent: randomNode?._id ?? null /* find null (aka top-level menus) initally */,
+                    order: { $lte: parseInt(req.query.subsections) },
+                },
             },
-        },
-        { $sample: { size: 1 } },
-    ]);
-    randomPrompt = randomPrompt[0];
+            { $sample: { size: 1 } },
+            
+        ]))[0];
+    }
+
     await disconnect();
 
     console.log(req.query.subsections)
     res.render("index", {
         title: "Website Navigation Test",
         // script: "static/js/index.js",
-        prompt: randomPrompt,
+        prompt: randomNode,
         promptNumber: req.query.promptNumber,
         participantName: req.query.participantName,
     });
