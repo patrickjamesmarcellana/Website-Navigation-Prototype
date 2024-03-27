@@ -135,13 +135,12 @@ $(".menu").click(async (e) => {
             let isDescendantOfDeepest = false;
             const ancestors = [selectedMenuId];
             while(curNode?.parentMenu) {
-                ancestors.push(curNode.parentMenu);
                 console.log(clickStack, curNode);
                 if(clickStack.length > 0 && clickStack.at(-1) === curNode.parentMenu) {
                     isDescendantOfDeepest = true;
                     break;
                 }
-
+                ancestors.push(curNode.parentMenu);
                 curNode = getMenu(curNode.parentMenu);
             }
 
