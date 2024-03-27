@@ -5,8 +5,6 @@ import Menu from "../models/menu.js";
 import Data from "../models/data.js";
 import { subMenuToJson } from "./utils.js";
 
-var PARTICIPANT_NAME = ""
-
 const menusToJson = async (documents, spaceBetween) => {
     const json = [];
 
@@ -53,12 +51,13 @@ router.get("/prompt", async (req, res) => {
         title: "Website Navigation Test",
         // script: "static/js/index.js",
         prompt: randomPrompt,
+        promptNumber: req.query.promptNumber,
+        participantName: req.query.participantName
     });
 });
 
 router.get("/helpcenter", async (req, res) => {
     let prompt, allData = {};
-    PARTICIPANT_NAME = req.query.participantName
     try {
         await connect();
 
@@ -89,6 +88,7 @@ router.get("/helpcenter", async (req, res) => {
         scriptData: JSON.stringify(allData),
         menus: initialMenus,
         promptName: prompt.name,
+        participantName: req.query.participantName,
 
         fontSize: req.query.fontSize,
         spaceBetween: req.query.spaceBetween,
@@ -99,11 +99,10 @@ router.get("/done", async (req, res) => {
     let prompt;
     try {
         await connect();
-
         const promptId = atob(req.query["pid"]);
         prompt = await Menu.findOne({ _id: promptId });
         await Data.create({
-            participantName: PARTICIPANT_NAME,
+            participantName: req.query.participantName,
             prompt: prompt.name,
             fontSize: req.query.fontSize,
             spaceBetweenMenus: req.query.spaceBetween, 
@@ -122,7 +121,7 @@ router.get("/done", async (req, res) => {
     }
 
     res.render("done", {
-        participantName: PARTICIPANT_NAME,
+        participantName: req.query.participantName,
         paths: req.query.paths,
         avgTime: req.query.avgTime,
         prompt: prompt.name,
