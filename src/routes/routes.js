@@ -5,7 +5,6 @@ import Menu from "../models/menu.js";
 import Data from "../models/data.js";
 import { subMenuToJson } from "./utils.js";
 
-const FONTSIZE = 17; // prototype variable 1
 const SPACEBETWEEN = 10; // prototype variable 2; change also in menu.js
 const SUBSECTIONS_VAR = 4; // prototype variable 3; change also in helpcenter.js
 var PARTICIPANT_NAME = ""
@@ -47,7 +46,7 @@ router.get("/", async (req, res) => {
 
     res.render("index", {
         title: "Website Navigation Test",
-        script: "static/js/index.js",
+        // script: "static/js/index.js",
         prompt: randomPrompt,
     });
 });
@@ -81,12 +80,12 @@ router.get("/helpcenter", async (req, res) => {
 
     res.render("helpcenter", {
         title: "Navigation Prototype",
-        script: "static/js/helpcenter.js",
+        // script: "static/js/helpcenter.js",
         scriptData: JSON.stringify(allData),
         menus: initialMenus,
         promptName: prompt.name,
 
-        fontSize: FONTSIZE,
+        fontSize: req.query.fontSize,
         spaceBetween: SPACEBETWEEN,
     });
 });
@@ -101,7 +100,7 @@ router.get("/done", async (req, res) => {
         await Data.create({
             participantName: PARTICIPANT_NAME,
             prompt: prompt.name,
-            fontSize: FONTSIZE,
+            fontSize: req.query.fontSize,
             spaceBetweenMenus: SPACEBETWEEN, 
             subsectionsCount: SUBSECTIONS_VAR,
             pathCount: req.query.paths,
@@ -122,7 +121,7 @@ router.get("/done", async (req, res) => {
         paths: req.query.paths,
         avgTime: req.query.avgTime,
         prompt: prompt.name,
-        fontSize: FONTSIZE,
+        fontSize: req.query.fontSize,
         spaceBetween: SPACEBETWEEN,
         subsectionsCount: SUBSECTIONS_VAR,
     });

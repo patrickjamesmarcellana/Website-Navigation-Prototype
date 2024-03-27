@@ -42,6 +42,8 @@ var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 
 // prototype variable 3; change along with the variable in routes.js
+// prototype variables
+var FONTSIZE = 17;
 const SUBSECTIONS_VAR = 4;
 
 const url = new URL(window.location.href);
@@ -193,6 +195,12 @@ $("#doneBtn").click(async (e) => {
     window.location.replace(
         `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(
             2
-        )}&pid=${btoa(randomPromptId)}`
+        )}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}`
     );
+});
+
+$("#startButton").click(async (e) => {
+    const promptId = $("#random-prompt-id").text();
+    const participantName = $("#participantName").val()
+    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&participantName=${participantName}&fontSize=${FONTSIZE}`);
 });
