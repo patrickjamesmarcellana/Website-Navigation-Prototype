@@ -1,4 +1,5 @@
 $("#startButton").click(async (e) => {
     const promptId = $("#random-prompt-id").text();
-    window.location.replace(`/helpcenter?pid=${btoa(promptId)}`);
+    const participantName = $("#participantName").val()
+    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&participantName=${participantName}`);
 });

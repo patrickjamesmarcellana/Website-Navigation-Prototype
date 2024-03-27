@@ -7,6 +7,7 @@ import { subMenuToJson } from "./utils.js";
 const FONTSIZE = 17; // prototype variable 1
 const SPACEBETWEEN = 10; // prototype variable 2; change also in menu.js
 const SUBSECTIONS_VAR = 4; // prototype variable 3; change also in helpcenter.js
+var PARTICIPANT_NAME = ""
 
 const menusToJson = async (documents) => {
     const json = [];
@@ -52,6 +53,7 @@ router.get("/", async (req, res) => {
 
 router.get("/helpcenter", async (req, res) => {
     let prompt, allData = {};
+    PARTICIPANT_NAME = req.query.participantName
     try {
         await connect();
 
@@ -106,6 +108,7 @@ router.get("/done", async (req, res) => {
     }
 
     res.render("done", {
+        participantName: PARTICIPANT_NAME,
         paths: req.query.paths,
         avgTime: req.query.avgTime,
         prompt: prompt.name,
