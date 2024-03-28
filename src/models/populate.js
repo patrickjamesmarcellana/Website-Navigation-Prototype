@@ -12,7 +12,7 @@ async function main() {
 
         // drop collection first
         try {
-            await mongoose.connection.db.dropDatabase();
+            await Menu.deleteMany({}, { session });
             console.log("facebook-help-center db dropped successfully.");
         } catch (err) {
             console.error(err);
