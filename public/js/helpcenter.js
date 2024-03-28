@@ -290,39 +290,27 @@ $("#doneBtn").click(async (e) => {
         window.location.replace("/")
     }
 
-    // save data for full display later
-    promptIds[promptNumber - 1] = randomPromptId
-    fontSizes[promptNumber - 1] = FONTSIZE
-    spacesBetween[promptNumber - 1] = SPACEBETWEEN
-    subsectionsCounts[promptNumber - 1] = SUBSECTIONS_VAR
-    pathCounts[promptNumber - 1] = paths
-    aveTimes[promptNumber - 1] = avgTimeSpentPerPage.toFixed(2)
-
-    // modify parameters based on stage of test
-    switch(promptNumber) {
-        case 1: break;                                          // 17 10 4
-        case 2: FONTSIZE = 14; break;                           // 14 10 4
-        case 3: FONTSIZE = 20; break;                           // 11 10 4
-        case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
-        case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
-        case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
-        case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
-        default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
-    }
-
     if(promptNumber != 7) {
         promptNumber += 1
+        switch(promptNumber) {
+            case 1: break;                                          // 17 10 4
+            case 2: FONTSIZE = 14; break;                           // 14 10 4
+            case 3: FONTSIZE = 20; break;                           // 11 10 4
+            case 4: FONTSIZE = 17; SPACEBETWEEN = 15; break;        // 17 15 4
+            case 5: SPACEBETWEEN = 20; break;                       // 17 20 4
+            case 6: SPACEBETWEEN = 10; SUBSECTIONS_VAR = 3; break;  // 17 10 3
+            case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
+            default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
+        }
         window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
     } else {
-        window.location.replace('/complete') // TODO: Done Page
+        window.location.replace('/complete')
     }
 });
 
 $("#nextButton").click((e) => {
     const participantName = $("#participantName").val()
     const promptNumber = parseInt($("#landingPromptNo").text())
-    // console.log(promptNumberText)
-    // const promptNumber = parseInt(promptNumberText)
     console.log(participantName)
     switch(promptNumber) {
         case 1: break;                                          // 17 10 4
