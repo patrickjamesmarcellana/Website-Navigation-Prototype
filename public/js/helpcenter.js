@@ -228,10 +228,10 @@ $(".menu").click(async (e) => {
             </div>`;
 
             selectedMenu.innerHTML += newSubMenu;
-        } else if (i == subsectionsCount - 2) {
+        } else if (i == subsectionsCount - 1) {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border [&:not(:has(:hover))]:mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border [&:not(:has(:mb))]:mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
                 <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
