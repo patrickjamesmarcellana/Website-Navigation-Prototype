@@ -119,7 +119,23 @@ $(".menu").click(async (e) => {
     console.log("Selected Parent: " + selectedMenuData.parentMenu);
     console.log("Previous Selected ID: " + previouslySelectedId);
 
-    // handle new node
+    // if selected menu is already expanded, hide its submenus (not grandchildren)
+    if (!selectedMenuData.isLeaf && selectedMenuContainer.classList.contains("expanded")) {
+        for(i = 0; i < selectedMenuContainer.children.length; i++) {
+            if (i === 0) {
+                continue;
+            }
+
+            selectedMenuContainer.children[i].classList.add("hidden")
+        }
+        // for (subMenu of selectedMenu.parentElement.children) {
+        //     subMenu.classList.add("hidden");
+        // }
+        selectedMenuContainer.classList.remove("expanded");
+        return;
+    }
+
+    // update time statistics
     console.log("Clicked node at", e.timeStamp, "ms elapsed");
     pageStayTimes.push(e.timeStamp - timePageOpened);
     console.log("Times spent in nodes", pageStayTimes);
@@ -137,22 +153,6 @@ $(".menu").click(async (e) => {
 
     // TODO (IMPORTANT): set this when page is actually done rendering instead?
     timePageOpened = e.timeStamp;
-
-    // if selected menu is already expanded, hide its submenus (not grandchildren)
-    if (!selectedMenuData.isLeaf && selectedMenuContainer.classList.contains("expanded")) {
-        for(i = 0; i < selectedMenuContainer.children.length; i++) {
-            if (i === 0) {
-                continue;
-            }
-
-            selectedMenuContainer.children[i].classList.add("hidden")
-        }
-        // for (subMenu of selectedMenu.parentElement.children) {
-        //     subMenu.classList.add("hidden");
-        // }
-        selectedMenuContainer.classList.remove("expanded");
-        return;
-    }
 
     // update path count
     // more info about this above (in "path counting idea")
