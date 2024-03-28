@@ -80,7 +80,7 @@ router.get("/prompt", async (req, res) => {
     }
     console.log("Found leaf")
 
-    await disconnect();
+    // await disconnect();
 
     console.log("Disconnected from DB")
 
@@ -98,7 +98,7 @@ router.get("/prompt", async (req, res) => {
 router.get("/helpcenter", async (req, res) => {
     let prompt, allData = {};
     try {
-        await connect();
+        // await connect();
 
         const query = await Menu.find({ nestLevel: 1 });
         var initialMenus = await menusToJson(query, req.query.spaceBetween);
@@ -115,11 +115,11 @@ router.get("/helpcenter", async (req, res) => {
         console.error(err);
     }
 
-    try {
-        await disconnect();
-    } catch (err) {
-        console.error(err);
-    }
+    // try {
+    //     await disconnect();
+    // } catch (err) {
+    //     console.error(err);
+    // }
 
     res.render("helpcenter", {
         title: "Navigation Prototype",
@@ -139,7 +139,7 @@ router.get("/helpcenter", async (req, res) => {
 router.get("/done", async (req, res) => {
     let prompt;
     try {
-        await connect();
+        // await connect();
         const promptId = atob(req.query["pid"]);
         prompt = await Menu.findOne({ _id: promptId });
         await Data.create({
@@ -158,12 +158,12 @@ router.get("/done", async (req, res) => {
         res.sendStatus(500)
     }
 
-    try {
-        await disconnect();
-    } catch (err) {
-        console.error(err);
-        res.sendStatus(500)
-    }
+    // try {
+    //     await disconnect();
+    // } catch (err) {
+    //     console.error(err);
+    //     res.sendStatus(500)
+    // }
 
     res.sendStatus(200)
 });
@@ -171,13 +171,20 @@ router.get("/done", async (req, res) => {
 router.get("/complete", async (req, res) => {
     let json = {}
     try {
-        await connect();
+        // await connect();
 
         const query = await Data.find({participantName: req.query.participantName}).sort({ _id: -1 }).limit(7);
         json = await dataToJson(query)
         console.log(json)
     } catch (err) {
         console.error(err);
+    }
+
+    try {
+        await disconnect();
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500)
     }
 
     res.render("done", {
