@@ -192,6 +192,37 @@ router.get("/complete", async (req, res) => {
     });
 })
 
+// secret API call to display data on a table (why? because users who see /complete may access other users' data by changing query parameters)
+router.get("/displayParticipantData", async (req, res) => {
+    let json = {}
+    try {
+        await connect();
+
+        const query = await Data.find({participantName: req.query.participantName}).sort({ _id: -1 }).limit(7);
+        json = await dataToJson(query)
+        console.log(json)
+    } catch (err) {
+        console.error(err);
+    }
+
+    try {
+        await disconnect();
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(500)
+    }
+
+    res.render("done", {
+        data: json
+    });
+})
+
+router.use((req, res) => {
+    res.render("error", {
+        title: "Page Not Found",
+    });
+});
+
 router.use((req, res) => {
     res.render("error", {
         title: "Page Not Found",
