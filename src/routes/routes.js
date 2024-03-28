@@ -5,16 +5,6 @@ import Menu from "../models/menu.js";
 import Data from "../models/data.js";
 import { subMenuToJson } from "./utils.js";
 
-const controlledPromptsIds = [
-    "6605806616be3b54ab8803c4", // Adjust how ads on Facebook are shown to you based on your Activity Information from ad partners
-    "6605806e16be3b54ab880532", // Add or remove the Facebook buy and sell feature set in your Facebook group
-    "6605806716be3b54ab8803e2", // Control who Facebook can suggest your profile to based on your email address or phone number
-    "6605806616be3b54ab8803b6", // I’m receiving email or text notifications about a Facebook account that doesn’t belong to me.
-    "6605807316be3b54ab8805fe", // How do I use text messages (SMS) for two-factor authentication on Facebook?
-    "6605806b16be3b54ab88049c", // Troubleshoot problems with your camera, microphone or speakers for video calling on Facebook
-    "6605806916be3b54ab88045a", // How to request information about an account that was impersonating you on Facebook
-]
-
 const menusToJson = async (documents, spaceBetween) => {
     const json = [];
 
@@ -70,34 +60,26 @@ router.get("/prompt", async (req, res) => {
     console.log("Reached prompt router")
     await connect();
     console.log("Connected to DB in prompt router")
-
-    /* Randomized Prompts Version */ 
-
-    // let randomNode;
-    // while(!randomNode?.isLeaf) {
-    //     console.log("Entered loop in prompt router")
-    //     randomNode = (await Menu.aggregate([
-    //         {
-    //             $match: {
-    //                 parentMenu: randomNode?._id ?? null /* find null (aka top-level menus) initally */,
-    //                 order: { $lte: parseInt(req.query.subsections) },
-    //             },
-    //         },
-    //         { $sample: { size: 1 } },
+    let randomNode;
+    while(!randomNode?.isLeaf) {
+        console.log("Entered loop in prompt router")
+        randomNode = (await Menu.aggregate([
+            {
+                $match: {
+                    parentMenu: randomNode?._id ?? null /* find null (aka top-level menus) initally */,
+                    order: { $lte: parseInt(req.query.subsections) },
+                },
+            },
+            { $sample: { size: 1 } },
             
-    //     ]))[0];
-    //     if(!randomNode) {
-    //         break;
-    //     }
-    //     console.log(randomNode)
-    // }
-    // console.log("Found leaf")
+        ]))[0];
+        if(!randomNode) {
+            break;
+        }
+        console.log(randomNode)
+    }
+    console.log("Found leaf")
 
-    /* Controlled Prompts Version */
-    const promptNoInt = parseInt(req.query.promptNumber)
-    const prompt = await Menu.findById(controlledPromptsIds[promptNoInt - 1])
-    const json = await menuToJson(prompt, null)
-    console.log(json)
     await disconnect();
 
     console.log("Disconnected from DB")
@@ -106,8 +88,7 @@ router.get("/prompt", async (req, res) => {
     res.render("index", {
         title: "Website Navigation Test",
         // script: "static/js/index.js",
-        // prompt: randomNode,
-        prompt: json,
+        prompt: randomNode,
         promptNumber: req.query.promptNumber,
         participantName: req.query.participantName,
     });
