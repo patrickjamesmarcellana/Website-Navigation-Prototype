@@ -1,6 +1,11 @@
 import express from "express"
 import exphbs from "express-handlebars"
 import "dotenv/config"
+import path from 'path'
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // express app
 const app = express()
@@ -27,8 +32,7 @@ app.set("view engine", "hbs");
 
 // set the directory for the views
 // the views folder can be set with app.set("views", <path>)
-app.set("views", "./src/views");
-
+app.set("views", path.join(__dirname, 'src/views'))
 // the layout directory can be changed as part of the configuration of the exphbs.engine
 // Example: exphbs.engine({layoutsDir: <path>})
 // the default layout filename (main.hbs) can also be changed in the config through the defaultLayout property
