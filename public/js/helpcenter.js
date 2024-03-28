@@ -118,25 +118,23 @@ $(".menu").click(async (e) => {
     console.log("Selected Parent: " + selectedMenuData.parentMenu);
     console.log("Previous Selected ID: " + previouslySelectedId);
 
-    // check if new page is clicked
-    if (selectedMenuData.isLeaf) {
-        console.log("Clicked leaf at", e.timeStamp, "ms elapsed");
-        pageStayTimes.push(e.timeStamp - timePageOpened);
-        console.log("Times spent in pages", pageStayTimes);
-        avgTimeSpentPerPage =
-            pageStayTimes.reduce(
-                (runningTotal, currentValue) => runningTotal + currentValue,
-                0
-            ) / pageStayTimes.length;
-        console.log(
-            "Average length of stay in a page is now:",
-            avgTimeSpentPerPage,
-            "ms"
-        );
+    // handle new node
+    console.log("Clicked node at", e.timeStamp, "ms elapsed");
+    pageStayTimes.push(e.timeStamp - timePageOpened);
+    console.log("Times spent in nodes", pageStayTimes);
+    avgTimeSpentPerPage =
+        pageStayTimes.reduce(
+            (runningTotal, currentValue) => runningTotal + currentValue,
+            0
+        ) / pageStayTimes.length;
+    console.log(
+        "Average length of stay in a page is now:",
+        avgTimeSpentPerPage,
+        "ms"
+    );
 
-        // TODO (IMPORTANT): set this when page is actually done rendering instead?
-        timePageOpened = e.timeStamp;
-    }
+    // TODO (IMPORTANT): set this when page is actually done rendering instead?
+    timePageOpened = e.timeStamp;
 
     // if selected menu is already expanded, hide its submenus (not grandchildren)
     if (!selectedMenuData.isLeaf && selectedMenuContainer.classList.contains("expanded")) {
