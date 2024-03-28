@@ -46,6 +46,7 @@ const dataRowToJson = async (document) => {
         subsectionsCount: document.subsectionsCount,
         pathCount: document.pathCount,
         aveTimeSpent: document.aveTimeSpent,
+        totalTimeSpent: document.totalTimeSpent,
     };
 };
 
@@ -138,6 +139,8 @@ router.get("/done", async (req, res) => {
             subsectionsCount: req.query.subsections,
             pathCount: req.query.paths,
             aveTimeSpent: req.query.avgTime,
+            totalTimeSpent: req.query.totalTime,
+            rawData: req.query.rawData,
         })
     } catch (err) {
         console.error(err);
