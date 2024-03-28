@@ -46,6 +46,11 @@ const dataSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: -1
+    },
+    rawData: {
+        type: String,
+        required: true,
+        default: ""
     }
 })
 export default model('Data', dataSchema)

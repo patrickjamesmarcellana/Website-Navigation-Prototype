@@ -69,6 +69,14 @@ var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
 var totalTimeSpentPerPage = 0;
 
+var eventLog = []; // pair containing [timestamp, info]
+const EVENT_PATH_COUNT_INCREMENT = 0b000001;
+const EVENT_PAGE_COUNT_INCREMENT = 0b000010;
+const EVENT_EXPAND_MENU          = 0b000100;
+const EVENT_UNEXPAND_MENU        = 0b001000;
+const EVENT_CLICKED_LEAF         = 0b010000;
+const EVENT_CLICKED_TARGET       = 0b100000;
+
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));
 var promptName = ""
@@ -119,6 +127,15 @@ $(".menu").click(async (e) => {
     console.log("Selected Parent: " + selectedMenuData.parentMenu);
     console.log("Previous Selected ID: " + previouslySelectedId);
 
+    eventLog.push([e.timeStamp - timePageOpened, 0]);
+    const eventId = eventLog.length - 1;
+    const addEvent = (evt) => {
+        eventLog[eventId][1] |= evt;
+    }
+    if(selectedMenuData.isLeaf) {
+        addEvent(EVENT_CLICKED_LEAF);
+    }
+
     // if selected menu is already expanded, hide its submenus (not grandchildren)
     if (!selectedMenuData.isLeaf && selectedMenuContainer.classList.contains("expanded")) {
         for(i = 0; i < selectedMenuContainer.children.length; i++) {
@@ -132,6 +149,8 @@ $(".menu").click(async (e) => {
         //     subMenu.classList.add("hidden");
         // }
         selectedMenuContainer.classList.remove("expanded");
+
+        addEvent(EVENT_UNEXPAND_MENU);
         return;
     }
 
@@ -150,6 +169,7 @@ $(".menu").click(async (e) => {
         avgTimeSpentPerPage,
         "ms"
     );
+    addEvent(EVENT_PAGE_COUNT_INCREMENT);
 
     // TODO (IMPORTANT): set this when page is actually done rendering instead?
     timePageOpened = e.timeStamp;
@@ -175,6 +195,8 @@ $(".menu").click(async (e) => {
             // increment by 1 and create new click stack
             paths += 1;
             clickStack = ancestors.reverse();
+            addEvent(EVENT_PATH_COUNT_INCREMENT);
+
         } else { // descendant of the current deepest clicked node (an even deeper node)
             // add the elements between the deepest clicked node and the current node
             // effectively designating a new deepest clicked node
@@ -196,6 +218,7 @@ $(".menu").click(async (e) => {
         //     subMenu.classList.remove("hidden");
         // }
         selectedMenuContainer.classList.add("expanded");
+        addEvent(EVENT_EXPAND_MENU);
 
         // update paths (backtracking) count
         /*
@@ -227,6 +250,7 @@ $(".menu").click(async (e) => {
     console.log(selectedMenuData.name)
     if (selectedMenuData.name === promptName) {
         document.querySelector("#doneBtn").classList.remove("hidden");
+        addEvent(EVENT_CLICKED_TARGET);
     }
 
     // first time accessing the menu and its submenus; add them as menu's children
@@ -264,6 +288,11 @@ $(".menu").click(async (e) => {
     // add expanded class to prevent adding the submenus again
     selectedMenuContainer.classList.add("expanded");
 
+    // indicate that it is a menu if necessary
+    if(!selectedMenuData.isLeaf) {
+        addEvent(EVENT_EXPAND_MENU);
+    }
+
     // update paths (backtracking) count
     /*
     if (
@@ -296,8 +325,19 @@ $("#doneBtn").click(async (e) => {
     let promptNumber = parseInt($("#helpCenterPromptNo").text())
     console.log(promptNumber)
 
+    const params = new URLSearchParams({
+        rawData: JSON.stringify(eventLog),
+        paths: paths,
+        avgTime: avgTimeSpentPerPage.toFixed(2),
+        totalTime: totalTimeSpentPerPage.toFixed(2),
+        pid: btoa(randomPromptId),
+        fontSize: FONTSIZE,
+        spaceBetween: SPACEBETWEEN,
+        subsections: SUBSECTIONS_VAR,
+        participantName: participantName,
+    })
      const status = await fetch(
-        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&totalTime=${totalTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}&participantName=${participantName}`
+        `/done?${params.toString()}`
     );
 
     if(status != 200) {
