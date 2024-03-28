@@ -73,8 +73,11 @@ router.get("/prompt", async (req, res) => {
             
         ]))[0];
     }
+    console.log("Found leaf")
 
     await disconnect();
+
+    console.log("Disconnected from DB")
 
     console.log(req.query.subsections)
     res.render("index", {
