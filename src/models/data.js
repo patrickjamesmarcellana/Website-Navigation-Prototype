@@ -41,7 +41,11 @@ const dataSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: -1
+    },
+    totalTimeSpent: {
+        type: Number,
+        required: true,
+        default: -1
     }
-    
 })
 export default model('Data', dataSchema)

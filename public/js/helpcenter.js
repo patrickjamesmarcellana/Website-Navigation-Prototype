@@ -67,6 +67,7 @@ var paths = 0;
 var timePageOpened = null; // set once page is loaded
 var pageStayTimes = [];
 var avgTimeSpentPerPage = 0;
+var totalTimeSpentPerPage = 0;
 
 const url = new URL(window.location.href);
 const randomPromptId = atob(url.searchParams.get("pid"));
@@ -122,11 +123,12 @@ $(".menu").click(async (e) => {
     console.log("Clicked node at", e.timeStamp, "ms elapsed");
     pageStayTimes.push(e.timeStamp - timePageOpened);
     console.log("Times spent in nodes", pageStayTimes);
-    avgTimeSpentPerPage =
+    totalTimeSpentPerPage =
         pageStayTimes.reduce(
             (runningTotal, currentValue) => runningTotal + currentValue,
             0
-        ) / pageStayTimes.length;
+        );
+    avgTimeSpentPerPage = totalTimeSpentPerPage / pageStayTimes.length;
     console.log(
         "Average length of stay in a page is now:",
         avgTimeSpentPerPage,
@@ -295,7 +297,7 @@ $("#doneBtn").click(async (e) => {
     console.log(promptNumber)
 
      const status = await fetch(
-        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}&participantName=${participantName}`
+        `/done?paths=${paths}&avgTime=${avgTimeSpentPerPage.toFixed(2)}&totalTime=${totalTimeSpentPerPage.toFixed(2)}&pid=${btoa(randomPromptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&subsections=${SUBSECTIONS_VAR}&participantName=${participantName}`
     );
 
     if(status != 200) {

@@ -138,6 +138,7 @@ router.get("/done", async (req, res) => {
             subsectionsCount: req.query.subsections,
             pathCount: req.query.paths,
             aveTimeSpent: req.query.avgTime,
+            totalTimeSpent: req.query.totalTime,
         })
     } catch (err) {
         console.error(err);
