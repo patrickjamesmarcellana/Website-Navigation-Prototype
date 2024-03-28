@@ -95,8 +95,10 @@ maintain a stack of clicked menus (deepest menu entry clicked M and all of its a
 let clickStack = [];
 $(".menu").click(async (e) => {
     // selected menu
-    const selectedMenu = e.target;
-    const selectedMenuId = selectedMenu.parentElement.getAttribute("menu-id");
+    const selectedMenu = e.target; // span element
+    const selectedMenuContainer = selectedMenu.parentElement
+    console.log(selectedMenuContainer)
+    const selectedMenuId = selectedMenuContainer.getAttribute("menu-id");
     if (!selectedMenuId) {
         return;
     }
@@ -107,7 +109,7 @@ $(".menu").click(async (e) => {
     let previouslySelectedId, previouslySelectedData;
     if (previouslySelected) {
         previouslySelectedId =
-            previouslySelected.parentElement.getAttribute("menu-id");
+            previouslySelected.getAttribute("menu-id");
         
         previouslySelectedData = await getMenu(previouslySelectedId);
     }
@@ -137,11 +139,18 @@ $(".menu").click(async (e) => {
     }
 
     // if selected menu is already expanded, hide its submenus (not grandchildren)
-    if (selectedMenu.classList.contains("expanded")) {
-        for (subMenu of selectedMenu.children) {
-            subMenu.classList.add("hidden");
+    if (selectedMenuContainer.classList.contains("expanded")) {
+        for(i = 0; i < selectedMenuContainer.children.length; i++) {
+            if (i === 0) {
+                continue;
+            }
+
+            selectedMenuContainer.children[i].classList.add("hidden")
         }
-        selectedMenu.classList.remove("expanded");
+        // for (subMenu of selectedMenu.parentElement.children) {
+        //     subMenu.classList.add("hidden");
+        // }
+        selectedMenuContainer.classList.remove("expanded");
         return;
     }
 
@@ -177,11 +186,18 @@ $(".menu").click(async (e) => {
     console.log("Path count: " + paths);
 
     // display selected menu's hidden submenus if there are any
-    if (selectedMenu.firstElementChild) {
-        for (subMenu of selectedMenu.children) {
-            subMenu.classList.remove("hidden");
+    if (selectedMenuContainer.children.length > 1) {
+        for(i = 0; i < selectedMenuContainer.children.length; i++) {
+            if (i === 0) {
+                continue;
+            }
+
+            selectedMenuContainer.children[i].classList.remove("hidden")
         }
-        selectedMenu.classList.add("expanded");
+        // for (subMenu of selectedMenu.children) {
+        //     subMenu.classList.remove("hidden");
+        // }
+        selectedMenuContainer.classList.add("expanded");
 
         // update paths (backtracking) count
         /*
@@ -223,32 +239,32 @@ $(".menu").click(async (e) => {
         if (i === 0) {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="flex flex-col menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 rounded grow box-border select-none">${subMenu.name}</span>
             </div>`;
 
-            selectedMenu.innerHTML += newSubMenu;
+            selectedMenuContainer.innerHTML += newSubMenu;
         } else if (i == subsectionsCount - 1) {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border [&:not(:has(:mb))]:mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="flex flex-col menu cursor-pointer box-border [&:not(:has(:mb))]:mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 rounded grow box-border select-none">${subMenu.name}</span>
             </div>`;
 
-            selectedMenu.innerHTML += newSubMenu;
+            selectedMenuContainer.innerHTML += newSubMenu;
         } else {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="flex flex-col menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 rounded grow box-border select-none">${subMenu.name}</span>
             </div>`;
 
-            selectedMenu.innerHTML += newSubMenu;
+            selectedMenuContainer.innerHTML += newSubMenu;
         }
     }
 
     // add expanded class to prevent adding the submenus again
-    selectedMenu.classList.add("expanded");
+    selectedMenuContainer.classList.add("expanded");
 
     // update paths (backtracking) count
     /*
@@ -273,7 +289,7 @@ $(".menu").click(async (e) => {
     }
     */
 
-    previouslySelected = selectedMenu;
+    previouslySelected = selectedMenu.parentElement;
     return;
 });
 
