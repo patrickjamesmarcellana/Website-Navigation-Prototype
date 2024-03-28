@@ -171,7 +171,7 @@ router.get("/complete", async (req, res) => {
     try {
         await connect();
 
-        const query = await Data.find().sort({ _id: -1 }).limit(7);
+        const query = await Data.find({participantName: req.query.participantName}).sort({ _id: -1 }).limit(7);
         json = await dataToJson(query)
         console.log(json)
     } catch (err) {

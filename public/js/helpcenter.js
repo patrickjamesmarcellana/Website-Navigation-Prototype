@@ -358,7 +358,7 @@ $("#doneBtn").click(async (e) => {
         }
         window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
     } else {
-        window.location.replace('/complete')
+        window.location.replace(`/complete?participantName=${participantName}`)
     }
 });
 
