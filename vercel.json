@@ -3,7 +3,6 @@
     "version": 2,
     "installCommand": "npm install",
     "outputDirectory": "public",
-    "buildCommand": "npm run start",
-    "redirects": [{"source": "/(.*)", "destination": "/src/routes"}]
+    "rewrites": [{ "source": "/(.*)", "destination": "/src/routes" }]
   }
   
