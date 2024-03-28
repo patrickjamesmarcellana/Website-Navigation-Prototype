@@ -223,7 +223,15 @@ $(".menu").click(async (e) => {
         if (i === 0) {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border pb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
+            </div>`;
+
+            selectedMenu.innerHTML += newSubMenu;
+        } else if (i == subsectionsCount - 2) {
+            const subMenu = subMenus[i];
+
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border [&:not(:has(:hover))]:mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
                 <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 
@@ -231,7 +239,7 @@ $(".menu").click(async (e) => {
         } else {
             const subMenu = subMenus[i];
 
-            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border pb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
+            const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
                 <span class="[&:not(:has(:hover))]:hover:bg-gray-400">${subMenu.name}</span>
             </div>`;
 

@@ -14,7 +14,7 @@ const subMenuToJson = async (document, spaceBetween) => {
         menuId: document._id,
         name: document.name,
         divId: document.name.replace(/ +/g, ""),
-        leftPadding: 20,
+        leftPadding: 25,
         spaceBetween: spaceBetween,
 
         parentMenu: document.parentMenu,
