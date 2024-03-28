@@ -46,6 +46,7 @@ const dataRowToJson = async (document) => {
         subsectionsCount: document.subsectionsCount,
         pathCount: document.pathCount,
         aveTimeSpent: document.aveTimeSpent,
+        totalTimeSpent: document.totalTimeSpent,
     };
 };
 
