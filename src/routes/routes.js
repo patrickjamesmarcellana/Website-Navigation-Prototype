@@ -57,8 +57,9 @@ router.get("/", async (req, res) => {
 })
 
 router.get("/prompt", async (req, res) => {
+    console.log("Reached prompt router")
     await connect();
-
+    console.log("Connected to DB in prompt router")
     let randomNode;
     while(!randomNode?.isLeaf) {
         randomNode = (await Menu.aggregate([
