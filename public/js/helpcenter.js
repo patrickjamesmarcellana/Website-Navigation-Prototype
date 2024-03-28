@@ -137,7 +137,7 @@ $(".menu").click(async (e) => {
     }
 
     // if selected menu is already expanded, hide its submenus (not grandchildren)
-    if (selectedMenu.classList.contains("expanded")) {
+    if (!selectedMenuData.isLeaf && selectedMenu.classList.contains("expanded")) {
         for (subMenu of selectedMenu.children) {
             subMenu.classList.add("hidden");
         }
