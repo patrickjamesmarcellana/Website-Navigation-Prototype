@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename)
 const app = express()
 
 // make public folder static
-app.use("/static", express.static("public"))
+app.use("/static", express.static(path.join(__dirname, 'public')))
 
 // from this point onward, we are going to receive json format data
 // app.use(express.json());
