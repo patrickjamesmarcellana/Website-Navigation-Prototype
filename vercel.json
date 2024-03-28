@@ -3,6 +3,7 @@
     "version": 2,
     "installCommand": "npm install",
     "outputDirectory": "public",
-    "rewrites": [{ "source": "/(.*)", "destination": "/src/routes" }]
+    "rewrites": [{ "source": "/(.*)", "destination": "/src/routes" }],
+    "builds": [{"src": "./index.js", "use": "@vercel/node"}]
   }
   
