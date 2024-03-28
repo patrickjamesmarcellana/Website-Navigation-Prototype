@@ -139,7 +139,7 @@ $(".menu").click(async (e) => {
     }
 
     // if selected menu is already expanded, hide its submenus (not grandchildren)
-    if (selectedMenuContainer.classList.contains("expanded")) {
+    if (!selectedMenuData.isLeaf && selectedMenuContainer.classList.contains("expanded")) {
         for(i = 0; i < selectedMenuContainer.children.length; i++) {
             if (i === 0) {
                 continue;
@@ -156,31 +156,29 @@ $(".menu").click(async (e) => {
 
     // update path count
     // more info about this above (in "path counting idea")
-    if(!selectedMenuData.isLeaf) { // clicking on leaves does not continue or open a path 
-        if(!clickStack.includes(selectedMenuId)) { // check condition #2 (ensure it is not deepest clicked node or its ancestor)
-            // find relation between the deepest clicked node and current menu entry
-            let curNode = selectedMenuData;
-            let isDescendantOfDeepest = false;
-            const ancestors = [selectedMenuId];
-            while(curNode?.parentMenu) {
-                console.log(clickStack, curNode);
-                if(clickStack.length > 0 && clickStack.at(-1) === curNode.parentMenu) {
-                    isDescendantOfDeepest = true;
-                    break;
-                }
-                ancestors.push(curNode.parentMenu);
-                curNode = await getMenu(curNode.parentMenu);
+    if(!clickStack.includes(selectedMenuId)) { // check condition #2 (ensure it is not deepest clicked node or its ancestor)
+        // find relation between the deepest clicked node and current menu entry
+        let curNode = selectedMenuData;
+        let isDescendantOfDeepest = false;
+        const ancestors = [selectedMenuId];
+        while(curNode?.parentMenu) {
+            console.log(clickStack, curNode);
+            if(clickStack.length > 0 && clickStack.at(-1) === curNode.parentMenu) {
+                isDescendantOfDeepest = true;
+                break;
             }
+            ancestors.push(curNode.parentMenu);
+            curNode = await getMenu(curNode.parentMenu);
+        }
 
-            if(!isDescendantOfDeepest) { // is not the deepest clicked node nor its ancestor/descendant, this is a new path
-                // increment by 1 and create new click stack
-                paths += 1;
-                clickStack = ancestors.reverse();
-            } else { // descendant of the current deepest clicked node (an even deeper node)
-                // add the elements between the deepest clicked node and the current node
-                // effectively designating a new deepest clicked node
-                clickStack = clickStack.concat(ancestors.reverse());
-            }
+        if(!isDescendantOfDeepest) { // is not the deepest clicked node nor its ancestor/descendant, this is a new path
+            // increment by 1 and create new click stack
+            paths += 1;
+            clickStack = ancestors.reverse();
+        } else { // descendant of the current deepest clicked node (an even deeper node)
+            // add the elements between the deepest clicked node and the current node
+            // effectively designating a new deepest clicked node
+            clickStack = clickStack.concat(ancestors.reverse());
         }
     }
     console.log("Path count: " + paths);

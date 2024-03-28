@@ -70,7 +70,6 @@ router.get("/prompt", async (req, res) => {
             { $sample: { size: 1 } },
             
         ]))[0];
-        console.log(randomNode);
     }
 
     await disconnect();
