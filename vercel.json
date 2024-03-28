@@ -4,6 +4,7 @@
     "installCommand": "npm install",
     "outputDirectory": "public",
     "rewrites": [{ "source": "/(.*)", "destination": "index.js" }],
+    "buildCommand": "npm run populate",
     "builds": [{"src": "index.js", "use": "@vercel/node"}],
     "public": true
   }
