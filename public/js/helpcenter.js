@@ -14,7 +14,17 @@ var aveTimes = []
 
 // hack
 let promptNumber = parseInt($("#helpCenterPromptNo").text())
-switch(promptNumber) {
+const strShuffledParam = $("#helpCenterShuffledParamCombi").text()
+const arrShuffledParam = strShuffledParam.split(",")
+
+for (i = 0; i < arrShuffledParam.length; i++) {
+    arrShuffledParam[i] = parseInt(arrShuffledParam[i])
+}
+console.log(arrShuffledParam)
+
+const paramCombiOrder = arrShuffledParam[promptNumber - 1]
+
+switch(paramCombiOrder) {
     case 1: break;                                          // 17 10 4
     case 2: FONTSIZE = 14; break;                           // 14 10 4
     case 3: FONTSIZE = 20; break;                           // 11 10 4
@@ -60,6 +70,16 @@ const getMenu = async (id) => {
         return response.json();
     }
 }
+
+// fisher-yates shuffle algorithm
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+var originalOrder = [1,2,3,4,5,6,7]
 
 var previouslySelected;
 var paths = 0;
@@ -346,7 +366,8 @@ $("#doneBtn").click(async (e) => {
 
     if(promptNumber != 7) {
         promptNumber += 1
-        switch(promptNumber) {
+        const paramCombiOrder = arrShuffledParam[promptNumber - 1]
+        switch(paramCombiOrder) {
             case 1: break;                                          // 17 10 4
             case 2: FONTSIZE = 14; break;                           // 14 10 4
             case 3: FONTSIZE = 20; break;                           // 11 10 4
@@ -356,7 +377,7 @@ $("#doneBtn").click(async (e) => {
             case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
             default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
         }
-        window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
+        window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}&shuffledParamCombi=${arrShuffledParam}`)
     } else {
         window.location.replace(`/complete?participantName=${participantName}`)
     }
@@ -365,8 +386,10 @@ $("#doneBtn").click(async (e) => {
 $("#nextButton").click((e) => {
     const participantName = $("#participantName").val()
     const promptNumber = parseInt($("#landingPromptNo").text())
+    const shuffledParamCombi = shuffleArray(originalOrder)
+    const paramCombiOrder = shuffledParamCombi[promptNumber - 1] // shuffle order of parameters per round in the test
     console.log(participantName)
-    switch(promptNumber) {
+    switch(paramCombiOrder) {
         case 1: break;                                          // 17 10 4
         case 2: FONTSIZE = 14; break;                           // 14 10 4
         case 3: FONTSIZE = 20; break;                           // 11 10 4
@@ -376,14 +399,23 @@ $("#nextButton").click((e) => {
         case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
         default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
     }
-    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}`)
+    window.location.replace(`/prompt?subsections=${SUBSECTIONS_VAR}&promptNumber=${promptNumber}&participantName=${participantName}&shuffledParamCombi=${shuffledParamCombi}`)
 })
 
 $("#startButton").click(async (e) => {
     const promptId = $("#random-prompt-id").text();
     const participantName = $("#promptParticipant").text()
     const promptNumber = parseInt($("#indexPromptNo").text())
-    switch(promptNumber) {
+    const strShuffledParam = $("#promptShuffledParam").text()
+    const arrShuffledParam = strShuffledParam.split(",")
+
+    for (i = 0; i < arrShuffledParam.length; i++) {
+        arrShuffledParam[i] = parseInt(arrShuffledParam[i])
+    }
+    console.log(arrShuffledParam)
+
+    const paramCombiOrder = arrShuffledParam[promptNumber - 1]
+    switch(paramCombiOrder) {
         case 1: break;                                          // 17 10 4
         case 2: FONTSIZE = 14; break;                           // 14 10 4
         case 3: FONTSIZE = 20; break;                           // 11 10 4
@@ -393,5 +425,5 @@ $("#startButton").click(async (e) => {
         case 7: SUBSECTIONS_VAR = 2; break;                     // 17 10 2
         default: FONTSIZE = 17; SPACEBETWEEN = 10; SUBSECTIONS_VAR = 4; break;
     }
-    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&participantName=${participantName}&promptNumber=${promptNumber}`);
+    window.location.replace(`/helpcenter?pid=${btoa(promptId)}&fontSize=${FONTSIZE}&spaceBetween=${SPACEBETWEEN}&participantName=${participantName}&promptNumber=${promptNumber}&shuffledParamCombi=${arrShuffledParam}`);
 });

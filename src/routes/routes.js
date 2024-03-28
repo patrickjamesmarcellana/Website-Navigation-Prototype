@@ -91,6 +91,7 @@ router.get("/prompt", async (req, res) => {
         prompt: randomNode,
         promptNumber: req.query.promptNumber,
         participantName: req.query.participantName,
+        shuffledParamCombi: req.query.shuffledParamCombi
     });
 });
 
@@ -128,6 +129,7 @@ router.get("/helpcenter", async (req, res) => {
         promptName: prompt.name,
         promptNumber: req.query.promptNumber,
         participantName: req.query.participantName,
+        shuffledParamCombi: req.query.shuffledParamCombi,
 
         fontSize: req.query.fontSize,
         spaceBetween: req.query.spaceBetween,
