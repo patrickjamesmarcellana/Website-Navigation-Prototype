@@ -63,13 +63,14 @@ router.get("/prompt", async (req, res) => {
         randomNode = (await Menu.aggregate([
             {
                 $match: {
-                    parent: randomNode?._id ?? null /* find null (aka top-level menus) initally */,
+                    parentMenu: randomNode?._id ?? null /* find null (aka top-level menus) initally */,
                     order: { $lte: parseInt(req.query.subsections) },
                 },
             },
             { $sample: { size: 1 } },
             
         ]))[0];
+        console.log(randomNode);
     }
 
     await disconnect();
