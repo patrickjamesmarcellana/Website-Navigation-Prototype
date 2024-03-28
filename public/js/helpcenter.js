@@ -127,7 +127,7 @@ $(".menu").click(async (e) => {
     console.log("Selected Parent: " + selectedMenuData.parentMenu);
     console.log("Previous Selected ID: " + previouslySelectedId);
 
-    eventLog.push([e.timeStamp - timePageOpened, 0]);
+    eventLog.push([e.timeStamp - timePageOpened, 0, selectedMenuData.name]);
     const eventId = eventLog.length - 1;
     const addEvent = (evt) => {
         eventLog[eventId][1] |= evt;
