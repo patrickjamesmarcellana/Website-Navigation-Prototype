@@ -124,9 +124,9 @@ maintain a stack of clicked menus (deepest menu entry clicked M and all of its a
 let clickStack = [];
 $(".menu").click(async (e) => {
     // selected menu
-    const selectedMenu = e.target; // span element
+    const selectedMenu = e.target.closest(".menu").firstElementChild; // span element
+    console.log(selectedMenu)
     const selectedMenuContainer = selectedMenu.parentElement
-    console.log(selectedMenuContainer)
     const selectedMenuId = selectedMenuContainer.getAttribute("menu-id");
     if (!selectedMenuId) {
         return;
@@ -157,7 +157,7 @@ $(".menu").click(async (e) => {
     }
 
     // if selected menu is already expanded, hide its submenus (not grandchildren)
-    if (!selectedMenuData.isLeaf && selectedMenuContainer.classList.contains("expanded")) {
+    if (!selectedMenuData.isLeaf && selectedMenu.classList.contains("expanded")) {
         for(i = 0; i < selectedMenuContainer.children.length; i++) {
             if (i === 0) {
                 continue;
@@ -168,7 +168,7 @@ $(".menu").click(async (e) => {
         // for (subMenu of selectedMenu.parentElement.children) {
         //     subMenu.classList.add("hidden");
         // }
-        selectedMenuContainer.classList.remove("expanded");
+        selectedMenu.classList.remove("expanded");
 
         addEvent(EVENT_UNEXPAND_MENU);
         return;
@@ -237,7 +237,7 @@ $(".menu").click(async (e) => {
         // for (subMenu of selectedMenu.children) {
         //     subMenu.classList.remove("hidden");
         // }
-        selectedMenuContainer.classList.add("expanded");
+        selectedMenu.classList.add("expanded");
         addEvent(EVENT_EXPAND_MENU);
 
         // update paths (backtracking) count
@@ -306,7 +306,7 @@ $(".menu").click(async (e) => {
     }
 
     // add expanded class to prevent adding the submenus again
-    selectedMenuContainer.classList.add("expanded");
+    selectedMenu.classList.add("expanded");
 
     // indicate that it is a menu if necessary
     if(!selectedMenuData.isLeaf) {
