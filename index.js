@@ -3,9 +3,12 @@ import exphbs from "express-handlebars"
 import "dotenv/config"
 import path from 'path'
 import { fileURLToPath } from "url";
-
+import { connect } from "./src/models/db.js"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+// mongodb
+connect()
 
 // express app
 const app = express()

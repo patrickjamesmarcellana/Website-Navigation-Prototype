@@ -60,9 +60,6 @@ router.get("/prompt", async (req, res) => {
     console.log("Reached prompt router")
     let randomNode;
     try {
-        await connect();
-        console.log("Connected to DB in prompt router")
-
         while(!randomNode?.isLeaf) {
             console.log("Entered loop in prompt router")
             randomNode = (await Menu.aggregate([
@@ -85,12 +82,6 @@ router.get("/prompt", async (req, res) => {
         console.error(err);
     }
 
-    try {
-        await disconnect();
-    } catch (err) {
-        console.error(err);
-    }
-
     console.log("Disconnected from DB")
 
     console.log(req.query.subsections)
@@ -107,8 +98,6 @@ router.get("/prompt", async (req, res) => {
 router.get("/helpcenter", async (req, res) => {
     let prompt, allData = {};
     try {
-        await connect();
-
         const query = await Menu.find({ nestLevel: 1 });
         var initialMenus = await menusToJson(query, req.query.spaceBetween);
         console.log(initialMenus);
@@ -120,12 +109,6 @@ router.get("/helpcenter", async (req, res) => {
         for(const document of allDocuments) {
             allData[document._id] = await subMenuToJson(document, req.query.spaceBetween);
         }
-    } catch (err) {
-        console.error(err);
-    }
-
-    try {
-        await disconnect();
     } catch (err) {
         console.error(err);
     }
@@ -148,7 +131,6 @@ router.get("/helpcenter", async (req, res) => {
 router.get("/done", async (req, res) => {
     let prompt;
     try {
-        await connect();
         const promptId = atob(req.query["pid"]);
         prompt = await Menu.findOne({ _id: promptId });
         await Data.create({
@@ -167,33 +149,17 @@ router.get("/done", async (req, res) => {
         res.sendStatus(500)
     }
 
-    try {
-        await disconnect();
-    } catch (err) {
-        console.error(err);
-        res.sendStatus(500)
-    }
-
     res.sendStatus(200)
 });
 
 router.get("/complete", async (req, res) => {
     let json = {}
     try {
-        await connect();
-
         const query = await Data.find({participantName: req.query.participantName}).sort({ _id: -1 }).limit(7);
         json = await dataToJson(query)
         console.log(json)
     } catch (err) {
         console.error(err);
-    }
-
-    try {
-        await disconnect();
-    } catch (err) {
-        console.error(err);
-        res.sendStatus(500)
     }
 
     res.render("done", {
@@ -205,20 +171,11 @@ router.get("/complete", async (req, res) => {
 router.get("/displayParticipantData", async (req, res) => {
     let json = {}
     try {
-        await connect();
-
         const query = await Data.find({participantName: req.query.participantName}).sort({ _id: -1 }).limit(7);
         json = await dataToJson(query)
         console.log(json)
     } catch (err) {
         console.error(err);
-    }
-
-    try {
-        await disconnect();
-    } catch (err) {
-        console.error(err);
-        res.sendStatus(500)
     }
 
     res.render("done", {

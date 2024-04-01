@@ -128,7 +128,9 @@ $(".menu").click(async (e) => {
     console.log(selectedMenu)
     const selectedMenuContainer = selectedMenu.parentElement
     const selectedMenuId = selectedMenuContainer.getAttribute("menu-id");
-    if (!selectedMenuId) {
+
+    // ensure that the user clicked a span element containing the actual button (not just the parent div)
+    if (!selectedMenu.classList.contains("menu-button") || !selectedMenuId) {
         return;
     }
     
@@ -282,7 +284,7 @@ $(".menu").click(async (e) => {
             const subMenu = subMenus[i];
 
             const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="flex flex-col menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] mt-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 rounded grow box-border select-none">${subMenu.name}</span>
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 menu-button rounded grow box-border select-none">${subMenu.name}</span>
             </div>`;
 
             selectedMenuContainer.innerHTML += newSubMenu;
@@ -290,7 +292,7 @@ $(".menu").click(async (e) => {
             const subMenu = subMenus[i];
 
             const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="flex flex-col menu cursor-pointer box-border [&:not(:has(:mb))]:mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 rounded grow box-border select-none">${subMenu.name}</span>
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 menu-button rounded grow box-border select-none">${subMenu.name}</span>
             </div>`;
 
             selectedMenuContainer.innerHTML += newSubMenu;
@@ -298,7 +300,7 @@ $(".menu").click(async (e) => {
             const subMenu = subMenus[i];
 
             const newSubMenu = `<div id="${subMenu.divId}" menu-id="${subMenu.menuId}" class="flex flex-col menu cursor-pointer box-border mb-[${subMenu.spaceBetween}px] pl-[${subMenu.leftPadding}px]">
-                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 rounded grow box-border select-none">${subMenu.name}</span>
+                <span class="[&:not(:has(:hover))]:hover:bg-gray-400 menu-button rounded grow box-border select-none">${subMenu.name}</span>
             </div>`;
 
             selectedMenuContainer.innerHTML += newSubMenu;
